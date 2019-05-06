@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:300" rel="stylesheet">
 <link rel="shortcut icon" href="img/logoSeidoAmazonia.png">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/dash.css">
 <link rel="stylesheet" href="../css/calendar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="../js/fullcalendar.min.js"></script>
