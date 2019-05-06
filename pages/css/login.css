@@ -568,3 +568,57 @@ iframe {
 .sem-cadastro {
   padding-top: 30px;
 }
+
+.conteiner-inicio{
+  background: url(/pages/images/fingindo_que_ta_escrevendo.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.bkg-inicio{
+  width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.filtro{
+  display: flex;
+  height: 100%;
+  background: rgba(255,255,255,0.6);
+}
+
+.box-inicio{
+    width: 90%;
+    height: 400px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-inicio{
+  float: left;
+  background-color: #c80000;
+  border-radius: 150px;
+  position: relative;
+  display: flex;
+  height: 300px;
+  width: 300px;
+  
+  
+  
+}
