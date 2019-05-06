@@ -1,21 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<title>ReMind</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-
+	<?php include("../includes/head.php") ?>
 </head>
 <body>
 	
@@ -71,7 +57,7 @@
 	</div>
 	
 
-	<script src="js/main.js"></script>
+	<script src="../js/main.js"></script>
 
 </body>
 </html>

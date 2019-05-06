@@ -1,46 +1,4 @@
 
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-}
-
-@font-face {
-  font-family: Raleway-Regular;
-  src: url('../fonts/raleway/Raleway-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Raleway-Black;
-  src: url('../fonts/raleway/Raleway-Black.ttf'); 
-}
-
-@font-face {
-  font-family: Raleway-SemiBold;
-  src: url('../fonts/raleway/Raleway-SemiBold.ttf'); 
-}
-
-@font-face {
-  font-family: Raleway-Bold;
-  src: url('../fonts/raleway/Raleway-Bold.ttf'); 
-}
-
-
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -52,12 +10,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: 'Roboto';
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -83,7 +41,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: 'Roboto';
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -186,7 +144,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: url(/pages/images/fingindo_que_ta_marcando.jpg);
+  background: url(../images/fingindo_que_ta_marcando.jpg);
   background-size: cover;
   background-position: center;
   /*background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
@@ -235,7 +193,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Raleway-Black;
+  font-family: 'Roboto';
   font-size: 30px;
   color: #333333;
   line-height: 1.2;
@@ -255,7 +213,7 @@ iframe {
 }
 
 .input100 {
-  font-family: Raleway-SemiBold;
+  font-family: 'Roboto';
   font-size: 18px;
   line-height: 1.2;
   color: #686868;
@@ -342,7 +300,7 @@ iframe {
 }
 
 .label-checkbox100 {
-  font-family: Raleway-Regular;
+  font-family: 'Roboto';
   font-size: 16px;
   color: #999999;
   line-height: 1.2;
@@ -355,7 +313,7 @@ iframe {
 
 .label-checkbox100::before {
   content: "\f00c";
-  font-family: FontAwesome;
+  font-family: 'Roboto';
   font-size: 13px;
   color: transparent;
 
@@ -400,7 +358,7 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Raleway-Bold;
+  font-family: 'Roboto';
   font-size: 16px;
   line-height: 1.5;
   color: #fff;
@@ -433,7 +391,7 @@ iframe {
 [ Button sign in with ]*/
 .btn-face,
 .btn-google {
-  font-family: Raleway-Bold;
+  font-family: 'Roboto';
   font-size: 16px;
   line-height: 1.2;
 
@@ -509,7 +467,7 @@ iframe {
   right: 8px;
   pointer-events: none;
 
-  font-family: Raleway-SemiBold;
+  font-family: 'Roboto';
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -526,7 +484,7 @@ iframe {
 
 .alert-validate::after {
   content: "\f12a";
-  font-family: FontAwesome;
+  font-family: 'Roboto';
   display: block;
   position: absolute;
   color: #c80000;
@@ -570,7 +528,7 @@ iframe {
 }
 
 .conteiner-inicio{
-  background: url(/pages/images/fingindo_que_ta_escrevendo.jpg);
+  background: url(../images/fingindo_que_ta_escrevendo.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
