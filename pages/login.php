@@ -9,9 +9,9 @@
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
 				<form class="login100-form validate-form">
-					<span class="login100-form-title p-b-55">
-						Login
-					</span>
+					<div class="logo-remind" style="color:#333; font-size: 45px; margin-bottom: 45px;">
+                        Re<span style="color: #0092ca;" >Mind</span>
+                    </div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "CPF válido: 123.456.789.00">
 						<input class="input100" type="text" name="cpf" placeholder="CPF">
