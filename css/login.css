@@ -3,8 +3,8 @@
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -57,7 +57,12 @@ ul, li {
 /*---------------------------------------------*/
 input {
 	outline: none;
-	border: none;
+	position: relative;
+	float: left;
+	border: 1px solid #0092ca;
+	clear: left;
+	padding: 5px;
+	border-radius: 2px;
 }
 
 textarea {
@@ -66,7 +71,7 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
+  /* border-color: transparent !important; */
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
@@ -619,4 +624,65 @@ iframe {
 .categoria:hover{
   color: white;
   text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+}
+
+/*CADASTRO*****************************************/
+
+.conteiner-cadastro{
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.box-imagem-left{
+  width: 350px;
+  height: 100%;
+  float: left;
+  position: fixed;
+  z-index: 23;
+  background: url(../images/pedra.jpg);
+  background-size: auto 100%;
+  background-position-x: 29%;
+}
+
+.box-imagem-left::before{
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+  background: rgba(1,174,240,0.3);
+}
+
+.box-form-rigth{
+  width: calc(100% - 350px);
+  top: 50%;
+  transform: translateY(-50%);
+  left: 350px;
+  position: absolute;
+  padding: 9%;
+  box-sizing: border-box;
+}
+
+.mensagem{
+  z-index: 4;
+  position: absolute;
+  transform: translateY(-100%);
+  top: 50%;
+  height: 185px;
+  width: 80%;
+  margin: 0 10%;
+  text-align: justify;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h2.titulo_cadastro {
+  margin-bottom: 26px;
+  font-family: unset;
 }
