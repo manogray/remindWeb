@@ -388,10 +388,6 @@ iframe {
   transition: all 0.4s;
 }
 
-.login100-form-btn:hover {
-  background: #333333;
-}
-
 /*------------------------------------------------------------------
 [ Button sign in with ]*/
 .btn-face,
@@ -575,7 +571,7 @@ iframe {
 
 .menu-inicio{
   float: left;
-  background-color: #0092CC;
+  background-color: #0092ca;
   border-radius: 150px;
   position: relative;
   display: flex;
@@ -583,13 +579,14 @@ iframe {
   width: 250px;
   align-items: center;
   justify-content: center;
+  transition: .4s;
 }
 
 .menu-inicio:hover{
-  background-color: #00B7FF;
   border-radius: 160px;
-  width: 280px;
-  height: 280px;
+  border: none;
+  transform: scale(1.16);
+  box-shadow: 3px 5px 6px #333;
 }
 
 .logo-remind{
@@ -623,7 +620,7 @@ iframe {
 
 .categoria:hover{
   color: white;
-  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+  border: none;
 }
 
 /*CADASTRO*****************************************/
