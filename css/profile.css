@@ -1,0 +1,26 @@
+.box-profile{
+    width: 100%;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    /* left: 350px; */
+    position: absolute;
+    padding: 4% 11% 0% 6%;
+    box-sizing: border-box;
+    height: -webkit-fill-available;
+  
+}
+
+.box-imagem{
+    padding: 20px;
+    width: 20%;
+    float: left;
+}
+
+.circ-image{
+    border-radius: 100px;
+}
+
+input[type='file'] {
+    border: 0;
+
+  }

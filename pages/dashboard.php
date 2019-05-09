@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <?php include("../includes/head.php"); ?>
+        <?php include("includes/head.php"); ?>
     </head>
 
     <body>
         <header>
-            <?php include("../includes/header.php") ?>
+            <?php include("includes/header.php") ?>
         </header>
 
         <section class="main-content">
