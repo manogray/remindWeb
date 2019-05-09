@@ -662,6 +662,7 @@ iframe {
   position: absolute;
   padding: 9%;
   box-sizing: border-box;
+  height: -webkit-fill-available;
 }
 
 .mensagem{
@@ -682,4 +683,19 @@ iframe {
 h2.titulo_cadastro {
   margin-bottom: 26px;
   font-family: unset;
+}
+
+.text-area{
+  background: azure;
+  outline: none;
+  position: relative;
+  float: left;
+  border: 1px solid #0092ca;
+  clear: left;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.radio-area{
+  top: 5px;
 }

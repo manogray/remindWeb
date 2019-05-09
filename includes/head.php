@@ -11,4 +11,5 @@
 <link rel="stylesheet" type="text/css" href="../css/login.css">
 <link rel="stylesheet" href="../css/calendar.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="../js/fullcalendar.min.js"></script>
