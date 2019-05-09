@@ -18,6 +18,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-input">
+                            <label for="senha" class="required">Matrícula</label>
+                            <input type="password" name="matricula" id="matricula">
+                        </div>
+
+                        <div class="form-input">
+                            <label for="confirmar" class="required">CRP</label>
+                            <input type="text" name="crp" id="matricula">
+                        </div>
+
+                        <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
                             <input style="width: 400px;" type="text" name="nome" id="nome">
                         </div>
@@ -26,7 +36,6 @@
                             <input type="date" name="nascimento" id="nascimento">
                         </div>
 
-                        
                         <div class="form-input">
                             <label for="endereco" class="required">Endereço</label>
                             <input style="width: 400px;" type="text" name="endereco" id="endereco">
@@ -49,62 +58,20 @@
 
                         <div class="form-input">
                             <label for="senha" class="required">Senha</label>
-                            <input type="text" name="senha" id="senha">
+                            <input type="password" name="senha" id="senha">
                         </div>
 
                         <div class="form-input">
                             <label for="confirmar" class="required">Confirmar Senha</label>
-                            <input type="text" name="confimar" id="confirmar">
+                            <input type="password" name="confimar" id="confirmar">
                         </div>
 
-                        <div class="form-input">
-                            <label for="fezTerapia" class="required">Já fez terapia?</label>
-                            <input class="radio-area" type="radio" name="check" id="check" value="true"/>Sim
-                            <br>
-                            <input class="radio-area" type="radio" name="check" id="check" value="false"/>Não
-                        </div>
-
-                        <div class="form-input">
-                            <label for="vinculoResidencial" class="required">Como quem você vive?</label>
-                            <textarea class="text-area" rows="8" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                        <div class="form-input">
-                            <label for="demanda" class="required">Por que gostaria de fazer a psicoterapia?</label>
-                            <textarea class="text-area" rows="8" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                        <div class="form-input">
-                            <label for="demanda" class="required">Como soube do serviço?</label>
-                            <textarea class="text-area" rows="8" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                        <div class="form-input" style="visibility: hidden;" id="opcao">
-                            <label for="demanda" class="required">Local onde fez terapia</label>
-                            <textarea class="text-area" rows="8" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                    </div>
+                    <div class="form-input">
+                        
                 </div>
                 <div class="form-submit">
                     <input style="margin-bottom: 25px;" type="submit" value="Cadastrar" class="submit" id="submit" name="submit">
                 </div>
-
-                <script>
-                    $("#check").click(function(){
-                        if($(this).val()=="true"){
-                            $("#opcao").css("visibility","visible");
-                            $(this).val("false");
-
-                        }else if($(this).val()=="false"){
-                            "#opcao").css("visibility","hidden");
-                            $(this).val("true");
-                        }else{
-                           // $("#opcao").css("visibility","hidden");
-                           // $(this).val("true");
-                        }
-                    });
-                </script>   
             </form>
         </div>
     </div>
