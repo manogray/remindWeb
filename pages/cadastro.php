@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php include("../includes/head.php") ?>
+    <?php include("includes/head.php") ?>
 </head>
 
 <body>
     <div class="conteiner-cadastro">
         <div class="box-imagem-left">
             <div class="mensagem">
-                <span>"Somos o que pensamos. Tudo o que somos surge com nossos  pensamentos. Com nossos pensamentos, fazemos o nosso mundo."</span>
-                <p style="color: white;">Buda</p>
+                <span>"Nós poderíamos ser muito melhores se não quiséssemos ser tão bons."</span>
+                <p style="color: white;">Sigmund Freud</p>
             </div>
         </div>
         <div class="box-form-rigth">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
                 <div class="form-submit">
-                    <input type="submit" value="Cadastrar" class="submit" id="submit" name="submit">
+                    <input style="margin-bottom: 25px;" type="submit" value="Cadastrar" class="submit" id="submit" name="submit">
                 </div>
 
                 <script>

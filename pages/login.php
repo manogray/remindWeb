@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include("../includes/head.php") ?>
+	<?php include("includes/head.php") ?>
 </head>
 <body>
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="POST" action="controllers/auth.php">
 					<div class="logo-remind" style="color:#333; font-size: 45px; margin-bottom: 45px;">
                         Re<span style="color: #0092ca;" >Mind</span>
                     </div>
@@ -28,13 +28,14 @@
 							<i class="fas fa-lock"></i>
 						</span>
 					</div>
-
+					
+					<!--
 					<div class="contact100-form-checkbox m-l-4">
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="lembrar">
 						<label class="label-checkbox100" for="ckb1">
 							Lembrar de mim
 						</label>
-					</div>
+					</div>-->
 					
 					<div class="container-login100-form-btn p-t-25">
 						<button class="login100-form-btn">
@@ -46,11 +47,29 @@
 						<span class="txt1">
 							
 						</span>
-
-						<a class="txt1 bo1 hov1" href="cadastro.php">
+						<?php
+							if($_GET['t'] == 1){
+						?>
+						<a class="txt1 bo1 hov1" href="/cadastro">
 							Cadastre-se Agora							
 						</a>
+						<?php
+							}
+						?>
 					</div>
+
+					<?php
+						if($_GET['t'] == 0){
+					?>
+						<input type="hidden" name="tipo" value="terapeuta">
+					<?php
+						}
+						if($_GET['t'] == 1){
+					?>
+						<input type="hidden" name="tipo" value="paciente">
+					<?php
+						}
+					?>
 				</form>
 			</div>
 		</div>
