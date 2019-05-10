@@ -699,3 +699,17 @@ h2.titulo_cadastro {
 .radio-area{
   top: 5px;
 }
+
+.quadroHorarios{
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.dia{
+  position: relative;
+  float: left;
+  background: #ccc;
+  padding: 10px;
+  margin-right: 5px;
+}

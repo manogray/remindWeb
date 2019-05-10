@@ -8,12 +8,12 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-				<form class="login100-form validate-form" method="POST" action="controllers/auth.php">
+				<form class="login100-form validate-form" method="POST" action="../controllers/auth.php">
 					<div class="logo-remind" style="color:#333; font-size: 45px; margin-bottom: 45px;">
                         Re<span style="color: #0092ca;" >Mind</span>
                     </div>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "CPF válido: 123.456.789.00">
+					<div class="wrap-input100 validate-input m-b-16">
 						<input class="input100" type="text" name="cpf" placeholder="CPF">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -21,7 +21,7 @@
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Senha Requerida">
+					<div class="wrap-input100 validate-input m-b-16">
 						<input class="input100" type="password" name="senha" placeholder="Senha">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -76,7 +76,7 @@
 	</div>
 	
 
-	<script src="../js/main.js"></script>
+	<!--<script src="../js/main.js"></script>-->
 
 </body>
 </html>
