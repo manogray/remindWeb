@@ -6,6 +6,8 @@
         '/cadastro'=>'cadastro.php',
         '/dashboard' => 'dashboard.php',
         '/paciente' => 'paciente.php',
+        '/cadastroVoluntario' => 'cadastroVoluntario.php',
+        '/profile' => 'profile.php',
     );
     url_response($urlpatterns);
 ?>
