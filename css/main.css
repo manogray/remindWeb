@@ -93,3 +93,47 @@ input#submit {
     padding: 6px 14px;
     margin-left: 4px;
 }
+
+/*PACIENTES------------------------------------------*/
+
+
+td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+th{
+    border: 1px solid #dddddd;
+    background-color: #0092ca;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+    
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+}   
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    
+}
+
+.titulo-paciente{
+  margin: 40px;
+}
+
+.nome-paciente{
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #212529;
+    
+}
