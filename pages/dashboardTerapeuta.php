@@ -1,10 +1,10 @@
 <?php
-/*
+
     session_start();
     if(!isset($_SESSION['terapeuta'])){
         header('Location: /login/0');
         die();
-    }*/
+    }
 ?>
 <!DOCTYPE html>
 <html>

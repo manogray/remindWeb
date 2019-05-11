@@ -11,7 +11,7 @@
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
                 $_SESSION['terapeuta'] = $usuarioSuspeito->cpf;
-                header('Location: /dashboard');
+                header('Location: /terapeuta');
                 die();
             }else{
                 echo "<script>alert('Não foi possível autenticar!')</script>";
