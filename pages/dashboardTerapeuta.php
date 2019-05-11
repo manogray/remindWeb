@@ -14,7 +14,7 @@
 
     <body>
         <header>
-            <?php include("includes/header.php") ?>
+            <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
         <section class="main-content">

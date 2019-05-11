@@ -14,7 +14,7 @@
         </div>
         <div class="box-form-rigth">
             <h2 class="titulo_cadastro">Faça seu cadastro</h2>
-            <form method="POST" class="register-form" id="register-form" action="controllers/register.php">
+            <form method="POST" class="register-form" id="register-form" action="../controllers/register.php">
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-input">
