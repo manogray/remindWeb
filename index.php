@@ -7,7 +7,7 @@
         '/terapeuta/(?P<logout>\d+)'     =>  'dashboardTerapeuta.php',
         '/terapeuta/meuperfil'           =>  'profileTerapeuta.php',
         '/cadastro/terapeuta'            =>  'cadastroTerapeuta.php',
-        '/paciente'                      =>  'dashboardPaciente.php',
+        '/paciente/notificacoes'          =>  'notificacoesPaciente.php',
         '/paciente/(?P<logout>\d+)'      =>  'dashboardPaciente.php',
         '/paciente/meuperfil'            =>  'profilePaciente.php',
         '/cadastro/paciente'             =>  'cadastroPaciente.php',

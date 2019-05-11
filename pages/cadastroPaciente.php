@@ -18,22 +18,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-input">
-                            <label for="cpf" class="required">CPF</label>
-                            <input style="width: 400px;" type="text" name="cpf" id="cpf" required>
-                        </div>
-                        <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
                             <input style="width: 400px;" type="text" name="nome" id="nome" required>
                         </div>
                         <div class="form-input">
+                            <label for="cpf" class="required">CPF</label>
+                            <input style="width: 200px;" type="text" name="cpf" id="cpf" required>
+                        </div>
+                        <div class="form-input">
                             <label for="nascimento" class="required">Nascimento</label>
                             <input type="date" name="nascimento" id="nascimento" required>
-                        </div>
-
-                        
-                        <div class="form-input">
-                            <label for="endereco" class="required">Endereço</label>
-                            <input style="width: 400px;" type="text" name="endereco" id="endereco" required>
                         </div>
 
                         <div class="form-input">
@@ -42,6 +36,14 @@
                             <input class="radio-area" type="radio" name="sexo" required value="feminino">Feminino
                         </div>
 
+                        
+                        <div class="form-input">
+                            <label for="endereco" class="required">Endereço</label>
+                            <input style="width: 400px;" type="text" name="endereco" id="endereco" required>
+                        </div>
+
+                        
+
                         <div class="form-input">
                             <label for="email" class="required">Email</label>
                             <input style="width: 400px;" type="email" name="email" id="email" required>
@@ -49,23 +51,18 @@
                         <div class="form-input">
                             <label for="telefone" class="required">Telefone</label>
                             <input type="text" name="telefone" id="telefone" required>
-                        </div>
-
-                        <div class="form-input">
-                            <label for="senha" class="required">Senha</label>
-                            <input type="password" name="senha" id="senha" required>
-                        </div>
-
-                        <div class="form-input">
-                            <label for="confirmar" class="required">Confirmar Senha</label>
-                            <input type="password" name="confimar" id="confirmar" required>
-                        </div>
+                        </div>                       
 
                         <div class="form-input">
                             <label for="fezTerapia" class="required">Já fez terapia?</label>
                             <input class="radio-area" type="radio" required name="fezTerapia" id="sim" value="true"/>Sim
                             <br>
                             <input class="radio-area" type="radio" required name="fezTerapia" id="nao" value="false"/>Não
+                        </div>
+
+                        <div class="form-input" id="opcao">
+                            <label for="demanda" class="required">Local onde fez terapia</label>
+                            <input type="text" name="localTerapia" id="localTerapia" required>
                         </div>
 
                         <div class="form-input">
@@ -76,11 +73,6 @@
                         <div class="form-input">
                             <label for="demanda" class="required">Por que gostaria de fazer a psicoterapia?</label>
                             <textarea class="text-area" name="demanda" required rows="8" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                        <div class="form-input" style="display: none;" id="opcao">
-                            <label for="demanda" class="required">Local onde fez terapia</label>
-                            <textarea class="text-area" name="localTerapia" rows="8" cols="35" maxlength="500"></textarea>
                         </div>
 
                         <div class="quadroHorarios">
@@ -127,6 +119,16 @@
                             </div>
                         </div>
 
+                        <div class="form-input">
+                            <label for="senha" class="required">Senha</label>
+                            <input type="password" name="senha" id="senha" required>
+                        </div>
+
+                        <div class="form-input">
+                            <label for="confirmar" class="required">Confirmar Senha</label>
+                            <input type="password" name="confimar" id="confirmar" required>
+                        </div>
+
                     </div>
                 </div>
                 <div class="form-submit">
@@ -138,16 +140,20 @@
     <script>
         $("#sim").change(function(){
             if($(this).prop("checked")){
-                $("#opcao").css("display","block");
+                $("#opcao").prop( "disabled", "" );
+                //$("#opcao").css("display","block");
             }else {
-                $("#opcao").css("display","none");
+                $("#opcao").prop( "disabled", "" );
+                //$("#opcao").css("display","none");
             }
         });
         $("#nao").change(function(){
             if($(this).prop("checked")){
-                $("#opcao").css("display","none");
+                $("#opcao").prop( "disabled", "" );
+                //$("#opcao").css("display","none");
             }else {
-                $("#opcao").css("display","block");
+                $("#opcao").prop( "disabled", "" );
+                //$("#opcao").css("display","block");
             }
         });
     </script>
