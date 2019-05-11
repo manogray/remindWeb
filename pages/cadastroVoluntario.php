@@ -14,12 +14,12 @@
         </div>
         <div class="box-form-rigth">
             <h2 class="titulo_cadastro">Faça seu cadastro</h2>
-            <form method="POST" class="register-form" id="register-form" novalidate="novalidate">
+            <form method="POST" class="register-form" id="register-form" action="../controllers/register.php">
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-input">
-                            <label for="senha" class="required">Matrícula</label>
-                            <input type="password" name="matricula" id="matricula">
+                            <label class="required">Matrícula</label>
+                            <input type="text" name="matricula" id="matricula">
                         </div>
 
                         <div class="form-input">
@@ -29,44 +29,91 @@
 
                         <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
-                            <input style="width: 400px;" type="text" name="nome" id="nome">
+                            <input style="width: 400px;" type="text" required name="nome" id="nome">
                         </div>
                         <div class="form-input">
                             <label for="nascimento" class="required">Nascimento</label>
-                            <input type="date" name="nascimento" id="nascimento">
+                            <input type="date" required name="nascimento" id="nascimento">
                         </div>
 
                         <div class="form-input">
                             <label for="endereco" class="required">Endereço</label>
-                            <input style="width: 400px;" type="text" name="endereco" id="endereco">
+                            <input style="width: 400px;" type="text" required name="endereco" id="endereco">
                         </div>
 
                         <div class="form-input">
                             <label for="sexo" class="required">Sexo</label>
-                            <input class="radio-area" type="radio" name="opcao" value="opc1" id="sexo">Masculino
-                            <input class="radio-area" type="radio" name="opcao" value="opc2" id="sexo">Feminino
+                            <input class="radio-area" type="radio" required name="sexo" value="masculino" id="sexo">Masculino
+                            <input class="radio-area" type="radio" required name="sexo" value="feminino" id="sexo">Feminino
                         </div>
 
                         <div class="form-input">
                             <label for="email" class="required">Email</label>
-                            <input style="width: 400px;" type="email" name="email" id="email">
+                            <input style="width: 400px;" type="email" required name="email" id="email">
                         </div>
                         <div class="form-input">
                             <label for="telefone" class="required">Telefone</label>
-                            <input type="text" name="telefone" id="telefone">
+                            <input type="text" required name="telefone" id="telefone">
+                        </div>
+
+                        <div class="form-input">
+                            <label for="telefone" class="required">CPF</label>
+                            <input type="text" required name="cpf" id="telefone">
                         </div>
 
                         <div class="form-input">
                             <label for="senha" class="required">Senha</label>
-                            <input type="password" name="senha" id="senha">
+                            <input type="password" required name="senha" id="senha">
                         </div>
 
                         <div class="form-input">
                             <label for="confirmar" class="required">Confirmar Senha</label>
-                            <input type="password" name="confimar" id="confirmar">
+                            <input type="password" required name="confimar" id="confirmar">
                         </div>
 
-                    <div class="form-input">
+                        <div class="quadroHorarios">
+                            <label class="required" style="width: 100%;">Disponibilidade</label>
+                            <div class="dia">
+                                <span>Segunda-feira</span>
+                                <div style="display: flex;">
+                                    <input type="time" name="timeSegIni">
+                                    <span style="margin: 0px 6px;">ás</span>
+                                    <input type="time" name="timeSegFim">
+                                </div>
+                            </div>
+                            <div class="dia">
+                                <span>Terça-feira</span>
+                                <div style="display: flex;">
+                                    <input type="time" name="timeTerIni">
+                                    <span style="margin: 0px 6px;">ás</span>
+                                    <input type="time" name="timeTerFim">
+                                </div>
+                            </div>
+                            <div class="dia">
+                                <span>Quarta-feira</span>
+                                <div style="display: flex;">
+                                    <input type="time" name="timeQuaIni">
+                                    <span style="margin: 0px 6px;">ás</span>
+                                    <input type="time" name="timeQuaFim">
+                                </div>
+                            </div>
+                            <div class="dia">
+                                <span>Quinta-feira</span>
+                                <div style="display: flex;">
+                                    <input type="time" name="timeQuiIni">
+                                    <span style="margin: 0px 6px;">ás</span>
+                                    <input type="time" name="timeQuiFim">
+                                </div>
+                            </div>
+                            <div class="dia">
+                                <span>Sexta-feira</span>
+                                <div style="display: flex;">
+                                    <input type="time" name="timeSexIni">
+                                    <span style="margin: 0px 6px;">ás</span>
+                                    <input type="time" name="timeSexFim">
+                                </div>
+                            </div>
+                        </div>
                         
                 </div>
                 <div class="form-submit">

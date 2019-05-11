@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['terapeuta'])){
+        header('Location: /login/0');
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +20,6 @@
             <div id="calendar"></div>
         </section>
         
-        <script src="../js/calendar.js"></script>
+        <script src="js/calendar.js"></script>
     </body>
 </html>

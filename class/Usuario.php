@@ -8,18 +8,37 @@
   class Usuario{
     public $cpf;
     public $nome;
-    public $senha;
+    private $senha;
     public $email;
     public $telefone;
+
+    public function setPasswd($senha){
+      $this->senha = $senha;
+    }
     
+    public function getPasswd(){
+      return $this->senha;
+    }
+
     public function auth(){
+      try {
         $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
-        $statement = $db->prepare("SELECT * FROM Usuarios WHERE BINARY cpf = :cpf AND BINARY senha = :senha");
-        $statement->bindValue(':cpf',$this->$cpf);
-        $statement->bindValue(':senha',password_hash($this->$senha,PASSWORD_DEFAULT));
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $statement = $db->prepare("SELECT senha FROM Usuarios WHERE cpf = :cpf");
+        $statement->bindValue(':cpf',$this->cpf);
         $run = $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($result);
+        $result = $statement->fetch();
+        $senha = $this->senha;
+        $hashed = $result['senha'];
+        if(password_verify($senha,$hashed)){
+          return TRUE;
+        }else {
+          return FALSE;
+        }
+      } catch(PDOException $exception){
+        unset($db);
+        echo $exception;
+      }
         unset($db);
     }
     

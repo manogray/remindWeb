@@ -113,7 +113,7 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Raleway-Regular;
+  font-family: 'Roboto';
   font-size: 16px;
   color: #999999;
   line-height: 1.4;
@@ -698,4 +698,18 @@ h2.titulo_cadastro {
 
 .radio-area{
   top: 5px;
+}
+
+.quadroHorarios{
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.dia{
+  position: relative;
+  float: left;
+  background: #ccc;
+  padding: 10px;
+  margin-right: 5px;
 }
