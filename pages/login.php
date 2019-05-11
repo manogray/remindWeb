@@ -66,6 +66,11 @@
 							<input type="hidden" name="tipo" value="paciente">
 						<?php
 							}
+							if($_GET['t'] ==2){
+						?>
+							<input type="hidden" name="tipo" value="professor">
+						<?php
+							}
 						?>
 						
 

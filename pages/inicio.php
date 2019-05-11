@@ -28,6 +28,14 @@
                                 </span>
                             </div>
                         </a>
+                        <a class="categoria" href="login/2">
+                            <div class="menu-inicio">
+                                <i class="fas fa-chalkboard-teacher icone-inicio"></i>
+                                <span class="categoria">
+                                    Professor
+                                </span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
