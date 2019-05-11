@@ -29,8 +29,6 @@
         $statement->bindValue(':cpf',$this->cpf);
         $statement->bindValue(':nome',$this->nome);
         $hashPass = password_hash($this->getPasswd(),PASSWORD_DEFAULT);
-        var_dump($hashPass);
-        var_dump($this->getPasswd());
         $statement->bindValue(':senha',$hashPass);
         $statement->bindValue(':email',$this->email);
         $statement->bindValue(':telefone',$this->telefone);

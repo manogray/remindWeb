@@ -5,7 +5,6 @@
 
     //REGISTRO PACIENTE
     if(isset($_POST['senha']) && isset($_POST['vinculoResidencial'])){
-        $qualquer = "algumaCoisa";
         $terapia = 0;
         $prioridade = 0;
         if($_POST['fezTerapia'] == 'true'){
@@ -54,11 +53,36 @@
 
         $novoPaciente->register();
 
-        echo "<meta http-equiv='refresh' content='0, url=/login/1'>";
+        header('Location: /');
+        die();
     } 
 
     //REGISTRO TERAPEUTA
     if(isset($_POST['senha']) && (isset($_POST['registroMatricula']) || isset($_POST['crp']))){
+        
+        $Dispo = [
+            'Seg' => [
+                'inicio' => $_POST['timeSegIni'],
+                'fim' => $_POST['timeSegFim'],
+            ],
+            'Ter' => [
+                'inicio' => $_POST['timeTerIni'],
+                'fim' => $_POST['timeTerFim'],
+            ],
+            'Qua' => [
+                'inicio' => $_POST['timeQuaIni'],
+                'fim' => $_POST['timeQuaFim'],
+            ],
+            'Qui' => [
+                'inicio' => $_POST['timeQuiIni'],
+                'fim' => $_POST['timeQuiFim'],
+            ],
+            'Sex' => [
+                'inicio' => $_POST['timeSexIni'],
+                'fim' => $_POST['timeSexFim'],
+            ],
+        ];
+
         $novoTerapeuta = new Terapeuta();
         $novoTerapeuta->cpf                 = $_POST['cpf'];
         $novoTerapeuta->nome                = $_POST['nome'];
@@ -66,11 +90,12 @@
         $novoTerapeuta->email               = $_POST['email'];
         $novoTerapeuta->telefone            = $_POST['telefone'];
         $novoTerapeuta->crp                 = $_POST['crp'];
-        $novoTerapeuta->disponibilidade     = $_POST['disponibilidade'];
+        $novoTerapeuta->disponibilidade     = json_encode($Dispo);
         $novoTerapeuta->registroMatricula    = $_POST['registroMatricula'];
 
         $novoTerapeuta->register();
 
-        echo "<meta http-equiv='refresh' content='0, url=/login/0'>";
+        header('Location: /');
+        die();
     }
 ?>

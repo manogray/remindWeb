@@ -13,30 +13,35 @@
     public $registroMatricula;
 
     public function register(){
-      $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
-      $db->beginTransaction();
-      //CRIACAO DE USUARIO
-      $statement = $db->prepare("INSERT INTO Usuarios (cpf,nome,senha,email,telefone) VALUES (:cpf,:nome,:senha,:email,:telefone)");
-      $statement->bindValue(':cpf',parent::$cpf);
-      $statement->bindValue(':nome',parent::$nome);
-      $statement->bindValue(':senha',password_hash(parent::getPasswd(),PASSWORD_DEFAULT));
-      $statement->bindValue(':email',parent::$email);
-      $statement->bindValue(':telefone',parent::$telefone);
-      $run = $statement->execute();
-      if(!$run){
+      try {
+        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $db->beginTransaction();
+        //CRIACAO DE USUARIO
+        $statement = $db->prepare("INSERT INTO Usuarios (cpf,nome,senha,email,telefone) VALUES (:cpf,:nome,:senha,:email,:telefone)");
+        $statement->bindValue(':cpf',$this->cpf);
+        $statement->bindValue(':nome',$this->nome);
+        $hashPass = password_hash($this->getPasswd(),PASSWORD_DEFAULT);
+        $statement->bindValue(':senha',$hashPass);
+        $statement->bindValue(':email',$this->email);
+        $statement->bindValue(':telefone',$this->telefone);
+        
+        //CRIACAO DE TERAPEUTA
+        $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula)");
+        $statement2->bindValue(':cpf',$this->cpf);
+        $statement2->bindValue(':disponibilidade',$this->disponibilidade);
+        $statement2->bindValue(':crp',$this->crp);
+        $statement2->bindValue(':registroMatricula',$this->registroMatricula);
+        
+        $statement->execute();
+        $statement2->execute();
+
+        $db->commit();
+      } catch (PDOException $exception){
         $db->rollback();
+        unset($db);
+        echo $exception;
       }
-      //CRIACAO DE TERAPEUTA
-      $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula)");
-      $statement2->bindValue(':cpf',parent::$cpf);
-      $statement2->bindValue(':disponibilidade',$this->disponibilidade);
-      $statement2->bindValue(':crp',$this->crp);
-      $statement2->bindValue(':registroMatricula',$this->registroMatricula);
-      $run2 = $statement2->execute();
-      if(!$run2){
-        $db->rollback();
-      }
-      $db->commit();
 
       unset($db);
     }

@@ -47,15 +47,15 @@
 						<span class="txt1">
 							
 						</span>
-						<?php
-							if($_GET['t'] == 1){
-						?>
-						<a class="txt1 bo1 hov1" href="/cadastro">
-							Cadastre-se Agora							
+
+						<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/paciente">
+							Faça sua inscrição aqui							
 						</a>
-						<?php
-							}
-						?>
+						<br>
+						<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/terapeuta">
+							Terapeuta, cadastre-se aqui							
+						</a>
+
 					</div>
 
 					<?php

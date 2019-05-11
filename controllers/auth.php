@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once "../class/Terapeuta.php";
     require_once "../class/Paciente.php";
 
@@ -9,8 +9,13 @@
             $usuarioSuspeito->cpf = $_POST['cpf'];
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
-                //CRIAR SESSAO DO USER
-                echo "<meta http-equiv='refresh' content='0,url=/dashboard'>";
+                $_SESSION['terapeuta'] = $usuarioSuspeito->cpf;
+                header('Location: /dashboard');
+                die();
+            }else{
+                echo "<script>alert('Não foi possível autenticar!')</script>";
+                echo "<meta http-equiv='refresh' content='0, url=/'>";
+                
             }
         }
 
@@ -19,8 +24,13 @@
             $usuarioSuspeito->cpf = $_POST['cpf'];
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
-                //CRIAR SESSAO DO USER
-                echo "<meta http-equiv='refresh' content='0,url=/paciente'>";
+                $_SESSION['paciente'] = $usuarioSuspeito->cpf;
+                header('Location: /paciente');
+                die();
+            }else {
+                echo "<script>alert('Não foi possível autenticar!')</script>";
+                echo "<meta http-equiv='refresh' content='0, url=/'>";
+                
             }
         }
     }    
