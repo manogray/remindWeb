@@ -48,28 +48,30 @@
 							
 						</span>
 
-						<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/paciente">
-							Faça sua inscrição aqui							
-						</a>
-						<br>
-						<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/terapeuta">
-							Terapeuta, cadastre-se aqui							
-						</a>
+						
+						<?php
+							if($_GET['t'] == 0){
+						?>
+							<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/terapeuta">
+								Terapeuta, cadastre-se aqui							
+							</a>
+							<input type="hidden" name="tipo" value="terapeuta">
+						<?php
+							}
+							if($_GET['t'] == 1){
+						?>
+							<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/paciente">
+								Faça sua inscrição aqui							
+							</a>
+							<input type="hidden" name="tipo" value="paciente">
+						<?php
+							}
+						?>
+						
 
 					</div>
 
-					<?php
-						if($_GET['t'] == 0){
-					?>
-						<input type="hidden" name="tipo" value="terapeuta">
-					<?php
-						}
-						if($_GET['t'] == 1){
-					?>
-						<input type="hidden" name="tipo" value="paciente">
-					<?php
-						}
-					?>
+					
 				</form>
 			</div>
 		</div>

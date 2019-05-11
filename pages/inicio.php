@@ -12,7 +12,7 @@
                         Re<span style="color: #0092ca;" >Mind</span>
                     </div>
                     <div class="box-inicio p-l-50 p-r-50 p-b-30">
-                        <a class="categoria" href="login">
+                        <a class="categoria" href="login/0">
                             <div class="menu-inicio">
                                 <i class="fas fa-user-md icone-inicio"></i>
                                 <span class="categoria">
@@ -20,7 +20,7 @@
                                 </span>
                             </div>
                         </a>
-                        <a class="categoria" href="login">
+                        <a class="categoria" href="login/1">
                             <div class="menu-inicio">
                                 <i class="fas fa-heartbeat icone-inicio"></i>
                                 <span class="categoria">

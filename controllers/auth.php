@@ -14,7 +14,7 @@
                 die();
             }else{
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/'>";
+                echo "<meta http-equiv='refresh' content='0, url=/login/0'>";
                 
             }
         }
@@ -29,7 +29,7 @@
                 die();
             }else {
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/'>";
+                echo "<meta http-equiv='refresh' content='0, url=/login/1'>";
                 
             }
         }
