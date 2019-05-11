@@ -2,6 +2,7 @@
 
     require_once "../class/Terapeuta.php";
     require_once "../class/Paciente.php";
+    require_once "../class/Professor.php";
 
     //REGISTRO PACIENTE
     if(isset($_POST['senha']) && isset($_POST['vinculoResidencial'])){
