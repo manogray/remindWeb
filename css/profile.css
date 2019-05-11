@@ -23,4 +23,15 @@
 input[type='file'] {
     border: 0;
 
-  }
+}
+
+.cafe{
+    width: 230px;
+    height: 200px;
+    float: left;
+    position: relative;
+}
+
+.alinha{
+    top: 3%;
+}

@@ -53,26 +53,28 @@
                             <input type="text" name="telefone" id="telefone" required>
                         </div>                       
 
-                        <div class="form-input">
-                            <label for="fezTerapia" class="required">Já fez terapia?</label>
-                            <input class="radio-area" type="radio" required name="fezTerapia" id="sim" value="true"/>Sim
-                            <br>
-                            <input class="radio-area" type="radio" required name="fezTerapia" id="nao" value="false"/>Não
-                        </div>
+                        <div class="cafe"> 
+                            <div class="form-input">
+                                <label for="fezTerapia" class="required">Já fez terapia?</label>
+                                <input class="radio-area" type="radio" required name="fezTerapia" id="sim" value="true"/>Sim
+                                <br>
+                                <input class="radio-area" type="radio" required name="fezTerapia" id="nao" value="false"/>Não
+                            </div>
 
-                        <div class="form-input" id="opcao">
-                            <label for="demanda" class="required">Local onde fez terapia</label>
-                            <input type="text" name="localTerapia" id="localTerapia" required>
+                            <div class="form-input alinha" id="opcao" style="display:none" >
+                                <label for="demanda" class="required">Local onde fez terapia</label>
+                                <input type="text" name="localTerapia" id="localTerapia" required>
+                            </div>
                         </div>
 
                         <div class="form-input">
                             <label for="vinculoResidencial" class="required">Com quem você vive?</label>
-                            <textarea name="vinculoResidencial" required class="text-area" rows="8" cols="35" maxlength="500"></textarea>
+                            <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"></textarea>
                         </div>
 
                         <div class="form-input">
                             <label for="demanda" class="required">Por que gostaria de fazer a psicoterapia?</label>
-                            <textarea class="text-area" name="demanda" required rows="8" cols="35" maxlength="500"></textarea>
+                            <textarea class="text-area" name="demanda" required rows="5" cols="35" maxlength="500"></textarea>
                         </div>
 
                         <div class="quadroHorarios">
@@ -132,7 +134,7 @@
                     </div>
                 </div>
                 <div class="form-submit">
-                    <input style="margin-bottom: 25px;" type="submit" value="Cadastrar" class="submit" id="submit" name="submit">
+                    <input style="margin-bottom: 25px;" type="submit" value="Salvar cadastro" class="submit" id="submit" name="submit">
                 </div>   
             </form>
         </div>
@@ -140,20 +142,16 @@
     <script>
         $("#sim").change(function(){
             if($(this).prop("checked")){
-                $("#opcao").prop( "disabled", "" );
-                //$("#opcao").css("display","block");
+                $("#opcao").css("display","block");
             }else {
-                $("#opcao").prop( "disabled", "" );
-                //$("#opcao").css("display","none");
+                $("#opcao").css("display","none");
             }
         });
         $("#nao").change(function(){
             if($(this).prop("checked")){
-                $("#opcao").prop( "disabled", "" );
-                //$("#opcao").css("display","none");
+                $("#opcao").css("display","none");
             }else {
-                $("#opcao").prop( "disabled", "" );
-                //$("#opcao").css("display","block");
+                $("#opcao").css("display","block");
             }
         });
     </script>
