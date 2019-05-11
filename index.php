@@ -3,12 +3,14 @@
     $rotasWeb = array(
 	    '/'                              =>  'inicio.php',
         '/login/(?P<t>\d+)'              =>  'login.php',
-        '/cadastro/paciente'             =>  'cadastroPaciente.php',
         '/terapeuta'                     =>  'dashboardTerapeuta.php',
         '/terapeuta/(?P<logout>\d+)'     =>  'dashboardTerapeuta.php',
-        '/paciente'                      =>  'dashboardPaciente.php',
+        '/terapeuta/meuperfil'           =>  'profileTerapeuta.php',
         '/cadastro/terapeuta'            =>  'cadastroTerapeuta.php',
-        '/profile'                       =>  'profile.php',
+        '/paciente'                      =>  'dashboardPaciente.php',
+        '/paciente/(?P<logout>\d+)'      =>  'dashboardPaciente.php',
+        '/paciente/meuperfil'            =>  'profilePaciente.php',
+        '/cadastro/paciente'             =>  'cadastroPaciente.php',
     );
     url_response($rotasWeb);
 ?>
