@@ -11,38 +11,28 @@
 
         <section class="main-content">
         <div class="box-profile">
-            <h2 class="titulo_cadastro">Seu Perfil</h2>
+            <h2 class="titulo_cadastro">Meu Perfil</h2>
             <form method="POST" class="register-form" id="register-form" novalidate="novalidate">
                 <div class="form-row">
                     <div class="form-group">
                         <div class="form-input">
-                            <label for="nome" >Nome Completo</label>
-                            <input style="width: 400px;" type="text" name="nome" id="nome">
-                        </div>
-                        <div class="form-input">
-                            <label for="nascimento" >Nascimento</label>
-                            <input type="date" name="nascimento" id="nascimento">
-                        </div>
-
-                        
-                        <div class="form-input">
-                            <label for="endereco" >Endereço</label>
-                            <input style="width: 400px;" type="text" name="endereco" id="endereco">
+                            <label for="nome" class="required">Nome Completo</label>
+                            <input style="width: 400px;" type="text" required name="nome" id="nome">
                         </div>
 
                         <div class="form-input">
-                            <label for="sexo" >Sexo</label>
-                            <input class="radio-area" type="radio" name="opcao" value="opc1" id="sexo">Masculino
-                            <input class="radio-area" type="radio" name="opcao" value="opc2" id="sexo">Feminino
+                            <label for="telefone" class="required">CPF</label>
+                            <input type="text" required name="cpf" id="telefone">
                         </div>
 
                         <div class="form-input">
-                            <label for="email" >Email</label>
-                            <input style="width: 400px;" type="email" name="email" id="email">
+                            <label for="telefone" class="required">Telefone</label>
+                            <input type="text" required name="telefone" id="telefone">
                         </div>
+
                         <div class="form-input">
-                            <label for="telefone" >Telefone</label>
-                            <input type="text" name="telefone" id="telefone">
+                            <label for="email" class="required">Email</label>
+                            <input style="width: 400px;" type="email" required name="email" id="email">
                         </div> 
 
                         <div class="form-input">

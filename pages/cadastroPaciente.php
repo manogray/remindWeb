@@ -83,7 +83,7 @@
                                 <span>Segunda-feira</span>
                                 <div style="display: flex;">
                                     <input type="time" name="timeSegIni">
-                                    <span style="margin: 0px 6px;">ás</span>
+                                    <span style="margin: 0px 6px;">às</span>
                                     <input type="time" name="timeSegFim">
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                                 <span>Terça-feira</span>
                                 <div style="display: flex;">
                                     <input type="time" name="timeTerIni">
-                                    <span style="margin: 0px 6px;">ás</span>
+                                    <span style="margin: 0px 6px;">às</span>
                                     <input type="time" name="timeTerFim">
                                 </div>
                             </div>
@@ -99,7 +99,7 @@
                                 <span>Quarta-feira</span>
                                 <div style="display: flex;">
                                     <input type="time" name="timeQuaIni">
-                                    <span style="margin: 0px 6px;">ás</span>
+                                    <span style="margin: 0px 6px;">às</span>
                                     <input type="time" name="timeQuaFim">
                                 </div>
                             </div>
@@ -107,7 +107,7 @@
                                 <span>Quinta-feira</span>
                                 <div style="display: flex;">
                                     <input type="time" name="timeQuiIni">
-                                    <span style="margin: 0px 6px;">ás</span>
+                                    <span style="margin: 0px 6px;">às</span>
                                     <input type="time" name="timeQuiFim">
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                                 <span>Sexta-feira</span>
                                 <div style="display: flex;">
                                     <input type="time" name="timeSexIni">
-                                    <span style="margin: 0px 6px;">ás</span>
+                                    <span style="margin: 0px 6px;">às</span>
                                     <input type="time" name="timeSexFim">
                                 </div>
                             </div>

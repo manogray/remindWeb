@@ -1,10 +1,10 @@
 <?php
 
-    session_start();
+    /*ession_start();
     if(!isset($_SESSION['terapeuta'])){
         header('Location: /login/0');
         die();
-    }
+    }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,8 +19,9 @@
 
         <section class="main-content">
 
-        <h2 class="titulo-paciente">Pacientes</h2>
+        <h2 class="titulo-paciente">Meus Pacientes</h2>
 
+        
         <table>
             <tr>
                 <th>Paciente</th>

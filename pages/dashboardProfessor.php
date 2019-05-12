@@ -19,7 +19,7 @@
 
         <section class="main-content">
 
-        <h2 class="titulo-paciente">Pacientes</h2>
+        <h2 class="titulo-paciente">Minhas Turmas</h2>
 
         <table>
             <tr>

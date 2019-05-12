@@ -51,12 +51,12 @@
 
                         <div class="form-input">
                             <label for="vinculoResidencial" class="required">Com quem você vive?</label>
-                            <textarea name="vinculoResidencial" required class="text-area" rows="8" cols="35" maxlength="500"></textarea>
+                            <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"></textarea>
                         </div>
 
                         <div class="form-input">
                             <label for="demanda" >Por que gostaria de fazer a psicoterapia?</label>
-                            <textarea class="text-area" name="demanda" required rows="8" cols="35" maxlength="500"></textarea>
+                            <textarea class="text-area" name="demanda" required rows="5 " cols="35" maxlength="500"></textarea>
                         </div>
 
                         <div class="form-input" style="display: none;" id="opcao">
