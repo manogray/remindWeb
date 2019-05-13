@@ -15,5 +15,5 @@
 </div>
 <div class="optionsMenu">
     <a style="color:#ccc;"  href="/professor"><div class="option"> <i style="margin-right: 5px;" class="far fa-list-alt"></i>Minhas Turmas</div></a>
-    <a style="color:#ccc;" href="dashTeach/0"><div class="option"> <i style="margin-right: 5px;" class="fas fa-sign-out-alt"></i> Sair</div></a>
+    <a style="color:#ccc;" href="/professor/0"><div class="option"> <i style="margin-right: 5px;" class="fas fa-sign-out-alt"></i> Sair</div></a>
 </div>
