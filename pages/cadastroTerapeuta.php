@@ -30,14 +30,14 @@
 
                         <div class="form-input">
                                 <label for="fezTerapia" class="required">Tipo de registro</label>
-                                <input class="radio-area" type="radio" required name="crp" id="matricula" value="true"/>CRP
+                                <input class="radio-area" type="radio" required name="tRegistro" value="true"/>CRP
                                 <br>
-                                <input class="radio-area" type="radio" required name="matricula" id="matricula" value="false"/>Matrícula
+                                <input class="radio-area" type="radio" required name="tRegistro" value="false"/>Matrícula
                             </div>
 
                         <div class="form-input">
                             <label class="required">Registro</label>
-                            <input type="text" name="matricula" id="matricula">
+                            <input type="text" name="registro">
                         </div>
 
                         <div class="form-input">

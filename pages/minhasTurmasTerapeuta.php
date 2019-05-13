@@ -12,9 +12,11 @@
         <?php include("includes/head.php"); ?>
     </head>
 
+
+
     <body>
         <header>
-            <?php include("includes/headerTeach.php") ?>
+            <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
         <section class="main-content">
@@ -48,15 +50,6 @@
                 <td>2019/1</td>
                 <td>Terça-Quinta</td>
                 <td>08-09hrs</td>
-            </tr>
-            <tr>
-                <td><a class="nome-paciente" href="">IEF022</a></td>
-                <td>01</td>
-                <td>Psicodianóstico</td>
-                <td>Fechado</td>
-                <td>2019/1</td>
-                <td>Terça-Quinta</td>
-                <td>05-06hrs</td>
             </tr>
         </table>
           

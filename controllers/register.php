@@ -59,7 +59,7 @@
     } 
 
     //REGISTRO TERAPEUTA
-    if(isset($_POST['senha']) && (isset($_POST['registroMatricula']) || isset($_POST['crp']))){
+    if( isset($_POST['senha']) && isset($_POST['registro']) ){
         
         $Dispo = [
             'Seg' => [
@@ -90,13 +90,20 @@
         $novoTerapeuta->setPasswd($_POST['senha']);
         $novoTerapeuta->email               = $_POST['email'];
         $novoTerapeuta->telefone            = $_POST['telefone'];
-        $novoTerapeuta->crp                 = $_POST['crp'];
         $novoTerapeuta->disponibilidade     = json_encode($Dispo);
-        $novoTerapeuta->registroMatricula    = $_POST['registroMatricula'];
-
+        //CRP
+        if($_POST['tRegistro'] == 'true'){
+            $novoTerapeuta->crp                 = $_POST['registro'];
+            $novoTerapeuta->registroMatricula   = NULL;
+        }
+        //MR
+        else{
+            $novoTerapeuta->crp                 = NULL;
+            $novoTerapeuta->registroMatricula   = $_POST['registro'];
+        }
         $novoTerapeuta->register();
 
-        header('Location: /login/1');
+        header('Location: /login/0');
         die();
     }
 ?>
