@@ -25,6 +25,7 @@ header{
     position: relative;
     float: left;
     width: 81%;
+    padding: 3% 4%;
 }
 
 .logoWrite {
@@ -86,7 +87,10 @@ label.required:after {
     float: left;
 }
 
-input#submit {
+
+.botaoPadrao {
+    position: relative;
+    float: left;
     background: #0092ca;
     color: white;
     font-family: inherit;
@@ -114,19 +118,16 @@ th{
 }
 
 table {
+    position: relative;
+    float: left;
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 90%;
-    margin: auto;
 }   
 
 tr:nth-child(even) {
     background-color: #dddddd;
     
-}
-
-.titulo-paciente{
-  margin: 40px;
 }
 
 .nome-paciente{
