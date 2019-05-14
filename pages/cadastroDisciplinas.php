@@ -19,7 +19,7 @@
 
         <section class="main-content">
         <h2 class="titulo_cadastro">Cadastro de Disciplinas</h2>
-            <form method="POST" class="register-form" id="register-form" action="../controllers/register.php">
+            <form method="POST" class="register-form" id="register-form" action="../controllers/disciplina.php">
                 <div class="form-row">
                     <div class="form-group">
 
@@ -37,6 +37,7 @@
                             <label for="periodo" class="required">Período</label>
                             <input type="text" required name="periodo" id="periodo">
                         </div>
+                        <input type="hidden" name="new" value="true">
                         
                     </div>
                 </div>

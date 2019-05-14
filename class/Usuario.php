@@ -38,6 +38,7 @@
       } catch(PDOException $exception){
         unset($db);
         echo $exception;
+        return FALSE;
       }
         unset($db);
     }
