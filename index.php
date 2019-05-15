@@ -14,6 +14,7 @@
         '/cadastro/paciente'                =>  'cadastroPaciente.php',
         '/professor'                        =>  'dashboardProfessor.php',
         '/professor/cadastrodisciplinas'    =>  'cadastroDisciplinas.php',
+        '/professor/(?P<logout>\d+)'        =>  'dashboardProfessor.php',
     );
     url_response($rotasWeb);
 ?>
