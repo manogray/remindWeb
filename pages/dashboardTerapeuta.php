@@ -14,7 +14,7 @@
             $idTerapeuta = $_SESSION['terapeuta'];
             $result = $db->query("SELECT * FROM Terapias WHERE idTerapeuta = '$idTerapeuta'");
             while($row = $result->fetch(PDO::FETCH_OBJ)){
-                //!TERMINAR ISSO NO BUGS;
+                $result = $db->query("SELECT nome FROM Pacientes WHERE cpf = '$row->cpf'");
             }
         } catch (PDOException $exception){
             echo $exception;
