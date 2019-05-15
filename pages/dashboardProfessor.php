@@ -6,7 +6,24 @@
         die();
     }
 
-    require_once("controllers/disciplina.php");
+    function listarDisciplinas(){
+        try{
+            $lista = [];
+            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $result = $db->query("SELECT * FROM Disciplinas");
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $lista[] = $row;
+            }
+        } catch (PDOException $exception){
+            echo $exception;
+            unset($db);
+        }
+        unset($db);
+
+        return $lista;
+    }
+
     $Disciplinas = listarDisciplinas();
 ?>
 <!DOCTYPE html> 

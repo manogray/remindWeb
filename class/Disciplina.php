@@ -12,21 +12,24 @@
     public $idProfessor;
 
     public function new(){
+      $retorno = TRUE;
         try{
             $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $statement = $db->prepare("INSERT INTO Disciplinas (codigo, nome, periodo, idProfessor) VALUES (:codigo,:nome,:periodo,:idProfessor)");
             $statement->bindValue(':codigo',$this->codigo);
-            $statement->bindValue(':codigo',$this->nome);
-            $statement->bindValue(':codigo',$this->periodo);
-            $statement->bindValue(':codigo',$this->idProfessor);
+            $statement->bindValue(':nome',$this->nome);
+            $statement->bindValue(':periodo',$this->periodo);
+            $statement->bindValue(':idProfessor',$this->idProfessor);
             $statement->execute();
         } catch (PDOException $exception){
             echo $exception;
+            $retorno = FALSE;
             unset($db);
         }
 
         unset($db);
+        return $retorno;
     }
   }
 ?>

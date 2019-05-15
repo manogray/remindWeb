@@ -38,12 +38,13 @@
                             <input type="text" required name="periodo" id="periodo">
                         </div>
                         <input type="hidden" name="new" value="true">
+                        <input type="hidden" name="cpf" value="<?=$_SESSION['professor']?>">
                         
                     </div>
                 </div>
 
                 <div class="form-submit">
-                    <input style="margin-bottom: 25px;" type="submit" value="Salvar cadastro" class="submit" id="submit" name="submit">
+                    <input style="margin-bottom: 25px;" type="submit" value="Salvar cadastro" class="botaoPadrao" id="submit" name="submit">
                 </div>
             </form>       
           
