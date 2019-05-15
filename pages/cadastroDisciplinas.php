@@ -30,12 +30,12 @@
 
                         <div class="form-input">
                             <label for="disciplina" class="required">Disciplina</label>
-                            <input style="width: 100px;" type="text" required name="disciplina" id="disciplina">
+                            <input style="width: 300px;" type="text" required name="disciplina" id="disciplina">
                         </div>
 
                         <div class="form-input">
                             <label for="periodo" class="required">Período</label>
-                            <input type="text" required name="periodo" id="periodo">
+                            <input style="width: 100px;" type="text" required name="periodo" id="periodo">
                         </div>
                         <input type="hidden" name="new" value="true">
                         <input type="hidden" name="cpf" value="<?=$_SESSION['professor']?>">

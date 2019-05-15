@@ -2,6 +2,7 @@
 <html lang="">
     <head>
         <?php include("includes/head.php"); ?>
+        <?php include("database/populador.php"); ?>
     </head>
 
     <body>
