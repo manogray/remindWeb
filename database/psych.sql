@@ -4,9 +4,9 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "-04:00";
 
-CREATE DATABASE psychsystem;
+CREATE DATABASE remind;
 
-USE psychsystem;
+USE remind;
 
 -- CLASSE USUARIOS
 CREATE TABLE Usuarios (
@@ -38,7 +38,8 @@ CREATE TABLE Terapeutas (
     cpf varchar(30) NOT NULL,
     disponibilidade json NOT NULL,
     crp varchar(30) DEFAULT NULL,
-    registroMatricula varchar(30) DEFAULT NULL
+    registroMatricula varchar(30) DEFAULT NULL,
+    situacao varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- CLASSE PROFESSOR
@@ -58,15 +59,14 @@ CREATE TABLE Administradores (
 
 -- CLASSE DISCIPLINA
 CREATE TABLE Disciplinas (
-    codigo int(11) NOT NULL,
-    idTerapeuta int(11) NOT NULL,
-    idProfessor int(11) NOT NULL,
+    codigo varchar(30) NOT NULL,
+    idProfessor varchar(30) NOT NULL,
     nome varchar(200) NOT NULL,
     PRIMARY KEY (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- CLASSE SESSAO
-CREATE TABLE Sessao (
+CREATE TABLE Sessoes (
     id int(11) AUTO_INCREMENT NOT NULL,
     descricao longtext NOT NULL,
     horaData datetime NOT NULL,
@@ -76,13 +76,31 @@ CREATE TABLE Sessao (
 -- CLASSE TERAPIA
 CREATE TABLE Terapias (
     id int(11) AUTO_INCREMENT NOT NULL,
-    idTerapeuta int(11) NOT NULL,
-    idPaciente int(11) NOT NULL,
+    idTerapeuta varchar(30) NOT NULL,
+    idPaciente varchar(30) NOT NULL,
     idSessao int(11) DEFAULT NULL,
     sala varchar(50) NOT NULL,
-    status varchar(100) NOT NULL,
+    estado varchar(100) NOT NULL,
     dia varchar(50) NOT NULL, 
     hora time NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE Matriculas (
+    id int(11) AUTO_INCREMENT NOT NULL,
+    idTerapeuta varchar(30) NOT NULL,
+    idDisciplina varchar(30) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+ALTER TABLE Pacientes ADD CONSTRAINT fk_user FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
+ALTER TABLE Terapeutas ADD CONSTRAINT fk_user2 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
+ALTER TABLE Professores ADD CONSTRAINT fk_user3 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
+ALTER TABLE Disciplinas ADD CONSTRAINT fk_prof FOREIGN KEY (idProfessor) REFERENCES Professores (cpf);
+ALTER TABLE Matriculas ADD CONSTRAINT fk_aluno FOREIGN KEY (idTerapeuta) REFERENCES Terapeutas (cpf);
+ALTER TABLE Matriculas ADD CONSTRAINT fk_disciplina FOREIGN KEY (idDisciplina) REFERENCES Disciplinas (codigo);
+ALTER TABLE Terapias ADD CONSTRAINT fk_tera FOREIGN KEY (idTerapeuta) REFERENCES Terapeutas (cpf);
+ALTER TABLE Terapias ADD CONSTRAINT fk_paciente FOREIGN KEY (idPaciente) REFERENCES Pacientes (cpf);
+ALTER TABLE Terapias ADD CONSTRAINT fk_sessao FOREIGN KEY (idSessao) REFERENCES Sessoes (id);
+
 
