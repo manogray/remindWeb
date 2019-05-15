@@ -5,6 +5,27 @@
         header('Location: /login/0');
         die();
     }
+
+    function listarPacientes(){
+        try{
+            $lista = [];
+            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $idTerapeuta = $_SESSION['terapeuta'];
+            $result = $db->query("SELECT * FROM Terapias WHERE idTerapeuta = '$idTerapeuta'");
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                //!TERMINAR ISSO NO BUGS;
+            }
+        } catch (PDOException $exception){
+            echo $exception;
+            unset($db);
+        }
+        unset($db);
+
+        return $lista;
+    }
+
+    $Pacientes;
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +42,9 @@
 
         <h2 class="titulo-paciente">Meus Pacientes</h2>
 
-        
+        <?php
+            if($_SESSION['situacao'] == 'naoAprovado'){
+        ?>
         <table>
             <tr>
                 <th>Paciente</th>
@@ -39,23 +62,10 @@
                 <td>Quarta-feira</td>
                 <td>10-11hrs</td>
             </tr>
-            <tr>
-                <td><a class="nome-paciente" href="">Jhon Kerber</a></td>
-                <td>Tá quase</td>
-                <td>000.5</td>
-                <td>2</td>
-                <td>Quinta-feira</td>
-                <td>08-09hrs</td>
-            </tr>
-            <tr>
-                <td><a class="nome-paciente" href="">Evaldo Cardoso</a></td>
-                <td>Com Fome</td>
-                <td>566</td>
-                <td>3</td>
-                <td>Terça-feira</td>
-                <td>05-06hrs</td>
-            </tr>
         </table>
+        <?php
+            }
+        ?>
           
         </section>
         

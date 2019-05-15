@@ -91,6 +91,7 @@
         $novoTerapeuta->email               = $_POST['email'];
         $novoTerapeuta->telefone            = $_POST['telefone'];
         $novoTerapeuta->disponibilidade     = json_encode($Dispo);
+        $novoTerapeuta->situacao            = 'naoAprovado';
         //CRP
         if($_POST['tRegistro'] == 'true'){
             $novoTerapeuta->crp                 = $_POST['registro'];

@@ -13,6 +13,7 @@
         '/paciente/(?P<logout>\d+)'         =>  'profilePaciente.php',        
         '/cadastro/paciente'                =>  'cadastroPaciente.php',
         '/professor'                        =>  'dashboardProfessor.php',
+        '/professor/(?P<logout>\d+)'        =>  'dashboardProfessor.php',
         '/professor/cadastrodisciplinas'    =>  'cadastroDisciplinas.php',
         '/professor/(?P<logout>\d+)'        =>  'dashboardProfessor.php',
     );

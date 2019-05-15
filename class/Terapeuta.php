@@ -11,6 +11,7 @@
     public $disponibilidade;
     public $crp;
     public $registroMatricula;
+    public $status;
 
     public function register(){
       try {
@@ -27,11 +28,12 @@
         $statement->bindValue(':telefone',$this->telefone);
         
         //CRIACAO DE TERAPEUTA
-        $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula)");
+        $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula,situacao) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula,situacao)");
         $statement2->bindValue(':cpf',$this->cpf);
         $statement2->bindValue(':disponibilidade',$this->disponibilidade);
         $statement2->bindValue(':crp',$this->crp);
         $statement2->bindValue(':registroMatricula',$this->registroMatricula);
+        $statement2->bindValue(':situacao',$this->situacao);
         
         $statement->execute();
         $statement2->execute();

@@ -3,6 +3,7 @@
     require_once "../class/Terapeuta.php";
     require_once "../class/Paciente.php";
     require_once "../class/Professor.php";
+    require_once "../controllers/terapeuta.php";
 
     if(isset($_POST['cpf']) && isset($_POST['senha'])){
         if($_POST['tipo'] == 'terapeuta'){
@@ -11,6 +12,7 @@
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
                 $_SESSION['terapeuta'] = $usuarioSuspeito->cpf;
+                $_SESSION['situacao'] = getSituacao($usuarioSuspeito->cpf);
                 header('Location: /terapeuta');
                 die();
             }else{
