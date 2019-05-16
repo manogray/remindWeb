@@ -62,6 +62,7 @@ CREATE TABLE Disciplinas (
     codigo varchar(30) NOT NULL,
     idProfessor varchar(30) NOT NULL,
     nome varchar(200) NOT NULL,
+    periodo varchar(30) NOT NULL,
     PRIMARY KEY (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

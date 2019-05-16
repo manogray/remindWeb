@@ -9,7 +9,7 @@
         $novaDisciplina->idProfessor    =       $_POST['cpf'];
 
         if($novaDisciplina->new()){
-            header('Location: /professor');
+            header('Location: /dashboardProfessor.php');
             die();
         }
         

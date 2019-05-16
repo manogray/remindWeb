@@ -53,7 +53,7 @@
 
         } catch(PDOException $exception){
             $db->rollback();
-            echo $exception;
+            //echo $exception;
             unset($db);
             return FALSE;
         }

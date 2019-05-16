@@ -1,8 +1,8 @@
 <?php
 
     session_start();
-    if(!isset($_SESSION['professor'])){
-        header('Location: /login/2');
+    if(!isset($_SESSION['terapeuta'])){
+        header('Location: /login.php?t=0');
         die();
     }
 
@@ -34,13 +34,11 @@
 
     <body>
         <header>
-            <?php include("includes/headerProfessor.php") ?>
+            <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
         <section class="main-content">
-
-        <h2 class="titulo-paciente">Disciplinas</h2>
-
+        <h2 class="titulo_cadastro">Nova Matrícula</h2>
         <?php
             if(count($Disciplinas) > 0){
         ?>
@@ -49,6 +47,7 @@
                 <th>Código</th>
                 <th>Disciplina</th>
                 <th>Período</th>
+                
             </tr>
             <?php 
                 foreach ($Disciplinas as $dic) {
@@ -57,6 +56,7 @@
                 <td><a class="nome-paciente" href=""><?=$dic->codigo?></a></td>
                 <td><?=$dic->nome?></td>
                 <td><?=$dic->periodo?></td>
+                <td><a href="#">Solicitar Matricula</a></td>
             </tr>
             <?php
                 }
@@ -65,14 +65,10 @@
         <?php
             }else {
         ?>
-        <h5 style="text-align: center;">Sem disciplinas cadastradas</h5>
+        <h5 style="text-align: center;">Sem disciplinas cadastradas!</h5>
         <?php
             }
-        ?>
-        <a style="margin-top: 10px;" class="botaoPadrao" href="professor/cadastrodisciplinas">Nova Disciplina</a>
-          
+        ?>   
         </section>
-        
-        <script src="../js/calendar.js"></script>
     </body>
 </html>

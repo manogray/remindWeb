@@ -8,7 +8,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-				<form class="login100-form validate-form" method="POST" action="../controllers/auth.php">
+				<form class="login100-form validate-form" method="POST" action="controllers/auth.php">
 					<div class="logo-remind" style="color:#333; font-size: 45px; margin-bottom: 45px;">
                         Re<span style="color: #0092ca;" >Mind</span>
                     </div>

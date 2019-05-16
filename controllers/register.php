@@ -54,7 +54,7 @@
 
         $novoPaciente->register();
 
-        header('Location: /login/0');
+        header('Location: /login.php?t=1');
         die();
     } 
 
@@ -104,7 +104,7 @@
         }
         $novoTerapeuta->register();
 
-        header('Location: /login/0');
+        header('Location: /login.php?t=0');
         die();
     }
 ?>

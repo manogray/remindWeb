@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['professor'])){
-        header('Location: /login/2');
+        header('Location: /login.php?t=2');
         die();
     }
 ?>
@@ -19,7 +19,7 @@
 
         <section class="main-content">
         <h2 class="titulo_cadastro">Cadastro de Disciplinas</h2>
-            <form method="POST" class="register-form" id="register-form" action="../controllers/disciplina.php">
+            <form method="POST" class="register-form" id="register-form" action="controllers/disciplina.php">
                 <div class="form-row">
                     <div class="form-group">
 
@@ -49,7 +49,5 @@
             </form>       
           
         </section>
-        
-        <script src="../js/calendar.js"></script>
     </body>
 </html>

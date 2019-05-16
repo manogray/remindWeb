@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['paciente'])){
-        header('Location: /login/0');
+        header('Location: /login.php?t=1');
         die();
     }
 ?>
@@ -58,6 +58,5 @@
           
         </section>
         
-        <script src="../js/calendar.js"></script>
     </body>
 </html>
