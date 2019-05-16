@@ -6,6 +6,8 @@
         die();
     }
 
+    $idTerapeuta = $_SESSION['terapeuta'];
+
     function listarDisciplinas(){
         try{
             $lista = [];
@@ -47,7 +49,6 @@
                 <th>Código</th>
                 <th>Disciplina</th>
                 <th>Período</th>
-                
             </tr>
             <?php 
                 foreach ($Disciplinas as $dic) {
@@ -56,7 +57,7 @@
                 <td><a class="nome-paciente" href=""><?=$dic->codigo?></a></td>
                 <td><?=$dic->nome?></td>
                 <td><?=$dic->periodo?></td>
-                <td><a href="#">Solicitar Matricula</a></td>
+                <td><a href="controllers/terapeuta.php?codigoMat=<?=$dic->codigo?>&idTera=<?=$idTerapeuta?>">Solicitar Matricula</a></td>
             </tr>
             <?php
                 }
