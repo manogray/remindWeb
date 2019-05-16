@@ -33,7 +33,6 @@ TERAPEUTA(ALUNO) DE TESTE
     EMAIL:              LUIZ@GONZAGA.COM
     TELEFONE:           3333-3333
     DISPONIBILIDADE:    ALL 11:00-13:00 AM
-    SITUAÇÃO:           APROVADO
     SENHA:              SOUMODESTO
 
     NOME:               JONATHAS KERBER
@@ -43,8 +42,7 @@ TERAPEUTA(ALUNO) DE TESTE
     EMAIL:              JONATHAS@KERBER.COM
     TELEFONE:           44444-4444
     DISPONIBILIDADE:    ALL 12:00-14:00 AM
-    SITUAÇÃO:           NÃO-APROVADO
-    SENHA:              GGWP
+    SENHA:              CACHEMAN
 
 PROFESSOR DE TESTE
     NOME:               EDSON FILHO

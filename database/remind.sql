@@ -38,8 +38,7 @@ CREATE TABLE Terapeutas (
     cpf varchar(30) NOT NULL,
     disponibilidade json NOT NULL,
     crp varchar(30) DEFAULT NULL,
-    registroMatricula varchar(30) DEFAULT NULL,
-    situacao varchar(100) NOT NULL
+    registroMatricula varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- CLASSE PROFESSOR
@@ -62,6 +61,7 @@ CREATE TABLE Disciplinas (
     codigo varchar(30) NOT NULL,
     idProfessor varchar(30) NOT NULL,
     nome varchar(200) NOT NULL,
+    periodo varchar(30) NOT NULL,
     PRIMARY KEY (codigo)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -90,6 +90,7 @@ CREATE TABLE Matriculas (
     id int(11) AUTO_INCREMENT NOT NULL,
     idTerapeuta varchar(30) NOT NULL,
     idDisciplina varchar(30) NOT NULL,
+    situacao varchar(100) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

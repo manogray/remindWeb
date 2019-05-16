@@ -1,8 +1,8 @@
 <?php
 
     session_start();
-    if(!isset($_SESSION['terapeuta'])){
-        header('Location: /login/0');
+    if(!isset($_SESSION['paciente'])){
+        header('Location: login.php?t=1');
         die();
     }
 ?>
@@ -120,27 +120,9 @@
                 </div>
                 <div class="form-submit">
                     <input style="margin-bottom: 25px;" type="submit" value="Salvar" class="submit" id="submit" name="submit">
-                </div>
-
-                <script>
-                    $("#check").click(function(){
-                        if($(this).val()=="true"){
-                            $("#opcao").css("visibility","visible");
-                            $(this).val("false");
-
-                        }else if($(this).val()=="false"){
-                            "#opcao").css("visibility","hidden");
-                            $(this).val("true");
-                        }else{
-                           // $("#opcao").css("visibility","hidden");
-                           // $(this).val("true");
-                        }
-                    });
-                </script>   
+                </div>  
             </form>
         </div>
         </section>
-        
-        <script src="../js/calendar.js"></script>
     </body>
 </html>

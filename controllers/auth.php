@@ -12,12 +12,11 @@
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
                 $_SESSION['terapeuta'] = $usuarioSuspeito->cpf;
-                $_SESSION['situacao'] = getSituacao($usuarioSuspeito->cpf);
-                header('Location: /terapeuta');
+                header('Location: /dashboardTerapeuta.php');
                 die();
             }else{
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/login/0'>";
+                echo "<meta http-equiv='refresh' content='0, url=login.php?t=0'>";
                 
             }
         }
@@ -28,11 +27,11 @@
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
                 $_SESSION['paciente'] = $usuarioSuspeito->cpf;
-                header('Location: /paciente');
+                header('Location: /dashboardPaciente.php');
                 die();
             }else {
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/login/1'>";
+                echo "<meta http-equiv='refresh' content='0, url=login.php?t=1'>";
                 
             }
         }
@@ -43,11 +42,11 @@
             $usuarioSuspeito->setPasswd($_POST['senha']);
             if($usuarioSuspeito->auth()){
                 $_SESSION['professor'] = $usuarioSuspeito->cpf;
-                header('Location: /professor');
+                header('Location: /dashboardProfessor.php');
                 die();
             }else {
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/login/2'>";
+                echo "<meta http-equiv='refresh' content='0, url=login.php?t=2'>";
             }
         }
     }    

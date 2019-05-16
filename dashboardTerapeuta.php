@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['terapeuta'])){
-        header('Location: /login/0');
+        header('Location: login.php?t=0');
         die();
     }
 
@@ -42,9 +42,6 @@
 
         <h2 class="titulo-paciente">Meus Pacientes</h2>
 
-        <?php
-            if($_SESSION['situacao'] == 'naoAprovado'){
-        ?>
         <table>
             <tr>
                 <th>Paciente</th>
@@ -63,12 +60,8 @@
                 <td>10-11hrs</td>
             </tr>
         </table>
-        <?php
-            }
-        ?>
+
           
         </section>
-        
-        <script src="../js/calendar.js"></script>
     </body>
 </html>
