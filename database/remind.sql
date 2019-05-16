@@ -97,10 +97,13 @@ CREATE TABLE Matriculas (
 ALTER TABLE Pacientes ADD CONSTRAINT fk_user FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
 ALTER TABLE Terapeutas ADD CONSTRAINT fk_user2 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
 ALTER TABLE Professores ADD CONSTRAINT fk_user3 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
+ALTER TABLE PsicologosRT ADD CONSTRAINT fk_user4 FOREIGN KEY (cpf) REFERENCES Usuarios(cpf);
+ALTER TABLE Administradores ADD CONSTRAINT fk_user5 FOREIGN KEY (cpf) REFERENCES Usuarios(cpf);
 ALTER TABLE Disciplinas ADD CONSTRAINT fk_prof FOREIGN KEY (idProfessor) REFERENCES Professores (cpf);
 ALTER TABLE Matriculas ADD CONSTRAINT fk_aluno FOREIGN KEY (idTerapeuta) REFERENCES Terapeutas (cpf);
 ALTER TABLE Matriculas ADD CONSTRAINT fk_disciplina FOREIGN KEY (idDisciplina) REFERENCES Disciplinas (codigo);
 ALTER TABLE Terapias ADD CONSTRAINT fk_tera FOREIGN KEY (idTerapeuta) REFERENCES Terapeutas (cpf);
 ALTER TABLE Terapias ADD CONSTRAINT fk_paciente FOREIGN KEY (idPaciente) REFERENCES Pacientes (cpf);
 ALTER TABLE Terapias ADD CONSTRAINT fk_sessao FOREIGN KEY (idSessao) REFERENCES Sessoes (id);
+
 
