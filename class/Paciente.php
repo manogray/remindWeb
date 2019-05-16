@@ -57,6 +57,19 @@
       }
       unset($db);
     }
+
+    public function verifica($cpf){
+      try{
+        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $result = $db->query("SELECT cpf FROM Pacientes WHERE cpf = '$cpf'");
+        return $result->rowCount();
+        unset($db);
+      }catch (PDOException $exception){
+        unset($db);
+        echo $exception;
+      }
+    }
   }
 
 ?>
