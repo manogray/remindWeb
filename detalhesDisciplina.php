@@ -11,7 +11,8 @@
             $lista = [];
             $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-            $result = $db->query("SELECT * FROM Matriculas WHERE idDisciplina=''");
+            $codigo = $_GET['codigo'];
+            $result = $db->query("SELECT * FROM Matriculas WHERE idDisciplina='codigo'");
             while($row = $result->fetch(PDO::FETCH_OBJ)){
                 $lista[] = $row;
             }
@@ -22,6 +23,20 @@
         unset($db);
 
         return $lista;
+    }
+
+    function pegarTerapeuta($idTerapeuta){
+        try{
+            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $nomeTerapeuta = $db->query("SELECT nome FROM Usuarios WHERE cpf='$idTerapeuta'");
+        } catch (PDOException $exception){
+            echo $exception;
+            unset($db);
+        }
+        unset($db);
+
+        return $nomeTerapeuta;
     }
 
     $Matriculas = listarMatriculas();
@@ -39,24 +54,22 @@
 
         <section class="main-content">
 
-        <h2 class="titulo-paciente">Disciplinas</h2>
+        <h2 class="titulo-paciente">Matrículas</h2>
 
         <?php
-            if(count($Disciplinas) > 0){
+            if(count($Matriculas) > 0){
         ?>
         <table>
             <tr>
-                <th>Código</th>
-                <th>Disciplina</th>
-                <th>Período</th>
+                <th>Aluno</th>
+                <th>Solicitação de matrícula</th>
             </tr>
             <?php 
-                foreach ($Disciplinas as $dic) {
+                foreach ($Matriculas as $mat) {
             ?>
             <tr>
-                <td><a class="nome-paciente" href=""><?=$dic->codigo?></a></td>
-                <td><?=$dic->nome?></td>
-                <td><?=$dic->periodo?></td>
+                <td><?=pegarTerapeuta($mat->id)?></td>                
+                <td><?=$mat->situacao?></td>
             </tr>
             <?php
                 }
@@ -72,7 +85,5 @@
         <a style="margin-top: 10px;" class="botaoPadrao" href="professor/cadastrodisciplinas">Nova Disciplina</a>
           
         </section>
-        
-        <script src="../js/calendar.js"></script>
     </body>
 </html>

@@ -54,7 +54,8 @@
                 foreach ($Disciplinas as $dic) {
             ?>
             <tr>
-                <td><a class="nome-paciente" href=""><?=$dic->codigo?></a></td>
+                <td>
+                <a class="nome-paciente" href="detalhesDisciplina.php?codigo=<?=$dic->codigo?>"><?=$dic->codigo?></a></td>
                 <td><?=$dic->nome?></td>
                 <td><?=$dic->periodo?></td>
             </tr>
