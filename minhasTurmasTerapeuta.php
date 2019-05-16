@@ -42,16 +42,9 @@
                 <td>Segunda-Quarta</td>
                 <td>10-11hrs</td>
             </tr>
-            <tr>
-                <td><a class="nome-paciente" href="">FTL029</a></td>
-                <td>6</td>
-                <td>Estágio III</td>
-                <td>Fechado</td>
-                <td>2019/1</td>
-                <td>Terça-Quinta</td>
-                <td>08-09hrs</td>
-            </tr>
         </table>
+
+        <a href="novaMatricula.php" class="botaoPadrao">Nova Matrícula</a>
           
         </section>
     </body>
