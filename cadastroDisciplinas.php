@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['professor'])){
-        header('Location: /login.php?t=2');
+        header('Location: login.php?t=2');
         die();
     }
 ?>

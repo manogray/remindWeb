@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['terapeuta'])){
-        header('Location: /login.php?t=0');
+        header('Location: login.php?t=0');
         die();
     }
 ?>
@@ -52,8 +52,7 @@
                 <td>08-09hrs</td>
             </tr>
         </table>
-        <a class="botaoPadrao" href="novaMatricula.php">Nova Matrícula</a>
+          
         </section>
-        
     </body>
 </html>

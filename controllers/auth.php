@@ -16,7 +16,7 @@
                 die();
             }else{
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/login.php?t=0'>";
+                echo "<meta http-equiv='refresh' content='0, url=login.php?t=0'>";
                 
             }
         }
@@ -31,7 +31,7 @@
                 die();
             }else {
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/login.php?t=1'>";
+                echo "<meta http-equiv='refresh' content='0, url=login.php?t=1'>";
                 
             }
         }
@@ -46,7 +46,7 @@
                 die();
             }else {
                 echo "<script>alert('Não foi possível autenticar!')</script>";
-                echo "<meta http-equiv='refresh' content='0, url=/login.php?t=2'>";
+                echo "<meta http-equiv='refresh' content='0, url=login.php?t=2'>";
             }
         }
     }    

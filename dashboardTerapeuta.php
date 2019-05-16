@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['terapeuta'])){
-        header('Location: /login.php?t=0');
+        header('Location: login.php?t=0');
         die();
     }
 
@@ -14,7 +14,7 @@
             $idTerapeuta = $_SESSION['terapeuta'];
             $result = $db->query("SELECT * FROM Terapias WHERE idTerapeuta = '$idTerapeuta'");
             while($row = $result->fetch(PDO::FETCH_OBJ)){
-                $result = $db->query("SELECT * FROM Pacientes WHERE cpf = '$row->cpf'");
+                $result = $db->query("SELECT nome FROM Pacientes WHERE cpf = '$row->cpf'");
             }
         } catch (PDOException $exception){
             echo $exception;
@@ -60,8 +60,8 @@
                 <td>10-11hrs</td>
             </tr>
         </table>
+
           
         </section>
-        
     </body>
 </html>

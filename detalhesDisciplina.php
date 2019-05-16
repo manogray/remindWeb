@@ -2,16 +2,16 @@
 
     session_start();
     if(!isset($_SESSION['professor'])){
-        header('Location: login.php?t=2');
+        header('Location: /login/2');
         die();
     }
 
-    function listarDisciplinas(){
+    function listarMatriculas(){
         try{
             $lista = [];
             $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-            $result = $db->query("SELECT * FROM Disciplinas");
+            $result = $db->query("SELECT * FROM Matriculas WHERE idDisciplina=''");
             while($row = $result->fetch(PDO::FETCH_OBJ)){
                 $lista[] = $row;
             }
@@ -24,7 +24,7 @@
         return $lista;
     }
 
-    $Disciplinas = listarDisciplinas();
+    $Matriculas = listarMatriculas();
 ?>
 <!DOCTYPE html> 
 <html>
@@ -65,12 +65,14 @@
         <?php
             }else {
         ?>
-        <h5 style="text-align: center;">Sem disciplinas cadastradas</h5>
+        <h5 style="text-align: center;">Sem solicitações de matrícula</h5>
         <?php
             }
         ?>
-        <a style="margin-top: 10px;" class="botaoPadrao" href="cadastroDisciplinas.php">Nova Disciplina</a>
+        <a style="margin-top: 10px;" class="botaoPadrao" href="professor/cadastrodisciplinas">Nova Disciplina</a>
           
         </section>
+        
+        <script src="../js/calendar.js"></script>
     </body>
 </html>

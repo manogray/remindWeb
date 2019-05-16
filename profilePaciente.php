@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['paciente'])){
-        header('Location: /login.php?t=1');
+        header('Location: login.php?t=1');
         die();
     }
 ?>
@@ -124,6 +124,5 @@
             </form>
         </div>
         </section>
-        
     </body>
 </html>
