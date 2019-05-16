@@ -5,6 +5,45 @@
         header('Location: login.php?t=0');
         die();
     }
+
+    function listarMatriculas(){
+        try{
+            $lista = [];
+            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $idTera = $_SESSION['terapeuta'];
+            $result = $db->query("SELECT * FROM Matriculas WHERE idTerapeuta = '$idTera'");
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $lista[] = $row;
+            }
+        } catch (PDOException $exception){
+            echo $exception;
+            unset($db);
+        }
+        unset($db);
+
+        return $lista;
+    }
+
+    function pegarDisciplina($idDisciplina){
+        try{
+            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $result = $db->query("SELECT nome FROM Disciplinas WHERE codigo='$idDisciplina'");
+            $nomeDisciplina;
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $nomeDisciplina = $row->nome;
+            }
+        } catch (PDOException $exception){
+            echo $exception;
+            unset($db);
+        }
+        unset($db);
+
+        return $nomeDisciplina;
+    }
+
+    $Matriculas = listarMatriculas();
 ?>
 <!DOCTYPE html> 
 <html>
@@ -26,22 +65,22 @@
         <table>
             <tr>
                 <th>Código</th>
-                <th>Turma</th>
                 <th>Disciplina</th>
-                <th>Status</th>
-                <th>Período</th>
-                <th>Dia</th>
-                <th>Horário</th>
+                <th>Situacao</th>
             </tr>
+            <?php
+                if(count($Matriculas) > 0){ 
+                    foreach ($Matriculas as $mat) {
+            ?>
             <tr>
-                <td><a class="nome-paciente" href="">ICE245</a></td>
-                <td>1</td>
-                <td>Estágio II</td>
-                <td>ativo</td>
-                <td>2019/1</td>
-                <td>Segunda-Quarta</td>
-                <td>10-11hrs</td>
+                <td><a class="nome-paciente"><?=$mat->idDisciplina?></a></td>
+                <td><?=pegarDisciplina($mat->idDisciplina)?></td>
+                <td><?=$mat->situacao?></td>
             </tr>
+            <?php
+                    }
+                }
+            ?>
         </table>
 
         <a href="novaMatricula.php" class="botaoPadrao">Nova Matrícula</a>
