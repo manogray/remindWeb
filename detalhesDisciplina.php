@@ -58,7 +58,7 @@
 
         <section class="main-content">
 
-        <h2 class="titulo-paciente">Matrículas</h2>
+        <h2 class="titulo-paciente" style="padding-bottom: 20px;">Matrículas</h2>
 
         <?php
             if(count($Matriculas) > 0){
@@ -79,12 +79,12 @@
                 <?php 
                     if($mat->situacao == 'aprovado'){
                 ?>
-                <td><a class="botaoPadrao" style="width: 100px;" href="controllers/professor.php?id=<?=$mat->id?>&op=0&codigo=<?=$mat->idDisciplina?>">Desaprovar</a></td>
+                <td><a class="botaoPadrao" style="width: 100px; left: 50%; transform: translate(-50%);" href="controllers/professor.php?id=<?=$mat->id?>&op=0&codigo=<?=$mat->idDisciplina?>">Desaprovar</a></td>
 
                 <?php
                     }else{
                 ?>
-                <td><a class="botaoPadrao" style="width: 100px;" href="controllers/professor.php?id=<?=$mat->id?>&op=1&codigo=<?=$mat->idDisciplina?>">Aprovar</a></td>
+                <td><a class="botaoPadrao" style="width: 100px; left: 50%; transform: translate(-50%);" href="controllers/professor.php?id=<?=$mat->id?>&op=1&codigo=<?=$mat->idDisciplina?>">Aprovar</a></td>
 
                 <?php
                     }
