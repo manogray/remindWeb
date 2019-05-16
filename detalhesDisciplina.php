@@ -2,7 +2,7 @@
 
     session_start();
     if(!isset($_SESSION['professor'])){
-        header('Location: /login/2');
+        header('Location: /login.php?t=2');
         die();
     }
 
@@ -12,7 +12,7 @@
             $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $codigo = $_GET['codigo'];
-            $result = $db->query("SELECT * FROM Matriculas WHERE idDisciplina='codigo'");
+            $result = $db->query("SELECT * FROM Matriculas WHERE idDisciplina='$codigo'");
             while($row = $result->fetch(PDO::FETCH_OBJ)){
                 $lista[] = $row;
             }
@@ -29,7 +29,11 @@
         try{
             $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-            $nomeTerapeuta = $db->query("SELECT nome FROM Usuarios WHERE cpf='$idTerapeuta'");
+            $result = $db->query("SELECT nome FROM Usuarios WHERE cpf='$idTerapeuta'");
+            $nomeTerapeuta;
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $nomeTerapeuta = $row->nome;
+            }
         } catch (PDOException $exception){
             echo $exception;
             unset($db);
@@ -63,13 +67,28 @@
             <tr>
                 <th>Aluno</th>
                 <th>Solicitação de matrícula</th>
+                <th></th>
             </tr>
             <?php 
                 foreach ($Matriculas as $mat) {
             ?>
             <tr>
-                <td><?=pegarTerapeuta($mat->id)?></td>                
+                <td><?=pegarTerapeuta($mat->idTerapeuta)?></td>                
                 <td><?=$mat->situacao?></td>
+
+                <?php 
+                    if($mat->situacao == 'aprovado'){
+                ?>
+                <td><a class="botaoPadrao" style="width: 100px;" href="controllers/professor.php?id=<?=$mat->id?>&op=0&codigo=<?=$mat->idDisciplina?>">Desaprovar</a></td>
+
+                <?php
+                    }else{
+                ?>
+                <td><a class="botaoPadrao" style="width: 100px;" href="controllers/professor.php?id=<?=$mat->id?>&op=1&codigo=<?=$mat->idDisciplina?>">Aprovar</a></td>
+
+                <?php
+                    }
+                ?>
             </tr>
             <?php
                 }
@@ -82,8 +101,8 @@
         <?php
             }
         ?>
-        <a style="margin-top: 10px;" class="botaoPadrao" href="professor/cadastrodisciplinas">Nova Disciplina</a>
-          
+
+              
         </section>
     </body>
 </html>
