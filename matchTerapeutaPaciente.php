@@ -52,11 +52,10 @@
         <?php
             }else {
         ?>
-        <h5 style="margin-top: 25px;">Você não possui pacientes em tratamento.</h5>
+        <h5 style="margin-top: 25px;">Não há pacientes compatíveis com seus horários atuais.</h5>
         <?php
             }
         ?>
-        <a href="matchTerapeutaPaciente.php" class="botaoPadrao" style="margin-top: 25px;">Novo Paciente</a>
         </section>
     </body>
 </html>
