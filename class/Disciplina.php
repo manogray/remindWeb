@@ -14,7 +14,7 @@
     public function new(){
       $retorno = TRUE;
         try{
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind; charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $statement = $db->prepare("INSERT INTO Disciplinas (codigo, nome, periodo, idProfessor) VALUES (:codigo,:nome,:periodo,:idProfessor)");
             $statement->bindValue(':codigo',$this->codigo);

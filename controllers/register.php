@@ -49,12 +49,13 @@
         $novoPaciente->fezTerapia          = $terapia;
         $novoPaciente->localTerapia        = $_POST['localTerapia'];
         $novoPaciente->demanda             = $_POST['demanda'];
-        $novoPaciente->gravidade           = "desconhecido";//$_POST['gravidade'];
+        $novoPaciente->gravidade           = 'Não Avaliado';//$_POST['gravidade'];
         $novoPaciente->prioridade          = $prioridade;//$_POST['prioridade'];
+        $novoPaciente->estado              = 'Disponível';
 
         $novoPaciente->register();
 
-        header('Location: login.php?t=1');
+        header('Location: /login.php?t=1');
         die();
     } 
 
@@ -91,7 +92,7 @@
         $novoTerapeuta->email               = $_POST['email'];
         $novoTerapeuta->telefone            = $_POST['telefone'];
         $novoTerapeuta->disponibilidade     = json_encode($Dispo);
-        $novoTerapeuta->situacao            = 'naoAprovado';
+        $novoTerapeuta->situacao            = 'Não Aprovado';
         //CRP
         if($_POST['tRegistro'] == 'true'){
             $novoTerapeuta->crp                 = $_POST['registro'];
@@ -104,7 +105,7 @@
         }
         $novoTerapeuta->register();
 
-        header('Location: login.php?t=0');
+        header('Location: /login.php?t=0');
         die();
     }
 ?>
