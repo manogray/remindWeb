@@ -52,7 +52,7 @@
 						<?php
 							if($_GET['t'] == 0){
 						?>
-							<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/terapeuta">
+							<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastroTerapeuta.php">
 								Terapeuta, cadastre-se aqui							
 							</a>
 							<input type="hidden" name="tipo" value="terapeuta">
@@ -60,7 +60,7 @@
 							}
 							if($_GET['t'] == 1){
 						?>
-							<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastro/paciente">
+							<a class="txt1" style="color: #000; text-decoration: underline;" href="/cadastroPaciente.php">
 								Faça sua inscrição aqui							
 							</a>
 							<input type="hidden" name="tipo" value="paciente">

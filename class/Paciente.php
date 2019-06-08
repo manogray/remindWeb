@@ -18,10 +18,11 @@
     public $demanda;
     public $gravidade;
     public $prioridade;
+    public $estado;
 
     public function register(){
       try {
-        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
         $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
         $db->beginTransaction();
         //CRIACAO DE USUARIO
@@ -34,7 +35,7 @@
         $statement->bindValue(':telefone',$this->telefone);
 
         //CRIACAO DE PACIENTE
-        $statement2 = $db->prepare("INSERT INTO Pacientes (cpf,endereco,disponibilidade,sexo,nascimento,vinculoResidencial,fezTerapia,localTerapia,demanda,gravidade,prioridade) VALUES (:cpf,:endereco,:disponibilidade,:sexo,:nascimento,:vinculoResidencial,:fezTerapia,:localTerapia,:demanda,:gravidade,:prioridade)");
+        $statement2 = $db->prepare("INSERT INTO Pacientes (cpf,endereco,disponibilidade,sexo,nascimento,vinculoResidencial,fezTerapia,localTerapia,demanda,gravidade,prioridade,estado) VALUES (:cpf,:endereco,:disponibilidade,:sexo,:nascimento,:vinculoResidencial,:fezTerapia,:localTerapia,:demanda,:gravidade,:prioridade,:estado)");
         $statement2->bindValue(':cpf',$this->cpf);
         $statement2->bindValue(':endereco',$this->endereco);
         $statement2->bindValue(':disponibilidade',$this->disponibilidade);
@@ -46,6 +47,7 @@
         $statement2->bindValue(':demanda',$this->demanda);
         $statement2->bindValue(':gravidade',$this->gravidade);
         $statement2->bindValue(':prioridade',$this->prioridade);
+        $statement2->bindValue(':estado',$this->estado);
         
         $statement->execute();
         $statement2->execute();
@@ -54,13 +56,14 @@
         $db->rollback();
         unset($db);
         echo $exception;
+        die();
       }
       unset($db);
     }
 
     public function verifica($cpf){
       try{
-        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
         $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
         $result = $db->query("SELECT cpf FROM Pacientes WHERE cpf = '$cpf'");
         return $result->rowCount();
@@ -68,6 +71,7 @@
       }catch (PDOException $exception){
         unset($db);
         echo $exception;
+        die();
       }
     }
   }

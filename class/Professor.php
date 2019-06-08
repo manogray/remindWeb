@@ -35,6 +35,7 @@
         $db->rollback();
         unset($db);
         echo $exception;
+        die();
       }
 
       unset($db);
@@ -50,6 +51,7 @@
       }catch (PDOException $exception){
         unset($db);
         echo $exception;
+        die();
       }
     }
   }

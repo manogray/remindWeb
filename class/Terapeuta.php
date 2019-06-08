@@ -11,11 +11,11 @@
     public $disponibilidade;
     public $crp;
     public $registroMatricula;
-    public $status;
+    public $situacao;
 
     public function register(){
       try {
-        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
         $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
         $db->beginTransaction();
         //CRIACAO DE USUARIO
@@ -28,7 +28,7 @@
         $statement->bindValue(':telefone',$this->telefone);
         
         //CRIACAO DE TERAPEUTA
-        $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula,situacao) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula,situacao)");
+        $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula,situacao) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula,:situacao)");
         $statement2->bindValue(':cpf',$this->cpf);
         $statement2->bindValue(':disponibilidade',$this->disponibilidade);
         $statement2->bindValue(':crp',$this->crp);
@@ -43,6 +43,7 @@
         $db->rollback();
         unset($db);
         echo $exception;
+        die();
       }
 
       unset($db);
@@ -58,8 +59,133 @@
       }catch (PDOException $exception){
         unset($db);
         echo $exception;
+        die();
       }
     }
+
+    function listarPacientes(){
+      try{
+          $lista = [];
+          $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+          $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+          $result = $db->query("SELECT * FROM Terapias WHERE idTerapeuta = '$this->cpf'");
+          while($row = $result->fetch(PDO::FETCH_OBJ)){
+              $resultUser = $db->query("SELECT * FROM Usuarios WHERE cpf = '$row->idPaciente'");
+              $rowUser = $resultUser->fetch(PDO::FETCH_OBJ);
+
+              $novoPaciente               = new Paciente();
+              $novoPaciente->cpf          = $rowUser->cpf;
+              $novoPaciente->nome         = $rowUser->nome;
+              $novoPaciente->email        = $rowUser->email;
+              $novoPaciente->telefone     = $rowUser->telefone;
+              
+              $resultPacient = $db->query("SELECT * FROM Pacientes WHERE cpf = '$row->idPaciente'");
+              $rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ);
+
+              $novoPaciente->endereco                 = $rowPacient->endereco; 
+              $novoPaciente->disponibilidade          = json_decode($rowPacient->disponibilidade); 
+              $novoPaciente->sexo                     = $rowPacient->sexo; 
+              $novoPaciente->nascimento               = $rowPacient->nascimento; 
+              $novoPaciente->vinculoResidencial       = $rowPacient->vinculoResidencial; 
+              $novoPaciente->fezTerapia               = $rowPacient->fezTerapia; 
+              $novoPaciente->localTerapia             = $rowPacient->localTerapia; 
+              $novoPaciente->demanda                  = $rowPacient->demanda; 
+              $novoPaciente->gravidade                = $rowPacient->gravidade; 
+              $novoPaciente->prioridade               = $rowPacient->prioridade;
+              
+              $lista[] = $novoPaciente;
+
+          }
+      } catch (PDOException $exception){
+          echo $exception;
+          unset($db);
+          die();
+      }
+      unset($db);
+
+      return $lista;
+    }
+
+    function matchMachine(){
+      try{
+        $lista = [];
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $result = $db->query("SELECT * FROM Terapeutas WHERE cpf = '$this->cpf'");
+        $row = $result->fetch(PDO::FETCH_OBJ);
+        $this->disponibilidade = json_decode($row->disponibilidade);
+        $resultPacient = $db->query("SELECT * FROM Pacientes WHERE estado = 'Disponível' AND gravidade != 'Não Avaliado'");
+        while($rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ)){
+          $dispoPacient = json_decode($rowPacient->disponibilidade);
+          if(is_array($dispoPacient)){
+            continue;
+          }
+          
+          $deuMatch = FALSE;
+
+          if($dispoPacient->Seg->inicio != '' && $this->disponibilidade->Seg->inicio != ''){
+            if( ($dispoPacient->Seg->inicio >= $this->disponibilidade->Seg->inicio) && ($dispoPacient->Seg->inicio < $this->disponibilidade->Seg->fim) ){
+              $deuMatch = TRUE;
+            }
+          }
+
+          if($dispoPacient->Ter->inicio != '' && $this->disponibilidade->Ter->inicio != ''){
+            if(!$deuMatch && (($dispoPacient->Ter->inicio >= $this->disponibilidade->Ter->inicio) && ($dispoPacient->Ter->inicio < $this->disponibilidade->Ter->fim)) ){
+              $deuMatch = TRUE;
+            }
+          }
+
+          if($dispoPacient->Qua->inicio != '' && $this->disponibilidade->Qua->inicio != ''){
+            if(!$deuMatch && (($dispoPacient->Qua->inicio >= $this->disponibilidade->Qua->inicio) && ($dispoPacient->Qua->inicio < $this->disponibilidade->Qua->fim)) ){
+              $deuMatch = TRUE;
+            }
+          }
+
+          if($dispoPacient->Qui->inicio != '' && $this->disponibilidade->Qui->inicio != ''){
+            if(!$deuMatch && (($dispoPacient->Qui->inicio >= $this->disponibilidade->Qui->inicio) && ($dispoPacient->Qui->inicio < $this->disponibilidade->Qui->fim)) ){
+              $deuMatch = TRUE;
+            }
+          }
+
+          if($dispoPacient->Sex->inicio != '' && $this->disponibilidade->Sex->inicio != ''){
+            if(!$deuMatch && (($dispoPacient->Sex->inicio >= $this->disponibilidade->Sex->inicio) && ($dispoPacient->Sex->inicio < $this->disponibilidade->Sex->fim)) ){
+              $deuMatch = TRUE;
+            }
+          }
+
+          if($deuMatch){
+            $resultUser = $db->query("SELECT * FROM Usuarios WHERE cpf = '$rowPacient->cpf'");
+            $rowUser = $resultUser->fetch(PDO::FETCH_OBJ);
+            $pacienteMatch                        = new Paciente();
+            $pacienteMatch->cpf                   = $rowUser->cpf; 
+            $pacienteMatch->nome                  = $rowUser->nome; 
+            $pacienteMatch->email                 = $rowUser->email; 
+            $pacienteMatch->telefone              = $rowUser->telefone; 
+            $pacienteMatch->endereco              = $rowPacient->endereco; 
+            $pacienteMatch->disponibilidade       = $dispoPacient; 
+            $pacienteMatch->sexo                  = $rowPacient->sexo; 
+            $pacienteMatch->nascimento            = $rowPacient->nascimento; 
+            $pacienteMatch->vinculoResidencial    = $rowPacient->vinculoResidencial; 
+            $pacienteMatch->fezTerapia            = $rowPacient->fezTerapia; 
+            $pacienteMatch->localTerapia          = $rowPacient->localTerapia; 
+            $pacienteMatch->demanda               = $rowPacient->demanda; 
+            $pacienteMatch->gravidade             = $rowPacient->gravidade; 
+            $pacienteMatch->prioridade            = $rowPacient->prioridade; 
+            $pacienteMatch->estado                = $rowPacient->estado; 
+            $lista[] = $pacienteMatch;
+          }
+
+        }
+      } catch (PDOException $exception){
+        echo $exception;
+        unset($db);
+        die();
+      }
+
+      unset($db);
+      return $lista;
+    }
+
   }
 
 ?>

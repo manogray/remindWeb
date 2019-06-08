@@ -30,6 +30,7 @@ CREATE TABLE Pacientes (
     localTerapia varchar(100),
     demanda longtext NOT NULL,
     gravidade varchar(100),
+    estado varchar(100) NOT NULL,
     prioridade int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -38,6 +39,7 @@ CREATE TABLE Terapeutas (
     cpf varchar(30) NOT NULL,
     disponibilidade json NOT NULL,
     crp varchar(30) DEFAULT NULL,
+    situacao varchar(100) NOT NULL,
     registroMatricula varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -68,6 +70,7 @@ CREATE TABLE Disciplinas (
 -- CLASSE SESSAO
 CREATE TABLE Sessoes (
     id int(11) AUTO_INCREMENT NOT NULL,
+    idTerapia int(11) NOT NULL,
     descricao longtext NOT NULL,
     horaData datetime NOT NULL,
     PRIMARY KEY (id)
@@ -78,7 +81,6 @@ CREATE TABLE Terapias (
     id int(11) AUTO_INCREMENT NOT NULL,
     idTerapeuta varchar(30) NOT NULL,
     idPaciente varchar(30) NOT NULL,
-    idSessao int(11) DEFAULT NULL,
     sala varchar(50) NOT NULL,
     estado varchar(100) NOT NULL,
     dia varchar(50) NOT NULL, 
@@ -104,6 +106,8 @@ ALTER TABLE Matriculas ADD CONSTRAINT fk_aluno FOREIGN KEY (idTerapeuta) REFEREN
 ALTER TABLE Matriculas ADD CONSTRAINT fk_disciplina FOREIGN KEY (idDisciplina) REFERENCES Disciplinas (codigo);
 ALTER TABLE Terapias ADD CONSTRAINT fk_tera FOREIGN KEY (idTerapeuta) REFERENCES Terapeutas (cpf);
 ALTER TABLE Terapias ADD CONSTRAINT fk_paciente FOREIGN KEY (idPaciente) REFERENCES Pacientes (cpf);
-ALTER TABLE Terapias ADD CONSTRAINT fk_sessao FOREIGN KEY (idSessao) REFERENCES Sessoes (id);
+ALTER TABLE Administradores ADD CONSTRAINT fk_user4 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
+ALTER TABLE PsicologosRT ADD CONSTRAINT fk_user5 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
+ALTER TABLE Sessoes ADD CONSTRAINT fk_terapia FOREIGN KEY (idTerapia) REFERENCES Terapias (id);
 
 

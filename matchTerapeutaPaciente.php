@@ -10,7 +10,7 @@
     $terapeutaLogado = new Terapeuta();
     $terapeutaLogado->cpf = $_SESSION['terapeuta'];
 
-    $Pacientes = $terapeutaLogado->listarPacientes();
+    $Pacientes = $terapeutaLogado->matchMachine();
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@
 
         <section class="main-content">
 
-        <h2 class="titulo-paciente">Meus Pacientes</h2>
+        <h2 class="titulo-paciente">Pacientes Disponíveis</h2>
         <?php
             if(count($Pacientes) > 0){
         ?>
@@ -33,7 +33,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Gravidade</th>
-                <th>Sexo</th>
+                <th>Demanda</th>
                 <th>Email</th>
             </tr>
             <tr>
@@ -42,7 +42,7 @@
                 ?>
                 <td><a class="nome-paciente" href=""><?=$paciente->nome?></a></td>
                 <td><?=$paciente->gravidade?></td>
-                <td><?=$paciente->sexo?></td>
+                <td><?=$paciente->demanda?></td>
                 <td><?=$paciente->email?></td>
                 <?php
                     }
@@ -52,11 +52,10 @@
         <?php
             }else {
         ?>
-        <h5 style="margin-top: 25px;">Você não possui pacientes em tratamento.</h5>
+        <h5 style="margin-top: 25px;">Não há pacientes compatíveis com seus horários atuais.</h5>
         <?php
             }
         ?>
-        <a href="matchTerapeutaPaciente.php" class="botaoPadrao" style="margin-top: 25px;">Novo Paciente</a>
         </section>
     </body>
 </html>
