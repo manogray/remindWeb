@@ -19,36 +19,36 @@
                     <div class="form-group">
                         <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
-                            <input style="width: 400px;" type="text" name="nome" id="nome" required>
+                            <input class="input-color" style="width: 400px;" type="text" name="nome" id="nome" required>
                         </div>
 
                         <div class="form-input">
                             <label for="email" class="required">Email</label>
-                            <input style="width: 400px;" type="email" name="email" id="email" required>
+                            <input class="input-color" style="width: 400px;" type="email" name="email" id="email" required>
                         </div>
                         <div class="form-input">
                             <label for="cpf" class="required">CPF</label>
-                            <input class="resp-cpf" type="text" name="cpf" id="cpf" required>
+                            <input class="input-color" class="resp-cpf" type="text" name="cpf" id="cpf" required>
                         </div>
                         <div class="form-input">
                             <label for="nascimento" class="required">Nascimento</label>
-                            <input type="date" name="nascimento" id="nascimento" required>
+                            <input class="input-color" type="date" name="nascimento" id="nascimento" required>
                         </div>
 
                         <div class="form-input">
                             <label for="sexo" class="required">Sexo</label>
-                            <input class="radio-area" type="radio" name="sexo" required value="masculino">Masculino
-                            <input class="radio-area" type="radio" name="sexo" required value="feminino">Feminino
+                            <input class="radio-area input-color" type="radio" name="sexo" required value="masculino">Masculino
+                            <input class="radio-area input-color" type="radio" name="sexo" required value="feminino">Feminino
                         </div>
 
                         <div class="form-input">
                             <label for="telefone" class="required">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" required>
+                            <input class="input-color" type="text" name="telefone" id="telefone" required>
                         </div>  
 
                         <div class="form-input">
                             <label for="endereco" class="required">Endereço</label>
-                            <input style="width: 400px;" type="text" name="endereco" id="endereco" required>
+                            <input class="input-color" style="width: 400px;" type="text" name="endereco" id="endereco" required>
                         </div>
 
                         <div class="cafe"> 
@@ -61,7 +61,7 @@
 
                             <div class="form-input alinha" id="opcao" style="display:none" >
                                 <label for="demanda" >Local onde fez terapia</label>
-                                <input type="text" name="localTerapia" id="localTerapia">
+                                <input class="input-color" type="text" name="localTerapia" id="localTerapia">
                             </div>
                         </div>
                         <div class="text-area-form">
@@ -77,12 +77,12 @@
                         </div>
                         <div class="form-input">
                             <label for="senha" class="required">Senha</label>
-                            <input type="password" name="senha" id="senha" required>
+                            <input class="input-color" type="password" name="senha" id="senha" required>
                         </div>
 
                         <div class="form-input">
                             <label for="confirmar" class="required">Confirmar Senha</label>
-                            <input type="password" name="confimar" id="confirmar" required>
+                            <input class="input-color" type="password" name="confimar" id="confirmar" required>
                         </div>
 
 

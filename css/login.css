@@ -721,6 +721,10 @@ input#submit {
   background: #0092ca;
 }
 
+.input-color{
+  background: #fff;
+}
+
 
 
 @media only screen and (max-device-width: 1366px) {
@@ -761,6 +765,7 @@ input#submit {
   .time-input{
     width: 190px;
     text-align: center;
+    background: #fff;
   }
 
   .barato-demais{
@@ -775,7 +780,7 @@ input#submit {
   }
 
   input#localTerapia {
-    width: 273px;
+    width: 270px;
   }
 
   .text-area-form{
@@ -806,6 +811,14 @@ input#submit {
 
   input#senha {
     width: 387px;
+  }
+
+  input#telefone {
+    width: 300px;
+  }
+
+  .input-color{
+    background: #fff;
   }
   
 }
@@ -848,6 +861,7 @@ input#submit {
   .time-input{
     width: 190px;
     text-align: center;
+    background: #fff;
   }
 
   .barato-demais{
@@ -893,6 +907,14 @@ input#submit {
 
   input#senha {
     width: 380px;
+  }
+
+  .input-color{
+    background: #fff;
+  }
+  
+  input#nascimento {
+    width: 232px;
   }
   
 }
