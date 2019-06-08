@@ -17,7 +17,7 @@
 
                 $disponibilidade=['disponibilidade'];
                 $disponibilidade=json_encode($disponibilidade);
-                $resultado=$db->query("INSERT INTO Pacientes (cpf, endereco, disponibilidade, sexo, nascimento, vinculoResidencial, fezTerapia, localTerapia, demanda, gravidade, prioridade) VALUES ('123','CIDADE NOVA', '$disponibilidade', 'MASCULINO','1010-10-10', 'MAMÃE',0, '', 'PORQUE MAMÃE MANDOU', '', 0)");
+                $resultado=$db->query("INSERT INTO Pacientes (cpf, endereco, disponibilidade, sexo, nascimento, vinculoResidencial, fezTerapia, localTerapia, demanda, gravidade, prioridade, estado) VALUES ('123','CIDADE NOVA', '$disponibilidade', 'MASCULINO','1010-10-10', 'MAMÃE',0, '', 'PORQUE MAMÃE MANDOU', '', 0, Diponível)");
                 
                 //USER 02 - PACIENTE
                 $senhaEncriptada=password_hash('carcaça',PASSWORD_DEFAULT);
@@ -25,7 +25,7 @@
 
                 $disponibilidade=['disponibilidade'];
                 $disponibilidade=json_encode($disponibilidade);
-                $resultado=$db->query("INSERT INTO Pacientes (cpf, endereco, disponibilidade, sexo, nascimento, vinculoResidencial, fezTerapia, localTerapia, demanda, gravidade, prioridade) VALUES ('234','SÃO JORGE', '$disponibilidade', 'MASCULINO','1111-11-11', 'PAPAI',1, '', 'PORQUE EU QUIS', '', 0)");
+                $resultado=$db->query("INSERT INTO Pacientes (cpf, endereco, disponibilidade, sexo, nascimento, vinculoResidencial, fezTerapia, localTerapia, demanda, gravidade, prioridade, estado) VALUES ('234','SÃO JORGE', '$disponibilidade', 'MASCULINO','1111-11-11', 'PAPAI',1, '', 'PORQUE EU QUIS', '', 0, Disponível)");
 
                 //USER 03 - TERAPEUTA ALUNO
                 $senhaEncriptada=password_hash('soumodesto',PASSWORD_DEFAULT);
@@ -53,7 +53,7 @@
 
         } catch(PDOException $exception){
             $db->rollback();
-            //echo $exception;
+            echo $exception;
             unset($db);
             return FALSE;
         }

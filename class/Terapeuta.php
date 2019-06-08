@@ -115,7 +115,7 @@
         $row = $result->fetch(PDO::FETCH_OBJ);
         $this->disponibilidade = json_decode($row->disponibilidade);
         $resultPacient = $db->query("SELECT * FROM Pacientes WHERE estado = 'Disponível' AND gravidade != 'Não Avaliado'");
-        while($rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ)){
+        while($rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ)){ 
           $dispoPacient = json_decode($rowPacient->disponibilidade);
           if(is_array($dispoPacient)){
             continue;

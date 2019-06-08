@@ -21,9 +21,14 @@
                             <label for="nome" class="required">Nome Completo</label>
                             <input style="width: 400px;" type="text" name="nome" id="nome" required>
                         </div>
+
+                        <div class="form-input">
+                            <label for="email" class="required">Email</label>
+                            <input style="width: 400px;" type="email" name="email" id="email" required>
+                        </div>
                         <div class="form-input">
                             <label for="cpf" class="required">CPF</label>
-                            <input style="width: 200px;" type="text" name="cpf" id="cpf" required>
+                            <input class="resp-cpf" type="text" name="cpf" id="cpf" required>
                         </div>
                         <div class="form-input">
                             <label for="nascimento" class="required">Nascimento</label>
@@ -36,22 +41,15 @@
                             <input class="radio-area" type="radio" name="sexo" required value="feminino">Feminino
                         </div>
 
-                        
+                        <div class="form-input">
+                            <label for="telefone" class="required">Telefone</label>
+                            <input type="text" name="telefone" id="telefone" required>
+                        </div>  
+
                         <div class="form-input">
                             <label for="endereco" class="required">Endereço</label>
                             <input style="width: 400px;" type="text" name="endereco" id="endereco" required>
                         </div>
-
-                        
-
-                        <div class="form-input">
-                            <label for="email" class="required">Email</label>
-                            <input style="width: 400px;" type="email" name="email" id="email" required>
-                        </div>
-                        <div class="form-input">
-                            <label for="telefone" class="required">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" required>
-                        </div>                       
 
                         <div class="cafe"> 
                             <div class="form-input">
@@ -62,65 +60,21 @@
                             </div>
 
                             <div class="form-input alinha" id="opcao" style="display:none" >
-                                <label for="demanda" class="required">Local onde fez terapia</label>
-                                <input type="text" name="localTerapia" id="localTerapia" required>
+                                <label for="demanda" >Local onde fez terapia</label>
+                                <input type="text" name="localTerapia" id="localTerapia">
                             </div>
                         </div>
+                        <div class="text-area-form">
+                            <div class="form-input">
+                                <label for="vinculoResidencial" class="required">Com quem você vive?</label>
+                                <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="40" maxlength="500"></textarea>
+                            </div>
 
-                        <div class="form-input">
-                            <label for="vinculoResidencial" class="required">Com quem você vive?</label>
-                            <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                        <div class="form-input">
-                            <label for="demanda" class="required">Por que gostaria de fazer a psicoterapia?</label>
-                            <textarea class="text-area" name="demanda" required rows="5" cols="35" maxlength="500"></textarea>
-                        </div>
-
-                        <div class="quadroHorarios">
-                            <label class="required" style="width: 100%;">Disponibilidade</label>
-                            <div class="dia">
-                                <span>Segunda-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeSegIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeSegFim">
-                                </div>
-                            </div>
-                            <div class="dia">
-                                <span>Terça-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeTerIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeTerFim">
-                                </div>
-                            </div>
-                            <div class="dia">
-                                <span>Quarta-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeQuaIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeQuaFim">
-                                </div>
-                            </div>
-                            <div class="dia">
-                                <span>Quinta-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeQuiIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeQuiFim">
-                                </div>
-                            </div>
-                            <div class="dia">
-                                <span>Sexta-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeSexIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeSexFim">
-                                </div>
+                            <div class="form-input">    
+                                <label for="demanda" class="required">Por que gostaria de fazer a psicoterapia?</label>
+                                <textarea class="text-area" name="demanda" required rows="5" cols="40" maxlength="500"></textarea>
                             </div>
                         </div>
-
                         <div class="form-input">
                             <label for="senha" class="required">Senha</label>
                             <input type="password" name="senha" id="senha" required>
@@ -131,6 +85,54 @@
                             <input type="password" name="confimar" id="confirmar" required>
                         </div>
 
+
+                        <div class="quadroHorarios">
+                            <div class="barato-demais">
+                                <label class="required" style="width: 100%;">Disponibilidade</label>
+                                <div class="dia">
+                                    <span class="semana">Segunda-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeSegIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeSegFim">
+                                    </div>
+                                </div>
+                                <div class="dia">
+                                    <span class="semana">Terça-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeTerIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeTerFim">
+                                    </div>
+                                </div>
+                                <div class="dia">
+                                    <span class="semana">Quarta-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeQuaIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeQuaFim">
+                                    </div>
+                                </div>
+                                <div class="dia">
+                                    <span class="semana">Quinta-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeQuiIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeQuiFim">
+                                    </div>
+                                </div>
+                                <div class="dia">
+                                    <span class="semana">Sexta-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeSexIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeSexFim">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
                     </div>
                 </div>
                 <div class="form-submit">

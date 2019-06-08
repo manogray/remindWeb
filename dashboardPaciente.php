@@ -55,7 +55,6 @@
                 <td>05-06hrs</td>
             </tr>
         </table>
-          
         </section>
     </body>
 </html>
