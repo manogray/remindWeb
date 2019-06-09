@@ -833,9 +833,26 @@ input#localTerapia {
     position: relative;
     width: 31%;
   }
+
+  .querocomer {
+    margin-top: 40px;
+  }
+
+  .solicitar {
+    background: #fff;
+    font-size: 20px !important;
+    color: #fff !important;
+    font-weight: bold;
+    border: none;
+    border-color: solid #fff !important;
+    width: 150px;
+  }
+
+  .a-solicitar{
+    background: #44ce64;
+    border-radius: 10px;
+  }
   
-
-
 
 @media screen and (max-device-width: 1919px) {
 

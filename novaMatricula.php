@@ -57,7 +57,11 @@
                 <td><a class="nome-paciente" href=""><?=$dic->codigo?></a></td>
                 <td><?=$dic->nome?></td>
                 <td><?=$dic->periodo?></td>
-                <td><a href="controllers/terapeuta.php?codigoMat=<?=$dic->codigo?>&idTera=<?=$idTerapeuta?>">Solicitar Matricula</a></td>
+                <td class="solicitar">
+                    <div class="a-solicitar">
+                        <a href="controllers/terapeuta.php?codigoMat=<?=$dic->codigo?>&idTera=<?=$idTerapeuta?>">Solicitar Matricula</a>
+                    </div>
+                </td>
             </tr>
             <?php
                 }
