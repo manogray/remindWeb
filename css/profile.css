@@ -26,8 +26,7 @@ input[type='file'] {
 }
 
 .cafe{
-    width: 230px;
-    height: 200px;
+    width: 419px;
     float: left;
     position: relative;
 }
@@ -36,7 +35,7 @@ input[type='file'] {
     top: 3%;
 }
 
-@media only screen and (max-device-width: 1366px) {
+@media  screen and (max-device-width: 1366px) {
 
     .cafe {
       width: 420px;
@@ -48,9 +47,9 @@ input[type='file'] {
     
 }
 
-@media only screen and (min-device-width: 1367px) {
+@media screen and (min-device-width: 1920px) {
     .cafe {
-        width: 565px;
+        width: 564px;
         height: 80px;
       
         float: left;
