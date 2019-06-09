@@ -1,10 +1,10 @@
 <?php
-
+ /*
     session_start();
     if(!isset($_SESSION['professor'])){
         header('Location: login.php?t=2');
         die();
-    }
+    } */
 
     function listarDisciplinas(){
         try{
@@ -37,7 +37,7 @@
             <?php include("includes/headerProfessor.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
 
         <h2 class="titulo-paciente">Disciplinas</h2>
 
@@ -66,7 +66,7 @@
         <?php
             }else {
         ?>
-        <h5 style="text-align: center;">Sem disciplinas cadastradas</h5>
+        <h5 style="margin-top:22px;"><br><br> disciplinas cadastradas</h5>
         <?php
             }
         ?>

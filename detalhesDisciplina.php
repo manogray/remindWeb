@@ -1,10 +1,10 @@
 <?php
-
+/*
     session_start();
     if(!isset($_SESSION['professor'])){
         header('Location: /login.php?t=2');
         die();
-    }
+    }*/
 
     function listarMatriculas(){
         try{
@@ -56,7 +56,7 @@
             <?php include("includes/headerProfessor.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
 
         <h2 class="titulo-paciente" style="padding-bottom: 20px;">Matrículas</h2>
 
@@ -97,7 +97,7 @@
         <?php
             }else {
         ?>
-        <h5 style="text-align: center;">Sem solicitações de matrícula</h5>
+        <h5 style="float: left; top: 20px !important; position: relative; width: 31%;"><br><br>Sem solicitações de matrícula</h5>
         <?php
             }
         ?>
