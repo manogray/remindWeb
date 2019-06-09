@@ -39,7 +39,7 @@
             <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
         <h2 class="titulo_cadastro">Nova Matrícula</h2>
         <?php
             if(count($Disciplinas) > 0){

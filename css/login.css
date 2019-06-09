@@ -947,6 +947,15 @@ input#localTerapia {
   input#enderecoP {
     width: 350px !important;
   }
+
+  .dash{
+    margin-top: 32px;
+    margin-bottom: 20px;
+  }
+
+  input#telefonePT {
+    width: 233px;
+  }
   
 }
 
@@ -1059,6 +1068,11 @@ input#localTerapia {
 
   input#telefoneP {
     width: 153px;
+  }
+
+  .dash{
+    margin-top: 32px;
+    margin-bottom: 20px;
   }
   
 }

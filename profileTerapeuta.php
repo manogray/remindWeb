@@ -54,7 +54,7 @@
 
                         <div class="form-input">
                             <label for="telefone" class="required">Telefone</label>
-                            <input type="text" value="<?=$terapeutaInfo->telefone?>"required name="telefone" id="telefone">
+                            <input type="text" value="<?=$terapeutaInfo->telefone?>"required name="telefone" id="telefonePT">
                         </div>                      
 
                         <div class="form-input">

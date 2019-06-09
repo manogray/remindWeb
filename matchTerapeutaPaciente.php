@@ -23,7 +23,7 @@
             <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
 
         <h2 class="titulo-paciente">Pacientes Disponíveis</h2>
         <?php
@@ -52,7 +52,7 @@
         <?php
             }else {
         ?>
-        <h5 style="margin-top: 25px;">Não há pacientes compatíveis com seus horários atuais.</h5>
+        <h5 style="margin-top: 40px;"><br>Não há pacientes compatíveis com seus horários atuais.</h5>
         <?php
             }
         ?>

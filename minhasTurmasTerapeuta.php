@@ -58,11 +58,11 @@
             <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2" id="TTerapeuta">
 
         <h2 class="titulo-paciente">Minhas Turmas</h2>
 
-        <table>
+        <table class="dash">
             <tr>
                 <th>Código</th>
                 <th>Disciplina</th>
@@ -82,6 +82,8 @@
                 }
             ?>
         </table>
+
+        <br><br>
 
         <a href="novaMatricula.php" class="botaoPadrao">Nova Matrícula</a>
           

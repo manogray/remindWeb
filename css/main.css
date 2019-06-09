@@ -103,7 +103,9 @@ label.required:after {
     color: white;
     font-family: inherit;
     padding: 6px 14px;
-    margin-left: 4px;
+    width: 163px;
+    border-radius: 5px;
+    text-align: center;
 }
 
 /*PACIENTES------------------------------------------*/
