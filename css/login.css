@@ -534,7 +534,7 @@ iframe {
   background-position: center;
   width: 100%;
   min-height: 100vh;
-}
+} 
 
 .bkg-inicio{
   width: 100%;
@@ -599,7 +599,7 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ccc;
+    color: #ccc;  
 }
 
 .icone-inicio{
@@ -694,6 +694,7 @@ h2.titulo_cadastro {
   clear: left;
   padding: 5px;
   border-radius: 2px;
+  resize: none;
 }
 
 .radio-area{
@@ -703,6 +704,7 @@ h2.titulo_cadastro {
 .quadroHorarios{
   position: relative;
   float: left;
+  top: 15px;
   width: 100%;
 }
 
@@ -712,4 +714,207 @@ h2.titulo_cadastro {
   background: #ccc;
   padding: 10px;
   margin-right: 5px;
+}
+
+input#submit {
+  color: #fff;
+  background: #0092ca;
+}
+
+.input-color{
+  background: #fff;
+}
+
+
+
+@media only screen and (max-device-width: 1366px) {
+
+  .cafe {
+    width: 420px;
+    height: 80px;
+    float: left;
+    position: relative;
+  }
+
+  .dia {
+    position: relative;
+    width: 100%;
+    float: left;
+    background: #f0ffff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 5px;
+  }
+
+  .semana{
+    font-weight: bold;
+    margin-left: 20px;
+    position: relative;
+    top: 10px;
+  }
+
+  .hora{
+    margin-right: 20px;
+    display: flex;
+    width: 70%;
+  }
+
+  .time-input{
+    width: 190px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .barato-demais{
+    width: 70%;
+    position: relative;
+    /*left: 50%;
+    transform: translate(-50%,50%);*/
+  }
+
+  .resp-cpf{
+    width: 280px;
+  }
+
+  input#localTerapia {
+    width: 270px;
+  }
+
+  .text-area-form{
+    width: 97%;
+    
+    position: relative;
+    height: 200px;
+    float: left;
+
+  }
+
+  .quadroHorarios{
+    position: relative;
+    float: left;
+    top: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  input#submit {
+    color: #fff;
+    cursor: pointer;
+    background: #0092ca;
+  }
+
+  input#confirmar {
+    width: 388px;
+  }
+
+  input#senha {
+    width: 387px;
+  }
+
+  input#telefone {
+    width: 300px;
+  }
+
+  .input-color{
+    background: #fff;
+  }
+  
+}
+
+@media only screen and (min-device-width: 1367px) {
+
+  .cafe {
+    width: 420px;
+    height: 80px;
+    float: left;
+    position: relative;
+  }
+
+  .dia {
+    position: relative;
+    width: 100%;
+    float: left;
+    background: #f0ffff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    display: inline-flex;
+    justify-content: space-between;
+    margin-right: 5px;
+  }
+
+  .semana{
+    font-weight: bold;
+    margin-left: 20px;
+    position: relative;
+    top: 10px;
+  }
+
+  .hora{
+    margin-right: 20px;
+    display: flex;
+    width: 70%;
+  }
+
+  .time-input{
+    width: 190px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .barato-demais{
+    width: 57%;
+    position: relative;
+    /*left: 50%;
+    transform: translate(-50%,50%);*/
+  }
+
+  .resp-cpf{
+    width: 280px;
+  }
+
+  input#localTerapia {
+    width: 415px;
+  }
+
+  .text-area-form{
+    width: 97%;
+    
+    position: relative;
+    height: 200px;
+    float: left;
+
+  }
+
+  .quadroHorarios{
+    position: relative;
+    float: left;
+    top: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  input#submit {
+    color: #fff;
+    cursor: pointer;
+    background: #0092ca;
+  }
+
+  input#confirmar {
+    width: 381px;
+  }
+
+  input#senha {
+    width: 380px;
+  }
+
+  .input-color{
+    background: #fff;
+  }
+  
+  input#nascimento {
+    width: 232px;
+  }
+  
 }
