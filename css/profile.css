@@ -1,12 +1,9 @@
 .box-profile{
-    width: 100%;
-    top: 50%;
-    /* transform: translateY(-50%); */
-    /* left: 350px; */
+    width: 90%;
+    top: 30%;
+    left: 325px;
     position: absolute;
-    padding: 4% 11% 0% 6%;
-    box-sizing: border-box;
-    height: -webkit-fill-available;
+    padding-left: 8%;
   
 }
 

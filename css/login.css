@@ -826,11 +826,18 @@ input#localTerapia {
   input#telefoneT {
     width: 200px;
   }
+
+  h2.titulo-paciente {
+    float: left;
+    top: 20px !important;
+    position: relative;
+    width: 31%;
+  }
   
 
 
 
-@media screen and (max-device-width: 1366px) {
+@media screen and (max-device-width: 1919px) {
 
   .cafe {
     width: 420px;
@@ -926,6 +933,19 @@ input#localTerapia {
 
   input#telefoneT {
     width: 145px;
+  }
+
+  div#tellP {
+    position: relative;
+    left: -107px;
+  }
+
+  input#emailP {
+    width: 343px !important;
+  }
+
+  input#enderecoP {
+    width: 350px !important;
   }
   
 }
@@ -1035,6 +1055,10 @@ input#localTerapia {
     float: right;
     top: -79px;
     left: -751px;
+  }
+
+  input#telefoneP {
+    width: 153px;
   }
   
 }

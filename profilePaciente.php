@@ -28,7 +28,7 @@
         <section class="main-content">
         <div class="box-profile">
             <h2 class="titulo_cadastro">Meu Perfil</h2>
-            <form method="POST" class="register-form" id="register-form" action="controllers/update.php">
+            <form method="POST" class="register-form" id="register-formP" action="controllers/update.php">
                 <div class="form-row">
                     <div class="form-group">
                     <div class="form-input">
@@ -53,73 +53,77 @@
                         
                         <div class="form-input">
                             <label for="endereco" class="required">Endereço</label>
-                            <input style="width: 400px;" type="text" value="<?=$pacienteInfo->endereco?>"name="endereco" id="endereco" required>
+                            <input style="width: 400px;" type="text" value="<?=$pacienteInfo->endereco?>"name="endereco" id="enderecoP" required>
                         </div>
                         
                         <div class="form-input">
                             <label for="email" class="required">Email</label>
-                            <input style="width: 400px;" type="email" value="<?=$pacienteInfo->email?>" name="email" id="email" required>
+                            <input style="width: 400px;" type="email" value="<?=$pacienteInfo->email?>" name="email" id="emailP" required>
                         </div>
-                        <div class="form-input">
+                        <div class="form-input" id="tellP">
                             <label for="telefone" class="required">Telefone</label>
-                            <input type="text" value="<?=$pacienteInfo->telefone?>" name="telefone" id="telefone" required>
+                            <input type="text" value="<?=$pacienteInfo->telefone?>" name="telefone" id="telefoneP" required>
                         </div>
+                        <br>
+                        <br><br>
+                        <div class="text-area-form">
+                            <div class="form-input">
+                                <label for="vinculoResidencial" class="required">Com quem você vive?</label>
+                                <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"><?=$pacienteInfo->vinculoResidencial?></textarea>
+                            </div>
 
-                        <div class="form-input">
-                            <label for="vinculoResidencial" class="required">Com quem você vive?</label>
-                            <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"><?=$pacienteInfo->vinculoResidencial?></textarea>
+                            <div class="form-input">
+                                <label for="demanda" >Por que gostaria de fazer a psicoterapia?</label>
+                                <textarea class="text-area" name="demanda" required rows="5 " cols="35" maxlength="500"><?=$pacienteInfo->demanda?></textarea>
+                            </div>
                         </div>
-
-                        <div class="form-input">
-                            <label for="demanda" >Por que gostaria de fazer a psicoterapia?</label>
-                            <textarea class="text-area" name="demanda" required rows="5 " cols="35" maxlength="500"><?=$pacienteInfo->demanda?></textarea>
-                        </div>
-
                         <div class="form-input" style="display: none;" id="opcao">
                             <label for="demanda" class="required">Local onde fez terapia</label>
                             <textarea class="text-area" name="localTerapia" rows="8" cols="35" maxlength="500"></textarea>
                         </div>
 
                         <div class="quadroHorarios">
-                            <label style="width: 100%;">Disponibilidade</label>
-                            <div class="dia">
-                                <span>Segunda-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeSegIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeSegFim">
+                            <div class="barato-demais">
+                                <label class="required" style="width: 100%;">Disponibilidade</label>
+                                <div class="dia">
+                                    <span class="semana">Segunda-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeSegIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeSegFim">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dia">
-                                <span>Terça-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeTerIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeTerFim">
+                                <div class="dia">
+                                    <span class="semana">Terça-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeTerIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeTerFim">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dia">
-                                <span>Quarta-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeQuaIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeQuaFim">
+                                <div class="dia">
+                                    <span class="semana">Quarta-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeQuaIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeQuaFim">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dia">
-                                <span>Quinta-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeQuiIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeQuiFim">
+                                <div class="dia">
+                                    <span class="semana">Quinta-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeQuiIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeQuiFim">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dia">
-                                <span>Sexta-feira</span>
-                                <div style="display: flex;">
-                                    <input type="time" name="timeSexIni">
-                                    <span style="margin: 0px 6px;">às</span>
-                                    <input type="time" name="timeSexFim">
+                                <div class="dia">
+                                    <span class="semana">Sexta-feira</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeSexIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeSexFim">
+                                    </div>
                                 </div>
                             </div>
                         </div>
