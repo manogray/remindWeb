@@ -232,7 +232,6 @@
         $idTerapeuta = $_SESSION['terapeuta'];
 
         $result = $db->query("SELECT * FROM Usuarios WHERE cpf = '$idTerapeuta'");
-
         $fromUsuarios = $result->fetch(PDO::FETCH_OBJ);
         
         $terapeutaInfo->nome = $fromUsuarios->nome;
@@ -242,13 +241,11 @@
         $terapeutaInfo->telefone = $fromUsuarios->telefone;
 
         $result = $db->query("SELECT * FROM Terapeutas WHERE cpf = '$idTerapeuta'");
-
         $fromTerapeutas = $result->fetch(PDO::FETCH_OBJ); 
 
         $terapeutaInfo->registroMatricula = $fromTerapeutas->registroMatricula;
         $terapeutaInfo->situacao = $fromTerapeutas->situacao;
         $terapeutaInfo->disponibilidade = $fromTerapeutas->disponibilidade;
-        
 
       } catch (PDOException $exception){
           echo $exception;

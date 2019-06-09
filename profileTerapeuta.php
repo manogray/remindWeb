@@ -44,12 +44,12 @@
 
                         <div class="form-input">
                             <label for="registroMatricula" >Registro de Matrícula</label>
-                            <input disabled type="text" value="<?=$terapeutaInfo->registroMatricula?>"name="registroMatricula" id="registroMatricula">
+                            <input readonly type="text" value="<?=$terapeutaInfo->registroMatricula?>"name="registroMatricula" id="registroMatricula">
                         </div>
 
                         <div class="form-input">
                             <label for="crp">CRP</label>
-                            <input disabled type="text" value="<?=$terapeutaInfo->crp?>" name="crp" id="crp">
+                            <input readonly type="text" value="<?=$terapeutaInfo->crp?>" name="crp" id="crp">
                         </div>
 
                         <div class="form-input">

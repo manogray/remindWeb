@@ -4,11 +4,9 @@
     require_once "../class/Paciente.php";
     require_once "../class/Professor.php";
 
-    $excep="HALOU ACABOU DE ENTRAR NO PHP";
-    echo $excep;
 
     //UPDATE PACIENTE
-    /*if(isset($_POST['senha']) && isset($_POST['vinculoResidencial'])){
+    if(isset($_POST['nascimento'])){
         $terapia = 0;
         $prioridade = 0;
         if($_POST['fezTerapia'] == 'true'){
@@ -38,35 +36,31 @@
             ],
         ];
 
-        $novoPaciente = new Paciente();
-        $novoPaciente->cpf                 = $_POST['cpf'];
-        $novoPaciente->nome                = $_POST['nome'];
-        $novoPaciente->setPasswd($_POST['senha']);
-        $novoPaciente->email               = $_POST['email'];
-        $novoPaciente->telefone            = $_POST['telefone'];
-        $novoPaciente->endereco            = $_POST['endereco'];
-        $novoPaciente->disponibilidade     = json_encode($Dispo);
-        $novoPaciente->sexo                = $_POST['sexo'];
-        $novoPaciente->nascimento          = $_POST['nascimento'];
-        $novoPaciente->vinculoResidencial  = $_POST['vinculoResidencial'];
-        $novoPaciente->fezTerapia          = $terapia;
-        $novoPaciente->localTerapia        = $_POST['localTerapia'];
-        $novoPaciente->demanda             = $_POST['demanda'];
-        $novoPaciente->gravidade           = 'Não Avaliado';//$_POST['gravidade'];
-        $novoPaciente->prioridade          = $prioridade;//$_POST['prioridade'];
-        $novoPaciente->estado              = 'Disponível';
+        $atualPaciente = new Paciente();
+        $atualPaciente->cpf                 = $_POST['cpf'];
+        $atualPaciente->nome                = $_POST['nome'];
+        $atualPaciente->email               = $_POST['email'];
+        $atualPaciente->telefone            = $_POST['telefone'];
+        $atualPaciente->endereco            = $_POST['endereco'];
+        //$atualPaciente->disponibilidade     = json_encode($Dispo);
+        $atualPaciente->sexo                = $_POST['sexo'];
+        $atualPaciente->nascimento          = $_POST['nascimento'];
+        $atualPaciente->vinculoResidencial  = $_POST['vinculoResidencial'];
+        $atualPaciente->fezTerapia          = $terapia;
+        $atualPaciente->localTerapia        = $_POST['localTerapia'];
+        $atualPaciente->demanda             = $_POST['demanda'];
+        $atualPaciente->estado              = 'Disponível';
 
-        $novoPaciente->register();
+        $atualPaciente->updatePaciente();
 
-        header('Location: /login.php?t=1');
+        //header('Location: /profilePaciente.php?t=1');
+        echo "<script>alert('Dados atualizador com sucesso!')</script>";
+        echo "<meta http-equiv='refresh' content='0, url=../profilePaciente.php?t=0'>";
         die();
-    }*/ 
+    } 
 
     //UPDATE TERAPEUTA
-    $excep="HALOU ANTES DE VERIFICAR SE ATUALIZA TERAPEUTA COM VALOR DE CPF";
-    echo $excep;
-    echo $_POST['cpf'];
-    if( isset($_POST['cpf']) ){
+    if( isset($_POST['crp']) || isset($_POST['registroMatricula']) ){
         
         /*$Dispo = [
             'Seg' => [
@@ -91,8 +85,6 @@
             ],
         ];*/
         
-        $excep="HALOU DE CRIAR O OBJETO";
-        echo $excep;
 
         $atualTerapeuta = new Terapeuta();
         $atualTerapeuta->cpf                 = $_POST['cpf'];
@@ -100,14 +92,12 @@
         $atualTerapeuta->email               = $_POST['email'];
         $atualTerapeuta->telefone            = $_POST['telefone'];
         //$atualTerapeuta->disponibilidade     = json_encode($Dispo);
-        
-        $excep="HALOU ANTES DE CHAMAR METODO UPDATE";
-        echo $excep;
+    
 
         $atualTerapeuta->updateTerapeuta();
 
-        
-        header('Location: ../profileTerapeuta.php?t=0');
+        echo "<script>alert('Dados atualizador com sucesso!')</script>";
+        echo "<meta http-equiv='refresh' content='0, url=../profileTerapeuta.php?t=0'>";
         die();
     }
 ?>
