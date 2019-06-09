@@ -39,7 +39,7 @@ CREATE TABLE Terapeutas (
     cpf varchar(30) NOT NULL,
     disponibilidade json NOT NULL,
     crp varchar(30) DEFAULT NULL,
-    situacao varchar(100) NOT NULL,
+    situacao varchar(100),
     registroMatricula varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -106,8 +106,6 @@ ALTER TABLE Matriculas ADD CONSTRAINT fk_aluno FOREIGN KEY (idTerapeuta) REFEREN
 ALTER TABLE Matriculas ADD CONSTRAINT fk_disciplina FOREIGN KEY (idDisciplina) REFERENCES Disciplinas (codigo);
 ALTER TABLE Terapias ADD CONSTRAINT fk_tera FOREIGN KEY (idTerapeuta) REFERENCES Terapeutas (cpf);
 ALTER TABLE Terapias ADD CONSTRAINT fk_paciente FOREIGN KEY (idPaciente) REFERENCES Pacientes (cpf);
-ALTER TABLE Administradores ADD CONSTRAINT fk_user4 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
-ALTER TABLE PsicologosRT ADD CONSTRAINT fk_user5 FOREIGN KEY (cpf) REFERENCES Usuarios (cpf);
 ALTER TABLE Sessoes ADD CONSTRAINT fk_terapia FOREIGN KEY (idTerapia) REFERENCES Terapias (id);
 
 
