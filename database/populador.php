@@ -1,9 +1,9 @@
 <?php
     //CRIANDO USUÁRIOS DE TESTE
 
-    $flag=0;
+    $flag=1;
 
-    if($flag==1){
+    if($flag==0){
         try {
             $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
             
