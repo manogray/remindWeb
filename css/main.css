@@ -13,7 +13,7 @@ body {
 }
 
 header{
-    position: relative;
+    position: fixed;
     float: left;
     background: #333;
     color: #ccc;
@@ -26,6 +26,14 @@ header{
     float: left;
     width: 81%;
     padding: 3% 4%;
+}
+
+.main-content2{
+    position: relative;
+    float: left;
+    width: 73%;
+    left: 50%;
+    transform: translate(-33%,19%);
 }
 
 .logoWrite {
@@ -95,7 +103,9 @@ label.required:after {
     color: white;
     font-family: inherit;
     padding: 6px 14px;
-    margin-left: 4px;
+    width: 163px;
+    border-radius: 5px;
+    text-align: center;
 }
 
 /*PACIENTES------------------------------------------*/

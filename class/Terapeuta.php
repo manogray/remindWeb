@@ -49,6 +49,42 @@
       unset($db);
     }
 
+    public function update(){
+      try {
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $db->beginTransaction();
+        //CRIACAO DE USUARIO
+        $statement = $db->prepare("INSERT INTO Usuarios (cpf,nome,senha,email,telefone) VALUES (:cpf,:nome,:senha,:email,:telefone)");
+        $statement->bindValue(':cpf',$this->cpf);
+        $statement->bindValue(':nome',$this->nome);
+        $hashPass = password_hash($this->getPasswd(),PASSWORD_DEFAULT);
+        $statement->bindValue(':senha',$hashPass);
+        $statement->bindValue(':email',$this->email);
+        $statement->bindValue(':telefone',$this->telefone);
+        
+        //CRIACAO DE TERAPEUTA
+        $statement2 = $db->prepare("INSERT INTO Terapeutas (cpf,disponibilidade,crp,registroMatricula,situacao) VALUES (:cpf,:disponibilidade,:crp,:registroMatricula,:situacao)");
+        $statement2->bindValue(':cpf',$this->cpf);
+        $statement2->bindValue(':disponibilidade',$this->disponibilidade);
+        $statement2->bindValue(':crp',$this->crp);
+        $statement2->bindValue(':registroMatricula',$this->registroMatricula);
+        $statement2->bindValue(':situacao',$this->situacao);
+        
+        $statement->execute();
+        $statement2->execute();
+
+        $db->commit();
+      } catch (PDOException $exception){
+        $db->rollback();
+        unset($db);
+        echo $exception;
+        die();
+      }
+
+      unset($db);
+    }
+
     public function verifica($cpf){
       try{
         $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
@@ -148,7 +184,7 @@
         $row = $result->fetch(PDO::FETCH_OBJ);
         $this->disponibilidade = json_decode($row->disponibilidade);
         $resultPacient = $db->query("SELECT * FROM Pacientes WHERE estado = 'Disponível' AND gravidade != 'Não Avaliado'");
-        while($rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ)){
+        while($rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ)){ 
           $dispoPacient = json_decode($rowPacient->disponibilidade);
           if(is_array($dispoPacient)){
             continue;
@@ -219,6 +255,63 @@
       return $lista;
     }
 
-  }
+    public function buscaTerapeuta(){
+      try{
+        $terapeutaInfo = new Terapeuta();
 
+        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+
+        $idTerapeuta = $_SESSION['terapeuta'];
+
+        $result = $db->query("SELECT * FROM Usuarios WHERE cpf = '$idTerapeuta'");
+        $fromUsuarios = $result->fetch(PDO::FETCH_OBJ);
+        
+        $terapeutaInfo->nome = $fromUsuarios->nome;
+        $terapeutaInfo->cpf = $fromUsuarios->cpf;
+        $terapeutaInfo->senha = $fromUsuarios->senha;
+        $terapeutaInfo->email = $fromUsuarios->email;
+        $terapeutaInfo->telefone = $fromUsuarios->telefone;
+
+        $result = $db->query("SELECT * FROM Terapeutas WHERE cpf = '$idTerapeuta'");
+        $fromTerapeutas = $result->fetch(PDO::FETCH_OBJ); 
+
+        $terapeutaInfo->registroMatricula = $fromTerapeutas->registroMatricula;
+        $terapeutaInfo->situacao = $fromTerapeutas->situacao;
+        $terapeutaInfo->disponibilidade = $fromTerapeutas->disponibilidade;
+
+      } catch (PDOException $exception){
+          echo $exception;
+          unset($db);
+      }
+      unset($db);
+
+      return $terapeutaInfo;
+    }
+    
+    public function updateTerapeuta(){
+      try {
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $db->beginTransaction();
+        //MANDANDO DADOS ATUALIZADOS
+        $statement = $db->prepare("UPDATE Usuarios SET nome=:nome, email=:email, telefone=:telefone WHERE  cpf=:cpf");
+        
+        $statement->bindValue(':cpf',$this->cpf);
+        $statement->bindValue(':nome',$this->nome);
+        $statement->bindValue(':email',$this->email);
+        $statement->bindValue(':telefone',$this->telefone);
+        
+        $statement->execute();
+        
+        $db->commit();
+      } catch (PDOException $exception){
+          $db->rollback();
+          unset($db);
+          echo $exception;
+          die();
+      }
+      unset($db);
+    }
+  }
 ?>

@@ -10,7 +10,7 @@
             <div class="filtro">
                 <div class="bkg-inicio">
                     <div class="logo-remind" style="color:white;">
-                        Re<span style="color: #0092ca;" >Mind</span>
+                      <span> </span>  Re<span style="color: #0092ca;" >Mind</span>
                     </div>
                     <div class="box-inicio p-l-50 p-r-50 p-b-30">
                         <a class="categoria" href="login.php?t=0">

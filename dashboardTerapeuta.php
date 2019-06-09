@@ -26,7 +26,7 @@
             <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
 
         <h2 class="titulo-paciente">Meus Pacientes</h2>
         <?php
@@ -55,7 +55,7 @@
         <?php
             }else {
         ?>
-        <h5 style="margin-top: 25px;">Você não possui pacientes em tratamento.</h5>
+        <h5 style="margin-top: 40px; "><br>Você não possui pacientes em tratamento.</h5>
         <?php
             }
         ?>

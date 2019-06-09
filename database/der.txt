@@ -1,0 +1,85 @@
+Table orders {
+  id int [primary key]
+  user_id int [not null, unique]
+  status varchar
+  created_at varchar [note: "When order created"]
+}
+
+Table Usuarios {
+  cpf varchar(30) [primary key, NOT NULL]
+  nome varchar(300) [NOT NULL]
+  senha varchar(300)
+  email varchar(500) [NOT NULL]
+  telefone varchar(30)
+}
+
+Table Administradores {
+  cpf varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+}
+
+
+// You can define relationship inline or separate
+
+//Ref: order_items.product_id > products.id
+
+
+Table Disciplinas {
+  codigo int [primary key, NOT NULL]
+  idProfessor varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+  nome varchar(30) [NOT NULL]
+  periodo varchar(30) [NOT NULL]
+}
+
+Table Matriculas {
+  id int [primary key, NOT NULL]
+  idTerapeuta varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+  idDisciplina varchar(30) [ref: > Disciplinas.codigo, NOT NULL]
+  situacao varchar(100) [NOT NULL]
+}
+
+Table Pacientes {
+  cpf varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+  endereco varchar(500) 
+  disponibilidade json [NOT NULL]
+  sexo varchar(20) [NOT NULL]
+  nascimento date [NOT NULL]
+  vinculoResidencial varchar(100) [NOT NULL]
+  fezTerapia tinyint(1) [NOT NULL]
+  localTerapia varchar(100)
+  demanda longtext [NOT NULL]
+  gravidade varchar(100)
+  prioridade int(11)
+}
+
+Table Professores {
+  cpf varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+}
+
+Table PsicologosRT {
+  cpf varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+}
+
+Table Sessoes {
+  id int [primary key, NOT NULL] 
+  descricao longtext [NOT NULL]
+  horaData datetime [NOT NULL]
+}
+
+Table Terapeutas {
+  cpf varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+  disponibilidade json [NOT NULL]
+  crp varchar(30)
+  registroMatricula varchar(30)
+}
+
+Table Terapias {
+  id int(11) [primary key, NOT NULL]
+  idTerapeuta varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+  idPaciente varchar(30) [ref: > Usuarios.cpf, NOT NULL]
+  idSessao int(11) [ref: > Sessoes.id]
+  sala varchar(50) [NOT NULL]
+  estado varchar(100) [NOT NULL]
+  dia varchar(50) [NOT NULL]
+  hora time [NOT NULL]
+}
+

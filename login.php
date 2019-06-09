@@ -3,7 +3,7 @@
 <head>
 	<?php include("includes/head.php") ?>
 </head>
-<body>
+<body> 
 	
 	<div class="limiter">
 		<div class="container-login100">
@@ -38,7 +38,7 @@
 					</div>-->
 					
 					<div class="container-login100-form-btn p-t-25">
-						<button class="login100-form-btn">
+						<button class="	login100-form-btn">
 							Login
 						</button>
 					</div>
