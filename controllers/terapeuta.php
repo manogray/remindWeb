@@ -32,6 +32,40 @@
         } catch (PDOException $exception){
             echo $exception;
             unset($db);
+            die();
+        }
+    }
+
+    if(isset($_POST['dia']) && isset($_POST['horario'])){
+        try{
+            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $cpfTera = $_POST['cpfTera'];
+            $cpfPacient = $_POST['cpfPacient'];
+            $db->beginTransaction();
+            //ALTERAR ESTADO DO PACIENTE
+            $statement = $db->prepare("UPDATE Pacientes SET estado = 'Em contato' WHERE cpf = :cpfPacient");
+            $statement->bindValue(':cpfPacient',$cpfPacient);
+            //CRIA INSTANCIA DE NOTIFICACAO
+            $statement2 = $db->prepare("INSERT INTO Notificacoes (tipo, dia, horario, emissor, receptor, horaData, estado) VALUES ('Agendar',:dia,:horario,:emissor,:receptor,:horaData,'Pendente')");
+            $statement2->bindValue(':dia',$_POST['dia']);
+            $statement2->bindValue(':horario',$_POST['horario']);
+            $statement2->bindValue(':emissor',$cpfTera);
+            $statement2->bindValue(':receptor',$cpfPacient);
+            $statement2->bindValue(':horaData',date('Y-m-d H:m:s'));
+
+
+            $statement->execute();
+            $statement2->execute();
+            $db->commit();
+
+            header('Location: /dashboardTerapeuta.php');
+            die();
+        } catch (PDOException $exception){
+            echo $exception;
+            $db->rollback();
+            unset($db);
+            die();
         }
     }
 

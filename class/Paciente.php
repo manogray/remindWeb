@@ -74,6 +74,36 @@
         die();
       }
     }
+
+    public function fillPaciente(){
+      try{
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $resultUser = $db->query("SELECT * FROM Usuarios WHERE cpf = '$this->cpf'");
+        $rowUser = $resultUser->fetch(PDO::FETCH_OBJ);
+        $this->nome = $rowUser->nome;
+        $this->email = $rowUser->email;
+        $this->telefone = $rowUser->telefone;
+
+        $resultPacient = $db->query("SELECT * FROM Pacientes WHERE cpf = '$this->cpf'");
+        $rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ);
+        $this->endereco = $rowPacient->endereco;
+        $this->disponibilidade = json_decode($rowPacient->disponibilidade);
+        $this->sexo = $rowPacient->sexo;
+        $this->nascimento = $rowPacient->nascimento;
+        $this->vinculoResidencial = $rowPacient->vinculoResidencial;
+        $this->fezTerapia = $rowPacient->fezTerapia;
+        $this->localTerapia = $rowPacient->localTerapia;
+        $this->demanda = $rowPacient->demanda;
+        $this->gravidade = $rowPacient->gravidade;
+        $this->prioridade = $rowPacient->prioridade;
+        $this->estado = $rowPacient->estado;
+      }catch (PDOException $exception){
+        unset($db);
+        echo $exception;
+        die();
+      }
+    }
   }
 
 ?>

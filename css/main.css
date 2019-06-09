@@ -102,15 +102,16 @@ label.required:after {
 
 
 td{
-    border: 1px solid #dddddd;
+    border: 1px solid #333;
     text-align: left;
     padding: 8px;
     text-align: center;
 }
 
 th{
-    border: 1px solid #dddddd;
+    border: 1px solid #333;
     background-color: #0092ca;
+    color: #f5f5f5;
     text-align: left;
     padding: 8px;
     text-align: center;
@@ -137,4 +138,84 @@ tr:nth-child(even) {
     font-weight: bold;
     color: #212529;
     
+}
+
+.dispo {
+    position: absolute;
+    background: #fff;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    float: left;
+    padding: 10px 25px;
+    box-shadow: 2px 4px 8px #333;
+    display: none;
+    justify-content: space-around;
+}
+
+.close {
+    cursor: pointer;
+}
+
+.tabelaCode {
+    min-width: 875px;
+    border-collapse: collapse;
+}
+
+.tabelaCode thead {
+    font-size: .8rem;
+    text-transform: uppercase;
+    background: #0092ca;
+    color: #f5f5f5;
+}
+
+.tabelaCode tr {
+    border-top: 1px solid #e6e6e6;
+}
+
+.tabelaCode tr:hover {
+    background-color: #f5f8fc;
+}
+
+.tabelaCode tr td {
+    font-size: 100;
+    padding: 1.25rem 2rem;
+}
+
+.tabelaCode thead th {
+    padding: 1.25rem 2rem;
+}
+
+.tabelaCode tr td:first-child, .tabelaCode thead th:first-child {
+    text-align: left;
+}
+
+.tabelaCode tr td:nth-last-child(2), .tabelaCode thead th:nth-last-child(2) {
+    text-align: right;
+}
+
+.tabelaCode tr td + .tabelaCode tr td:not(:nth-last-child(2)){
+    text-align: center;
+}
+
+.tabelaCode_buttonGroup {
+    display: flex;
+}
+
+.tabelaCode_buttonGroup a{
+    color: #0092ca;
+    cursor: pointer;
+    font-size: 17pt;
+    margin-right: 20px;
+}
+
+.dispo div {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    text-align: center;
+}
+
+.dispo div span:not(.nothing) {
+    border: 1px solid #333;
 }

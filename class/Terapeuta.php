@@ -106,6 +106,39 @@
       return $lista;
     }
 
+    function listarNotificacoesPendentes(){
+      try{
+        $lista = [];
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $result = $db->query("SELECT * FROM Notificacoes WHERE emissor = '$this->cpf' AND estado = 'Pendente'");
+        while($row = $result->fetch(PDO::FETCH_OBJ)){
+          $notificacao = new Notificacao();
+          $notificacao->tipo = $row->tipo;
+          $notificacao->dia = $row->dia;
+          $notificacao->horario = $row->horario;
+          $notificacao->horaData = $row->horaData;
+          $notificacao->estado = $row->estado;
+          $notificacao->emissor = $this;  
+          $resultPacient = $db->query("SELECT * FROM Usuarios WHERE cpf = '$row->receptor'");
+          $rowPacient = $resultPacient->fetch(PDO::FETCH_OBJ);
+          $paciente = new Paciente();
+          $paciente->nome = $rowPacient->nome;
+          $paciente->email = $rowPacient->email;
+          $paciente->telefone = $rowPacient->telefone;
+          $notificacao->receptor = $paciente;
+
+          $lista[] = $notificacao;
+        }
+      } catch (PDOException $exception){
+        echo $exception;
+        unset($db);
+        die();
+      }
+      unset($db);
+      return $lista;
+    }
+
     function matchMachine(){
       try{
         $lista = [];
