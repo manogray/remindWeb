@@ -3,6 +3,7 @@
     require_once("class/Paciente.php");
     require_once("class/Terapeuta.php");
     require_once("class/Notificacao.php");
+    require_once("class/Terapia.php");
     if(!isset($_SESSION['terapeuta'])){
         header('Location: /login.php?t=0');
         die();
@@ -11,7 +12,7 @@
     $terapeutaLogado = new Terapeuta();
     $terapeutaLogado->cpf = $_SESSION['terapeuta'];
 
-    $Pacientes = $terapeutaLogado->listarPacientes();
+    $Terapias = $terapeutaLogado->listarPacientes();
 
     $NotificacoesPendentes = $terapeutaLogado->listarNotificacoesPendentes();
 ?>
@@ -28,25 +29,37 @@
 
         <section class="main-content2">
 
-        <h2 class="titulo-paciente">Meus Pacientes</h2>
+        <h2 class="titulo-paciente" style="top: 0;">Meus Pacientes</h2>
         <?php
-            if(count($Pacientes) > 0){
+            if(count($Terapias) > 0){
         ?>
-        <table>
-            <tr>
+        <table class="tabelaCode">
+            <thead>
                 <th>Nome</th>
                 <th>Gravidade</th>
                 <th>Sexo</th>
-                <th>Email</th>
-            </tr>
+                <th>Status</th>
+                <th></th>
+            </thead>
             <?php
-                foreach($Pacientes as $paciente){
+                foreach($Terapias as $terapi){
             ?>
             <tr>
-                <td><a class="nome-paciente" href=""><?=$paciente->nome?></a></td>
-                <td><?=$paciente->gravidade?></td>
-                <td><?=$paciente->sexo?></td>
-                <td><?=$paciente->email?></td>
+                <td><a class="nome-paciente" href=""><?=$terapi->paciente->nome?></a></td>
+                <td><?=$terapi->paciente->gravidade?></td>
+                <td><?=$terapi->paciente->sexo?></td>
+                <td><?=$terapi->estado?></td>
+                <td>
+                    <?php
+                        if($terapi->estado != 'Em tratamento'){
+                    ?>
+                    <div class="tabelaCode_buttonGroup">
+                        <a title="Confirmar Sala" href="confirmarTerapia.php?id=<?=$terapi->id?>"><i class="fas fa-check"></i></a>
+                    </div>
+                    <?php
+                        }
+                    ?>
+                </td>
             </tr>
             <?php
                 }
@@ -63,7 +76,7 @@
         <?php
             if(count($NotificacoesPendentes) > 0){
         ?>
-        <h2 style="margin-top: 45px;" class="titulo-paciente">Pacientes em contato</h2>
+        <h2 style="margin-top: 45px; top: 0;" class="titulo-paciente">Pacientes em contato</h2>
         <table>
             <tr>
                 <th>Nome</th>

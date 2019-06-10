@@ -81,10 +81,10 @@ CREATE TABLE Terapias (
     id int(11) AUTO_INCREMENT NOT NULL,
     idTerapeuta varchar(30) NOT NULL,
     idPaciente varchar(30) NOT NULL,
-    sala varchar(50) NOT NULL,
+    sala varchar(50),
     estado varchar(100) NOT NULL,
-    dia varchar(50) NOT NULL, 
-    hora time NOT NULL,
+    dia varchar(50), 
+    hora time,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

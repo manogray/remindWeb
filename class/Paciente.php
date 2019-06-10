@@ -109,7 +109,7 @@
       try{
         $pacienteInfo = new Paciente();
 
-        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
         $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
 
         $idPaciente = $_SESSION['paciente'];
@@ -119,7 +119,6 @@
         
         $pacienteInfo->nome = $fromUsuarios->nome;
         $pacienteInfo->cpf = $fromUsuarios->cpf;
-        $pacienteInfo->senha = $fromUsuarios->senha;
         $pacienteInfo->email = $fromUsuarios->email;
         $pacienteInfo->telefone = $fromUsuarios->telefone;
 
@@ -132,7 +131,8 @@
         $pacienteInfo->demanda = $fromPacientes->demanda;
         $pacienteInfo->vinculoResidencial = $fromPacientes->vinculoResidencial;
         $pacienteInfo->nascimento = $fromPacientes->nascimento;
-        $pacienteInfo->sexo = $fromPacientes->sexo; 
+        $pacienteInfo->sexo = $fromPacientes->sexo;
+        $pacienteInfo->disponibilidade = json_decode($fromPacientes->disponibilidade);
 
       } catch (PDOException $exception){
           echo $exception;
@@ -175,6 +175,42 @@
         die();
       }
       unset($db);
+    }
+
+    public function listarNotificacoes(){
+      try{
+        $lista = [];
+        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+        $result = $db->query("SELECT * FROM Notificacoes WHERE receptor = '$this->cpf' ORDER BY id DESC");
+        while($row = $result->fetch(PDO::FETCH_OBJ)){
+          $notificacao = new Notificacao();
+          $notificacao->id = $row->id;
+          $notificacao->tipo = $row->tipo;
+          $notificacao->dia = $row->dia;
+          $notificacao->horario = $row->horario;
+          $notificacao->horaData = $row->horaData;
+          $notificacao->estado = $row->estado;
+          $notificacao->mensagem = $row->mensagem;
+          $notificacao->receptor = $this;  
+          $resultTera = $db->query("SELECT * FROM Usuarios WHERE cpf = '$row->emissor'");
+          $rowTera = $resultTera->fetch(PDO::FETCH_OBJ);
+          $paciente = new Terapeuta();
+          $paciente->nome = $rowTera->nome;
+          $paciente->email = $rowTera->email;
+          $paciente->telefone = $rowTera->telefone;
+          $notificacao->emissor = $paciente;
+
+          $lista[] = $notificacao;
+        }
+
+      } catch (PDOException $exception){
+        echo $exception;
+        unset($db);
+        die();
+      }
+
+      return $lista;
     }
   }
 

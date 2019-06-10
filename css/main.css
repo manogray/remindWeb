@@ -33,7 +33,7 @@ header{
     float: left;
     width: 73%;
     left: 50%;
-    transform: translate(-33%,19%);
+    transform: translate(-36%,5%);
 }
 
 .logoWrite {
@@ -189,11 +189,11 @@ tr:nth-child(even) {
 
 .tabelaCode tr td {
     font-size: 100;
-    padding: 1.25rem 2rem;
+    padding: 7px 40px;
 }
 
 .tabelaCode thead th {
-    padding: 1.25rem 2rem;
+    padding: 7px 40px;
 }
 
 .tabelaCode tr td:first-child, .tabelaCode thead th:first-child {
@@ -228,4 +228,30 @@ tr:nth-child(even) {
 
 .dispo div span:not(.nothing) {
     border: 1px solid #333;
+}
+
+.alertPadrao {
+    position: relative;
+    float: left;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 2px 1px 8px #333;
+    width: 40%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(68%,-47%);
+}
+
+.alertPadrao p {
+    font-size: 15pt;
+}
+
+.alertButtons {
+    position: relative;
+    float: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
 }

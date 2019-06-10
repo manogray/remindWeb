@@ -1,10 +1,13 @@
 <?php
     require_once '../class/Terapeuta.php';
+    require_once '../class/Paciente.php';
+    require_once '../class/Terapia.php';
+    require_once '../class/Notificacao.php';
 
     function getSituacao($cpf){
         try{
             $retorno;
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $result = $db->query("SELECT situacao FROM Terapeutas WHERE cpf = '$cpf'");
             while($row = $result->fetch(PDO::FETCH_OBJ)){
@@ -21,7 +24,7 @@
 
     if(isset($_GET['codigoMat'])){
         try{
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $idTerapeuta = $_GET['idTera'];
             $idDisciplina = $_GET['codigoMat'];
@@ -36,9 +39,40 @@
         }
     }
 
+    if(isset($_POST['confirmarTerapia']) && !empty($_POST['sala'])){
+        try{
+            $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $db->beginTransaction();
+            $statement = $db->prepare("UPDATE Terapias SET estado = 'Em tratamento', sala = :sala WHERE id = :idTherapy");
+            $statement->bindValue(":sala",$_POST['sala']);
+            $statement->bindValue(":idTherapy",$_POST['idTherapy']);
+
+            $Terapia = new Terapia();
+            $Terapia->id = $_POST['idTherapy'];
+            $Terapia->fillTerapia();
+            $statement2 = $db->prepare("INSERT INTO Notificacoes (tipo, emissor, receptor, mensagem, estado, horaData) VALUES ('Mensagem','Remind',:idPacient,:mensagem,'Respondido',:horaData)");
+            $statement2->bindValue(":idPacient",$Terapia->paciente->cpf);
+            $statement2->bindValue(":horaData",date('Y-m-d H:m:s'));
+            $mensagem = "Seu tratamento foi confirmado pelo terapeuta. Será ".$Terapia->dia." ás ".$Terapia->hora.".";
+            $statement2->bindValue(":mensagem",$mensagem);
+
+            $statement->execute();
+            $statement2->execute();
+            $db->commit();
+            header('Location: /dashboardTerapeuta.php');
+            die();
+        }catch(PDOException $exception){
+            $db->rollback();
+            echo $exception;
+            unset($db);
+            die();
+        }
+    }
+
     if(isset($_POST['dia']) && isset($_POST['horario'])){
         try{
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $cpfTera = $_POST['cpfTera'];
             $cpfPacient = $_POST['cpfPacient'];

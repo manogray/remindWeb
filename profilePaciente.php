@@ -88,41 +88,41 @@
                                 <div class="dia">
                                     <span class="semana">Segunda-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" name="timeSegIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Seg->inicio?>" name="timeSegIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" name="timeSegFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Seg->fim?>" name="timeSegFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Terça-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" name="timeTerIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Ter->inicio?>" name="timeTerIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" name="timeTerFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Ter->fim?>" name="timeTerFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Quarta-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" name="timeQuaIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qua->inicio?>" name="timeQuaIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" name="timeQuaFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qua->fim?>" name="timeQuaFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Quinta-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" name="timeQuiIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qui->inicio?>" name="timeQuiIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" name="timeQuiFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qui->fim?>" name="timeQuiFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Sexta-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" name="timeSexIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Sex->inicio?>" name="timeSexIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" name="timeSexFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Sex->fim?>" name="timeSexFim">
                                     </div>
                                 </div>
                             </div>
