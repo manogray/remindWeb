@@ -17,7 +17,7 @@
             <?php include("includes/headerProfessor.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
         <h2 class="titulo_cadastro">Cadastro de Disciplinas</h2>
             <form method="POST" class="register-form" id="register-form" action="controllers/disciplina.php">
                 <div class="form-row">

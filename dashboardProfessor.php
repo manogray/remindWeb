@@ -1,10 +1,10 @@
 <?php
- /*
+ 
     session_start();
     if(!isset($_SESSION['professor'])){
         header('Location: login.php?t=2');
         die();
-    } */
+    } 
 
     function listarDisciplinas(){
         try{
@@ -44,7 +44,7 @@
         <?php
             if(count($Disciplinas) > 0){
         ?>
-        <table>
+        <table class="querocomer">
             <tr>
                 <th>Código</th>
                 <th>Disciplina</th>

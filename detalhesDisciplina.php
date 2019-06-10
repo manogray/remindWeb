@@ -1,10 +1,10 @@
 <?php
-/*
+
     session_start();
     if(!isset($_SESSION['professor'])){
         header('Location: /login.php?t=2');
         die();
-    }*/
+    }
 
     function listarMatriculas(){
         try{
