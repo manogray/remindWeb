@@ -33,48 +33,48 @@
                     <div class="form-group">
                     <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
-                            <input style="width: 400px;" type="text" value="<?=$pacienteInfo->nome?>"name="nome" id="nome" required>
+                            <input style="width: 400px;" type="text" value="<?=$pacienteLogado->nome?>"name="nome" id="nome" required>
                         </div>
                         <div class="form-input">
                             <label for="cpf" class="required">CPF</label>
-                            <input style="width: 200px;" type="text" value="<?=$pacienteInfo->cpf?>" name="cpf" id="cpf" disabled>
+                            <input style="width: 200px;" type="text" value="<?=$pacienteLogado->cpf?>" name="cpf" id="cpf" disabled>
                         </div>
                         <div class="form-input">
                             <label for="nascimento" class="required">Nascimento</label>
-                            <input type="date" value="<?=$pacienteInfo->nascimento?>" name="nascimento" id="nascimento" required>
+                            <input type="date" value="<?=$pacienteLogado->nascimento?>" name="nascimento" id="nascimento" required>
                         </div>
 
                         <div class="form-input">
                             <label for="sexo" class="required">Sexo</label>
-                            <input class="radio-area" type="radio" name="sexo" required value="MASCULINO" <?php echo ($pacienteInfo->sexo == "MASCULINO") ? "checked" : null; ?>/>Masculino
-                            <input class="radio-area" type="radio" name="sexo" required value="FEMININO" <?php echo ($pacienteInfo->sexo == "FEMININO") ? "checked" : null; ?>/>Feminino
+                            <input class="radio-area" type="radio" name="sexo" required value="MASCULINO" <?php echo ($pacienteLogado->sexo == "MASCULINO") ? "checked" : null; ?>/>Masculino
+                            <input class="radio-area" type="radio" name="sexo" required value="FEMININO" <?php echo ($pacienteLogado->sexo == "FEMININO") ? "checked" : null; ?>/>Feminino
                         </div>
 
                         
                         <div class="form-input">
                             <label for="endereco" class="required">Endereço</label>
-                            <input style="width: 400px;" type="text" value="<?=$pacienteInfo->endereco?>"name="endereco" id="enderecoP" required>
+                            <input style="width: 400px;" type="text" value="<?=$pacienteLogado->endereco?>"name="endereco" id="enderecoP" required>
                         </div>
                         
                         <div class="form-input">
                             <label for="email" class="required">Email</label>
-                            <input style="width: 400px;" type="email" value="<?=$pacienteInfo->email?>" name="email" id="emailP" required>
+                            <input style="width: 400px;" type="email" value="<?=$pacienteLogado->email?>" name="email" id="emailP" required>
                         </div>
                         <div class="form-input" id="tellP">
                             <label for="telefone" class="required">Telefone</label>
-                            <input type="text" value="<?=$pacienteInfo->telefone?>" name="telefone" id="telefoneP" required>
+                            <input type="text" value="<?=$pacienteLogado->telefone?>" name="telefone" id="telefoneP" required>
                         </div>
                         <br>
                         <br><br>
                         <div class="text-area-form">
                             <div class="form-input">
                                 <label for="vinculoResidencial" class="required">Com quem você vive?</label>
-                                <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"><?=$pacienteInfo->vinculoResidencial?></textarea>
+                                <textarea name="vinculoResidencial" required class="text-area" rows="5" cols="35" maxlength="500"><?=$pacienteLogado->vinculoResidencial?></textarea>
                             </div>
 
                             <div class="form-input">
                                 <label for="demanda" >Por que gostaria de fazer a psicoterapia?</label>
-                                <textarea class="text-area" name="demanda" required rows="5 " cols="35" maxlength="500"><?=$pacienteInfo->demanda?></textarea>
+                                <textarea class="text-area" name="demanda" required rows="5 " cols="35" maxlength="500"><?=$pacienteLogado->demanda?></textarea>
                             </div>
                         </div>
                         <div class="form-input" style="display: none;" id="opcao">
@@ -88,41 +88,41 @@
                                 <div class="dia">
                                     <span class="semana">Segunda-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Seg->inicio?>" name="timeSegIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Seg->inicio?>" name="timeSegIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Seg->fim?>" name="timeSegFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Seg->fim?>" name="timeSegFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Terça-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Ter->inicio?>" name="timeTerIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Ter->inicio?>" name="timeTerIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Ter->fim?>" name="timeTerFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Ter->fim?>" name="timeTerFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Quarta-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qua->inicio?>" name="timeQuaIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Qua->inicio?>" name="timeQuaIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qua->fim?>" name="timeQuaFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Qua->fim?>" name="timeQuaFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Quinta-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qui->inicio?>" name="timeQuiIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Qui->inicio?>" name="timeQuiIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Qui->fim?>" name="timeQuiFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Qui->fim?>" name="timeQuiFim">
                                     </div>
                                 </div>
                                 <div class="dia">
                                     <span class="semana">Sexta-feira</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Sex->inicio?>" name="timeSexIni">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Sex->inicio?>" name="timeSexIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" value="<?=$pacienteInfo->disponibilidade->Sex->fim?>" name="timeSexFim">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Sex->fim?>" name="timeSexFim">
                                     </div>
                                 </div>
                             </div>
