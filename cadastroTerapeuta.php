@@ -8,8 +8,8 @@
     <div class="conteiner-cadastro">
         <div class="box-imagem-left">
             <div class="mensagem">
-                <span>"Nós poderíamos ser muito melhores se não quiséssemos ser tão bons."</span>
-                <p style="color: white;">Sigmund Freud</p>
+                <span>"Não me pergunte quem sou e não me diga para permanacer o mesmo."</span>
+                <p style="color: white;">Michel Foucault</p>
             </div>
         </div>
         <div class="box-form-rigth">
@@ -20,11 +20,11 @@
 
                         <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
-                            <input style="width: 400px;" type="text" required name="nome" id="nome">
+                            <input style="width: 400px;" type="text" minlength="4" required name="nome" id="nome">
                         </div>
 
                         <div class="form-input">
-                            <label for="telefone" class="required">CPF</label>
+                            <label for="telefone" class="required">CPF <span id="cpfAlert"></span></label>
                             <input type="text" required name="cpf" id="cpf">
                         </div>
 
@@ -37,7 +37,7 @@
 
                         <div class="form-input" id="regisT">
                             <label class="required">Registro</label>
-                            <input type="text" name="registro">
+                            <input type="text" name="registro" required>
                         </div>
 
 
@@ -52,12 +52,19 @@
 
                         <div class="form-input">
                             <label for="senha" class="required">Senha</label>
-                            <input type="password" required name="senha" id="senha">
+                            <input type="password" minlength="6" required name="senha" id="senha">
                         </div>
 
                         <div class="form-input">
                             <label for="confirmar" class="required">Confirmar Senha</label>
-                            <input type="password" required name="confimar" id="confirmar">
+                            <input type="password" minlength="6" required name="confirmar" id="confirmar">
+                        </div>
+
+                        <div class="msgPass" id="msgPswd">
+                            <ul style="list-style-type: circle;">
+                                <li style="list-style-type: circle;" id="diffPass">Senhas diferentes</li>
+                                <li style="list-style-type: circle;" id="minPass">Mínimo de 6 caracteres</li>
+                            </ul>
                         </div>
                                                 
                         <div class="quadroHorarios">
@@ -108,13 +115,80 @@
                         
                         
                 </div>
-                <div class="form-submit">
+                <div class="form-submit" id="submitBtn">
                     <input style="margin-bottom: 25px;" type="submit" value="Salvar cadastro" class="submit" id="submit" name="submit">
                 </div>
             </form>
         </div>
     </div>
-            
+
+    <script>
+        $("#cpf").keyup(function(){
+            var numero = $("#cpf").val();
+            if(new CPF().validate(numero)){
+                document.getElementById("cpf").style.borderColor = "#0092ca";
+            }else {
+                document.getElementById("cpf").style.borderColor = "red";
+            }
+        });
+
+        $("#confirmar").keyup(function(){
+            if($("#confirmar").val() == $("#senha").val() && ($("#senha").val() != "" && $("#confirmar").val() != "")){
+                document.getElementById("diffPass").style.display = "none";
+                if($("#senha").val().length >= 6){
+                    document.getElementById("submitBtn").style.display = "block";
+                    
+                    document.getElementById("senha").style.borderColor = "#0092ca";
+                    document.getElementById("confirmar").style.borderColor = "#0092ca";
+
+                    document.getElementById("msgPswd").style.display = "none";
+                }else {
+                    document.getElementById("submitBtn").style.display = "none";
+                    
+                    document.getElementById("senha").style.borderColor = "red";
+                    document.getElementById("confirmar").style.borderColor = "red";
+
+                    document.getElementById("msgPswd").style.display = "flex";
+                }
+            }else {
+                document.getElementById("submitBtn").style.display = "none";
+
+                document.getElementById("senha").style.borderColor = "red";
+                document.getElementById("confirmar").style.borderColor = "red";
+
+                document.getElementById("diffPass").style.display = "list-item";
+                document.getElementById("msgPswd").style.display = "flex";
+            }
+        })
+
+        $("#senha").keyup(function(){
+            if($("#senha").val() == $("#confirmar").val() && ($("#senha").val() != "" && $("#confirmar").val() != "")){
+                if($("#senha").val().length >= 6){
+                    document.getElementById("submitBtn").style.display = "block";
+                    
+                    document.getElementById("senha").style.borderColor = "#0092ca";
+                    document.getElementById("confirmar").style.borderColor = "#0092ca";
+
+                    document.getElementById("msgPswd").style.display = "none";
+                }else {
+                    document.getElementById("submitBtn").style.display = "none";
+                    
+                    document.getElementById("senha").style.borderColor = "red";
+                    document.getElementById("confirmar").style.borderColor = "red";
+
+                    document.getElementById("msgPswd").style.display = "flex";
+                }
+            }else {
+                document.getElementById("submitBtn").style.display = "none";
+
+                document.getElementById("senha").style.borderColor = "red";
+                document.getElementById("confirmar").style.borderColor = "red";
+
+                document.getElementById("diffPass").style.display = "list-item";
+                document.getElementById("msgPswd").style.display = "flex";
+            }
+        })
+    </script>   
 </body>
 
 </html>

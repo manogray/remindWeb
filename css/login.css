@@ -811,10 +811,6 @@ input#localTerapia {
     width: 388px;
   }
 
-  input#senha {
-    width: 387px;
-  }
-
   input#telefone {
     width: 280px;
   }
@@ -934,10 +930,6 @@ input#localTerapia {
 
   input#confirmar {
     width: 388px;
-  }
-
-  input#senha {
-    width: 387px;
   }
 
   input#telefone {

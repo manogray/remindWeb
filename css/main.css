@@ -255,3 +255,30 @@ tr:nth-child(even) {
     justify-content: space-between;
     margin-top: 25px;
 }
+
+#submitBtn {
+    display: none;
+}
+
+.msgPass {
+    position: relative;
+    float: left;
+    width: 90.5%;
+    padding: 10px 10px 10px 30px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background: rgba(255,0,0,0.4);
+    margin-left: 9px;
+    display: none;
+    flex-direction: column;
+}
+
+.msgPass ul {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.msgPass ul li {
+    color: #333;
+}

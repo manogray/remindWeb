@@ -14,7 +14,7 @@
                     </div>
 
 					<div class="wrap-input100 validate-input m-b-16">
-						<input class="input100" type="text" name="cpf" placeholder="CPF">
+						<input class="input100" type="text" name="cpf" placeholder="CPF" id="cpf">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fas fa-user-alt"></i>
@@ -22,7 +22,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16">
-						<input class="input100" type="password" name="senha" placeholder="Senha">
+						<input class="input100" type="password" name="senha" placeholder="Senha" id="senha">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fas fa-lock"></i>
@@ -38,9 +38,7 @@
 					</div>-->
 					
 					<div class="container-login100-form-btn p-t-25">
-						<button class="	login100-form-btn">
-							Login
-						</button>
+						<input type="submit" class="login100-form-btn" value="LOGIN" id="loginBtt">
 					</div>
 
 					<div class="text-center w-full sem-cadastro">
@@ -81,8 +79,18 @@
 			</div>
 		</div>
 	</div>
-	
-
+	<script>
+		 $("#cpf").keyup(function(){
+            var numero = $("#cpf").val();
+            if(new CPF().validate(numero)){
+				document.getElementById("cpf").style.borderColor = "#0092ca";
+				$("#loginBtt").removeAttr("disabled");
+            }else {
+				document.getElementById("cpf").style.borderColor = "red";
+				$("#loginBtt").attr("disabled","disabled");
+            }
+        });
+	</script>
 	<!--<script src="../js/main.js"></script>-->
 
 </body>

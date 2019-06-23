@@ -82,9 +82,15 @@
 
                         <div class="form-input">
                             <label for="confirmar" class="required">Confirmar Senha</label>
-                            <input class="input-color" type="password" name="confimar" id="confirmar" required>
+                            <input class="input-color" type="password" name="confirmar" id="confirmar" required>
                         </div>
 
+                        <div class="msgPass" id="msgPswd">
+                            <ul style="list-style-type: circle;">
+                                <li style="list-style-type: circle;" id="diffPass">Senhas diferentes</li>
+                                <li style="list-style-type: circle;" id="minPass">Mínimo de 6 caracteres</li>
+                            </ul>
+                        </div>
 
                         <div class="quadroHorarios">
                             <div class="barato-demais">
@@ -135,7 +141,7 @@
                        
                     </div>
                 </div>
-                <div class="form-submit">
+                <div class="form-submit" id="submitBtn">
                     <input style="margin-bottom: 25px;" type="submit" value="Salvar cadastro" class="submit" id="submit" name="submit">
                 </div>   
             </form>
@@ -156,6 +162,74 @@
                 $("#opcao").css("display","block");
             }
         });
+    </script>
+
+<script>
+        $("#cpf").keyup(function(){
+            var numero = $("#cpf").val();
+            if(new CPF().validate(numero)){
+                document.getElementById("cpf").style.borderColor = "#0092ca";
+            }else {
+                document.getElementById("cpf").style.borderColor = "red";
+            }
+        });
+
+        $("#confirmar").keyup(function(){
+            if($("#confirmar").val() == $("#senha").val() && ($("#senha").val() != "" && $("#confirmar").val() != "")){
+                document.getElementById("diffPass").style.display = "none";
+                if($("#senha").val().length >= 6){
+                    document.getElementById("submitBtn").style.display = "block";
+                    
+                    document.getElementById("senha").style.borderColor = "#0092ca";
+                    document.getElementById("confirmar").style.borderColor = "#0092ca";
+
+                    document.getElementById("msgPswd").style.display = "none";
+                }else {
+                    document.getElementById("submitBtn").style.display = "none";
+                    
+                    document.getElementById("senha").style.borderColor = "red";
+                    document.getElementById("confirmar").style.borderColor = "red";
+
+                    document.getElementById("msgPswd").style.display = "flex";
+                }
+            }else {
+                document.getElementById("submitBtn").style.display = "none";
+
+                document.getElementById("senha").style.borderColor = "red";
+                document.getElementById("confirmar").style.borderColor = "red";
+
+                document.getElementById("diffPass").style.display = "list-item";
+                document.getElementById("msgPswd").style.display = "flex";
+            }
+        })
+
+        $("#senha").keyup(function(){
+            if($("#senha").val() == $("#confirmar").val() && ($("#senha").val() != "" && $("#confirmar").val() != "")){
+                if($("#senha").val().length >= 6){
+                    document.getElementById("submitBtn").style.display = "block";
+                    
+                    document.getElementById("senha").style.borderColor = "#0092ca";
+                    document.getElementById("confirmar").style.borderColor = "#0092ca";
+
+                    document.getElementById("msgPswd").style.display = "none";
+                }else {
+                    document.getElementById("submitBtn").style.display = "none";
+                    
+                    document.getElementById("senha").style.borderColor = "red";
+                    document.getElementById("confirmar").style.borderColor = "red";
+
+                    document.getElementById("msgPswd").style.display = "flex";
+                }
+            }else {
+                document.getElementById("submitBtn").style.display = "none";
+
+                document.getElementById("senha").style.borderColor = "red";
+                document.getElementById("confirmar").style.borderColor = "red";
+
+                document.getElementById("diffPass").style.display = "list-item";
+                document.getElementById("msgPswd").style.display = "flex";
+            }
+        })
     </script>
 </body>
 
