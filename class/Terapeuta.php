@@ -272,40 +272,6 @@
       unset($db);
       return $lista;
     }
-
-    public function buscaTerapeuta(){
-      try{
-        $terapeutaInfo = new Terapeuta();
-
-        $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
-        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-
-        $idTerapeuta = $_SESSION['terapeuta'];
-
-        $result = $db->query("SELECT * FROM Usuarios WHERE cpf = '$idTerapeuta'");
-        $fromUsuarios = $result->fetch(PDO::FETCH_OBJ);
-        
-        $terapeutaInfo->nome = $fromUsuarios->nome;
-        $terapeutaInfo->cpf = $fromUsuarios->cpf;
-        $terapeutaInfo->senha = $fromUsuarios->senha;
-        $terapeutaInfo->email = $fromUsuarios->email;
-        $terapeutaInfo->telefone = $fromUsuarios->telefone;
-
-        $result = $db->query("SELECT * FROM Terapeutas WHERE cpf = '$idTerapeuta'");
-        $fromTerapeutas = $result->fetch(PDO::FETCH_OBJ); 
-
-        $terapeutaInfo->registroMatricula = $fromTerapeutas->registroMatricula;
-        $terapeutaInfo->situacao = $fromTerapeutas->situacao;
-        $terapeutaInfo->disponibilidade = $fromTerapeutas->disponibilidade;
-
-      } catch (PDOException $exception){
-          echo $exception;
-          unset($db);
-      }
-      unset($db);
-
-      return $terapeutaInfo;
-    }
     
     public function updateTerapeuta(){
       try {

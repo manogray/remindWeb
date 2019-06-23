@@ -27,7 +27,7 @@ PACIENTE DE TESTE
 
 TERAPEUTA(ALUNO) DE TESTE
     NOME:               LUIZ GONZAGA
-    CPF:                345
+    CPF:                06264134511
     TIPO DE REGISTRO:   MATRÍCULA
     REGISTRO:           345345
     EMAIL:              LUIZ@GONZAGA.COM
@@ -36,7 +36,7 @@ TERAPEUTA(ALUNO) DE TESTE
     SENHA:              SOUMODESTO
 
     NOME:               JONATHAS KERBER
-    CPF:                456
+    CPF:                02111873217
     TIPO DE REGISTRO:   CRP
     REGISTRO:           456456
     EMAIL:              JONATHAS@KERBER.COM

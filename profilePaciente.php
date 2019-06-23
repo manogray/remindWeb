@@ -11,7 +11,7 @@
     $pacienteLogado = new Paciente();
     $pacienteLogado->cpf = $_SESSION['paciente'];
 
-    $pacienteInfo = $pacienteLogado->buscaPaciente();
+    $pacienteLogado->fillPaciente();
 
 ?>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-input">
                             <label for="cpf" class="required">CPF</label>
-                            <input style="width: 200px;" type="text" value="<?=$pacienteInfo->cpf?>" name="cpf" id="cpf" required>
+                            <input style="width: 200px;" type="text" value="<?=$pacienteInfo->cpf?>" name="cpf" id="cpf" disabled>
                         </div>
                         <div class="form-input">
                             <label for="nascimento" class="required">Nascimento</label>
@@ -130,6 +130,7 @@
 
                     </div>
                 </div>
+                <input type="hidden" name="updatePacient" value="ok">
                 <div class="form-submit">
                     <input style="margin-bottom: 25px;" type="submit" value="Salvar" class="submit" id="submit" name="submit">
                 </div>  

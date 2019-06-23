@@ -1,12 +1,12 @@
 <?php
-
+    session_start();
     require_once "../class/Terapeuta.php";
     require_once "../class/Paciente.php";
     require_once "../class/Professor.php";
 
 
     //UPDATE PACIENTE
-    if(isset($_POST['nascimento'])){
+    if(isset($_POST['updatePacient'])){
         $terapia = 0;
         $prioridade = 0;
         if($_POST['fezTerapia'] == 'true'){
@@ -37,7 +37,7 @@
         ];
 
         $atualPaciente = new Paciente();
-        $atualPaciente->cpf                 = $_POST['cpf'];
+        $atualPaciente->cpf                 = $_SESSION['paciente'];
         $atualPaciente->nome                = $_POST['nome'];
         $atualPaciente->email               = $_POST['email'];
         $atualPaciente->telefone            = $_POST['telefone'];
@@ -60,7 +60,7 @@
     } 
 
     //UPDATE TERAPEUTA
-    if( isset($_POST['crp']) || isset($_POST['registroMatricula']) ){
+    if( isset($_POST['updateTera']) ){
         
         /*$Dispo = [
             'Seg' => [
@@ -87,7 +87,7 @@
         
 
         $atualTerapeuta = new Terapeuta();
-        $atualTerapeuta->cpf                 = $_POST['cpf'];
+        $atualTerapeuta->cpf                 = $_SESSION['terapeuta'];
         $atualTerapeuta->nome                = $_POST['nome'];
         $atualTerapeuta->email               = $_POST['email'];
         $atualTerapeuta->telefone            = $_POST['telefone'];

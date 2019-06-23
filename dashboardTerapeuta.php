@@ -11,6 +11,7 @@
 
     $terapeutaLogado = new Terapeuta();
     $terapeutaLogado->cpf = $_SESSION['terapeuta'];
+    $terapeutaLogado->fillTerapeuta();
 
     $Terapias = $terapeutaLogado->listarPacientes();
 
@@ -30,6 +31,11 @@
         <section class="main-content2">
 
         <h2 class="titulo-paciente" style="top: 0;">Meus Pacientes</h2>
+
+        <?php
+            if(($terapeutaLogado->registroMatricula != NULL) || ($terapeutaLogado->crp != NULL && $terapeutaLogado->situacao == 'Aprovado')){
+        ?>
+
         <?php
             if(count($Terapias) > 0){
         ?>
@@ -100,8 +106,14 @@
         <?php
             }
         ?>
-
         <a href="matchTerapeutaPaciente.php" class="botaoPadrao" style="margin-top: 25px;">Novo Paciente</a>
+        <?php
+            }else {
+        ?>
+            <h5 style="margin-top: 40px; "><br>Você ainda não foi aprovado pela comissão técnica.</h5>
+        <?php
+            }
+        ?>
         </section>
     </body>
 </html>

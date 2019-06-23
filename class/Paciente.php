@@ -104,44 +104,6 @@
         die();
       }
     }
-
-    public function buscaPaciente(){
-      try{
-        $pacienteInfo = new Paciente();
-
-        $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
-        $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-
-        $idPaciente = $_SESSION['paciente'];
-
-        $result = $db->query("SELECT * FROM Usuarios WHERE cpf = '$idPaciente'");
-        $fromUsuarios = $result->fetch(PDO::FETCH_OBJ);
-        
-        $pacienteInfo->nome = $fromUsuarios->nome;
-        $pacienteInfo->cpf = $fromUsuarios->cpf;
-        $pacienteInfo->email = $fromUsuarios->email;
-        $pacienteInfo->telefone = $fromUsuarios->telefone;
-
-        $result = $db->query("SELECT * FROM Pacientes WHERE cpf = '$idPaciente'");
-        $fromPacientes = $result->fetch(PDO::FETCH_OBJ);
-
-        $pacienteInfo->endereco = $fromPacientes->endereco;
-        $pacienteInfo->fezTerapia = $fromPacientes->fezTerapia;
-        $pacienteInfo->localTerapia = $fromPacientes->localTerapia;
-        $pacienteInfo->demanda = $fromPacientes->demanda;
-        $pacienteInfo->vinculoResidencial = $fromPacientes->vinculoResidencial;
-        $pacienteInfo->nascimento = $fromPacientes->nascimento;
-        $pacienteInfo->sexo = $fromPacientes->sexo;
-        $pacienteInfo->disponibilidade = json_decode($fromPacientes->disponibilidade);
-
-      } catch (PDOException $exception){
-          echo $exception;
-          unset($db);
-      }
-      unset($db);
-
-      return $pacienteInfo;
-    }
     
     public function updatePaciente(){
       try {

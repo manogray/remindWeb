@@ -11,7 +11,7 @@
     $terapeutaLogado = new Terapeuta();
     $terapeutaLogado->cpf = $_SESSION['terapeuta'];
 
-    $terapeutaInfo = $terapeutaLogado->buscaTerapeuta();
+    $terapeutaLogado->fillTerapeuta();
 
 
 ?>
@@ -34,33 +34,44 @@
                     <div class="form-group">
                         <div class="form-input">
                             <label for="nome" class="required">Nome Completo</label>
-                            <input style="width: 400px;" type="text" value="<?=$terapeutaInfo->nome?>" required name="nome" id="nome">
+                            <input style="width: 400px;" type="text" value="<?=$terapeutaLogado->nome?>" required name="nome" id="nome">
                         </div>
 
                         <div class="form-input">
                             <label for="telefone" class="required">CPF</label>
-                            <input type="text" value="<?=$terapeutaInfo->cpf?>" required name="cpf" id="telefone">
+                            <input type="text" value="<?=$terapeutaLogado->cpf?>" disabled name="cpf" id="telefone">
                         </div>
-
+                        <?php
+                            if($terapeutaLogado->registroMatricula != NULL){
+                        ?>
                         <div class="form-input">
                             <label for="registroMatricula" >Registro de Matrícula</label>
-                            <input readonly type="text" value="<?=$terapeutaInfo->registroMatricula?>"name="registroMatricula" id="registroMatricula">
+                            <input readonly type="text" disabled value="<?=$terapeutaLogado->registroMatricula?>"name="registroMatricula" id="registroMatricula">
                         </div>
+                        <?php
+                            }
+
+                            if($terapeutaLogado->crp != NULL){
+                        ?>
 
                         <div class="form-input">
                             <label for="crp">CRP</label>
-                            <input readonly type="text" value="<?=$terapeutaInfo->crp?>" name="crp" id="crp">
+                            <input readonly type="text" disabled value="<?=$terapeutaLogado->crp?>" name="crp" id="crp">
                         </div>
+                        <?php
+                            }
+                        ?>
 
                         <div class="form-input">
                             <label for="telefone" class="required">Telefone</label>
-                            <input type="text" value="<?=$terapeutaInfo->telefone?>"required name="telefone" id="telefonePT">
+                            <input type="text" value="<?=$terapeutaLogado->telefone?>"required name="telefone" id="telefonePT">
                         </div>                      
 
                         <div class="form-input">
                             <label for="email" class="required">Email</label>
-                            <input style="width: 400px;" type="email" value="<?=$terapeutaInfo->email?>"required name="email" id="email">
-                        </div>                         
+                            <input style="width: 400px;" type="email" value="<?=$terapeutaLogado->email?>"required name="email" id="email">
+                        </div>
+                        <input type="hidden" name="updateTera" value="ok">                         
                     </div>
                 </div>
                 <div class="form-submit">
