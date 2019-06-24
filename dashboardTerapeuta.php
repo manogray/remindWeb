@@ -63,6 +63,12 @@
                         <a title="Confirmar Sala" href="confirmarTerapia.php?id=<?=$terapi->id?>"><i class="fas fa-check"></i></a>
                     </div>
                     <?php
+                        }else{
+                    ?>
+                    <div class="tabelaCode_buttonGroup">
+                        <a title="Registrar Sessão" href="registroSessao.php?id=<?=$terapi->id?>"><i class="fas fa-file-medical-alt"></i></a>
+                    </div>
+                    <?php
                         }
                     ?>
                 </td>

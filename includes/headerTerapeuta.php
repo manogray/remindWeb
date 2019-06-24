@@ -1,5 +1,4 @@
 <?php
-
     if(isset($_GET['logout'])){
         if($_GET['logout'] == '0'){
             session_start();

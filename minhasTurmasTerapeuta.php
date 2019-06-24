@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    require_once("class/Terapeuta.php");
     if(!isset($_SESSION['terapeuta'])){
         header('Location: login.php?t=0');
         die();
@@ -9,7 +10,7 @@
     function listarMatriculas(){
         try{
             $lista = [];
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind; charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $idTera = $_SESSION['terapeuta'];
             $result = $db->query("SELECT * FROM Matriculas WHERE idTerapeuta = '$idTera'");
@@ -27,7 +28,7 @@
 
     function pegarDisciplina($idDisciplina){
         try{
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind; charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $result = $db->query("SELECT nome FROM Disciplinas WHERE codigo='$idDisciplina'");
             $nomeDisciplina;
@@ -60,16 +61,19 @@
 
         <section class="main-content2" id="TTerapeuta">
 
-        <h2 class="titulo-paciente">Minhas Turmas</h2>
+        <h2 class="titulo-paciente" style="top: 0;">Minhas Turmas</h2>
+
+        <?php
+            if(count($Matriculas) > 0){
+        ?>
 
         <table class="dash">
             <tr>
                 <th>Código</th>
                 <th>Disciplina</th>
-                <th>Situacao</th>
+                <th>Situação</th>
             </tr>
-            <?php
-                if(count($Matriculas) > 0){ 
+            <?php 
                     foreach ($Matriculas as $mat) {
             ?>
             <tr>
@@ -79,13 +83,17 @@
             </tr>
             <?php
                     }
-                }
             ?>
         </table>
 
-        <br><br>
-
-        <a href="novaMatricula.php" class="botaoPadrao">Nova Matrícula</a>
+        <?php
+            }else{
+        ?>
+            <h5 style="margin-top: 48px;">Você não está matriculado em nenhuma disciplina</h5>
+        <?php
+            }
+        ?>
+        <a href="novaMatricula.php" class="botaoPadrao" style="margin-top: 25px;">Nova Matrícula</a>
           
         </section>
     </body>

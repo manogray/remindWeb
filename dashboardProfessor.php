@@ -9,7 +9,7 @@
     function listarDisciplinas(){
         try{
             $lista = [];
-            $db = new PDO("mysql:host=localhost; dbname=remind", "root", "281295");
+            $db = new PDO("mysql:host=localhost; dbname=remind; charset=utf8", "root", "281295");
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $result = $db->query("SELECT * FROM Disciplinas");
             while($row = $result->fetch(PDO::FETCH_OBJ)){

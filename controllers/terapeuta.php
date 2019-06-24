@@ -28,7 +28,7 @@
             $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             $idTerapeuta = $_GET['idTera'];
             $idDisciplina = $_GET['codigoMat'];
-            $result = $db->query("INSERT INTO Matriculas (idTerapeuta,idDisciplina,situacao) VALUES ('$idTerapeuta','$idDisciplina','naoAprovado')");
+            $result = $db->query("INSERT INTO Matriculas (idTerapeuta,idDisciplina,situacao) VALUES ('$idTerapeuta','$idDisciplina','Não Aprovado')");
             header('Location: /minhasTurmasTerapeuta.php');
             die();
 
@@ -51,7 +51,7 @@
             $Terapia = new Terapia();
             $Terapia->id = $_POST['idTherapy'];
             $Terapia->fillTerapia();
-            $statement2 = $db->prepare("INSERT INTO Notificacoes (tipo, emissor, receptor, mensagem, estado, horaData) VALUES ('Mensagem','Remind',:idPacient,:mensagem,'Respondido',:horaData)");
+            $statement2 = $db->prepare("INSERT INTO Notificacoes (tipo, emissor, receptor, mensagem, estado, horaData) VALUES ('Mensagem','001',:idPacient,:mensagem,'Respondido',:horaData)");
             $statement2->bindValue(":idPacient",$Terapia->paciente->cpf);
             $statement2->bindValue(":horaData",date('Y-m-d H:m:s'));
             $mensagem = "Seu tratamento foi confirmado pelo terapeuta. Será ".$Terapia->dia." ás ".$Terapia->hora.".";

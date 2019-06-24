@@ -108,6 +108,17 @@ label.required:after {
     text-align: center;
 }
 
+.selectPadrao {
+    position: relative;
+    float: left;
+    font-family: inherit;
+    padding: 3px 10px;
+    border: 1px solid #0092ca;
+    outline: none;
+    color: #333;
+    border-radius: 4px;
+}
+
 /*PACIENTES------------------------------------------*/
 
 

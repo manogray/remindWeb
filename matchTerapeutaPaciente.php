@@ -31,12 +31,12 @@
         <?php
             if(count($Pacientes) > 0){
         ?>  
-            <table class="tabelaCode"> <!--CONTENT PACIENTES-->
+            <table class="tabelaCode" style="margin-top: 45px;"> <!--CONTENT PACIENTES-->
                 <thead>
                     <tr>
                         <th>Nome</th>
                         <th>Gravidade</th>
-                        <th>Demanada</th>
+                        <th>Demanda</th>
                         <th>Idade</th>
                         <th></th>
                     </tr>

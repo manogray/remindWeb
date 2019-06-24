@@ -1,6 +1,7 @@
 <?php
 
     session_start();
+    require_once("class/Terapeuta.php");
     if(!isset($_SESSION['terapeuta'])){
         header('Location: /login.php?t=0');
         die();
@@ -28,7 +29,7 @@
             <?php include("includes/headerTerapeuta.php") ?>
         </header>
 
-        <section class="main-content">
+        <section class="main-content2">
         <h2 class="titulo_cadastro">Contatar Paciente</h2>
             <form method="POST" class="register-form" id="register-form" action="controllers/terapeuta.php">
                 <div class="form-row">

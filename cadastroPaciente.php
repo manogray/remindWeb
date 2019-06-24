@@ -37,8 +37,8 @@
 
                         <div class="form-input">
                             <label for="sexo" class="required">Sexo</label>
-                            <input class="radio-area input-color" type="radio" name="sexo" required value="masculino">Masculino
-                            <input class="radio-area input-color" type="radio" name="sexo" required value="feminino">Feminino
+                            <input class="radio-area input-color" type="radio" name="sexo" required value="MASCULINO">Masculino
+                            <input class="radio-area input-color" type="radio" name="sexo" required value="FEMININO">Feminino
                         </div>
 
                         <div class="form-input">
