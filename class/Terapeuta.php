@@ -42,7 +42,9 @@
       } catch (PDOException $exception){
         $db->rollback();
         unset($db);
-        echo $exception;
+        //echo $exception;
+        echo "<script>alert('ERRO: CPF já cadastrado!')</script>";
+        echo "<meta http-equiv='refresh' content='0, url=../cadastroTerapeuta.php?t=1'>";
         die();
       }
 

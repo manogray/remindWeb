@@ -34,7 +34,9 @@
       } catch (PDOException $exception){
         $db->rollback();
         unset($db);
-        echo $exception;
+        //echo $exception;
+        echo "<script>alert('ERRO: CPF já cadastrado!')</script>";
+        echo "<meta http-equiv='refresh' content='0, url=../cadastroProfessor.php?t=2'>";
         die();
       }
 
