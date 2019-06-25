@@ -70,6 +70,25 @@
         }
     }
 
+    if(isset($_POST['registroSessao']) && $_POST['registroSessao'] == 'atl'){
+        try{
+            $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8","root","281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $statement = $db->prepare("INSERT INTO Sessoes (descricao,horaData,idTerapia,categoria) VALUES (:descricao,:horaData,:idTerapia,:categoria)");
+            $statement->bindValue(":descricao",$_POST['descricao']);
+            $statement->bindValue(":horaData",date("Y-m-d H:m:s"));
+            $statement->bindValue(":idTerapia",$_POST['idTherapy']);
+            $statement->bindValue(":categoria",$_POST['categoria']);
+            $statement->execute();
+            header('Location: /verSessoes.php?id='.$_POST['idTherapy']);
+            die();
+        } catch(PDOException $exception){
+            unset($db);
+            echo $exception;
+            die();
+        }
+    }
+
     if(isset($_POST['dia']) && isset($_POST['horario'])){
         try{
             $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");

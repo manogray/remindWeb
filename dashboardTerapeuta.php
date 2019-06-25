@@ -66,7 +66,8 @@
                         }else{
                     ?>
                     <div class="tabelaCode_buttonGroup">
-                        <a title="Registrar Sessão" href="registroSessao.php?id=<?=$terapi->id?>"><i class="fas fa-file-medical-alt"></i></a>
+                        <a title="Registrar Sessão" href="registroSessao.php?id=<?=$terapi->id?>"><i class="fas fa-plus-square"></i></a>
+                        <a title="Ver Sessões" href="verSessoes.php?id=<?=$terapi->id?>"><i class="fas fa-file-medical-alt"></i></a>
                     </div>
                     <?php
                         }

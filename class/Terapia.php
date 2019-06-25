@@ -65,5 +65,31 @@
         return $lista;
     }
 
+    public function listarSessoes(){
+        try{
+            $lista = [];
+            $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+            $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+            $result = $db->query("SELECT * FROM Sessoes WHERE idTerapia = '$this->id'");
+            while($row = $result->fetch(PDO::FETCH_OBJ)){
+                $SessaoAtual = new Sessao();
+                $SessaoAtual->id = $row->id;
+                $SessaoAtual->descricao = $row->descricao;
+                $SessaoAtual->horaData = $row->horaData;
+                $SessaoAtual->terapia = $this;
+                $SessaoAtual->categoria = $row->categoria;
+
+                $lista[] = $SessaoAtual;
+            }
+            unset($db);
+            return $lista;
+
+        }catch(PDOException $exception){
+            unset($db);
+            echo $exception;
+            die();
+        }
+    }
+
   }
 ?>

@@ -26,5 +26,6 @@
     <?php
         }
     ?>
+
     <a style="color:#ccc;" href="/dashboardTerapeuta.php?logout=0"><div class="option"> <i style="margin-right: 5px;" class="fas fa-sign-out-alt"></i> Sair</div></a>
 </div>

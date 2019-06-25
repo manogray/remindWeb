@@ -72,6 +72,7 @@ CREATE TABLE Sessoes (
     id int(11) AUTO_INCREMENT NOT NULL,
     idTerapia int(11) NOT NULL,
     descricao longtext NOT NULL,
+    categoria varchar(100) NOT NULL,
     horaData datetime NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

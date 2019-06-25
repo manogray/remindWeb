@@ -41,20 +41,24 @@
                         </div>
 
                         <div style="position: relative; float: left; width: 100%; margin: 9px;">
+                            <label>Data: <?=date("d/m/Y")?></label>
+                        </div>
+
+                        <div style="position: relative; float: left; width: 100%; margin: 9px;">
                             <label class="required">Categorize a Sessão</label>
                             <select class="selectPadrao" style="clear: both;" name="categoria" required>
                                 <option value=""></option>
-                                <option value="">Sessão Regular</option>
-                                <option value="">Sessão Atípica</option>
-                                <option value="">Paciente avisou que não viria</option>
-                                <option value="">Paciente não apareceu</option>
-                                <option value="">Paciente teve que sair mais cedo</option>
+                                <option value="Regular">Sessão Regular</option>
+                                <option value="Atípica">Sessão Atípica</option>
+                                <option value="Falta notificada">Paciente avisou que não viria</option>
+                                <option value="Falta não notificada">Paciente não apareceu</option>
+                                <option value="Curta">Paciente teve que sair mais cedo</option>
                             </select>
                         </div>
 
                         <div class="form-input">
                             <label class="required">Descreva como foi a sessão</label>
-                            <textarea class="text-area" name="descricao" rows="5" cols="40" maxlength="500"></textarea>
+                            <textarea class="text-area" name="descricao" rows="8" cols="60" maxlength="500"></textarea>
                         </div>
 
 
