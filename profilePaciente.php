@@ -48,6 +48,7 @@
                             <label for="sexo" class="required">Sexo</label>
                             <input class="radio-area" type="radio" name="sexo" required value="MASCULINO" <?php echo ($pacienteLogado->sexo == "MASCULINO") ? "checked" : null; ?>/>Masculino
                             <input class="radio-area" type="radio" name="sexo" required value="FEMININO" <?php echo ($pacienteLogado->sexo == "FEMININO") ? "checked" : null; ?>/>Feminino
+                            <input class="radio-area" type="radio" name="sexo" required value="OUTRO" <?php echo ($pacienteLogado->sexo == "OUTRO") ? "checked" : null; ?>/>Outro
                         </div>
 
                         

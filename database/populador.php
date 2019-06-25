@@ -99,7 +99,7 @@
                 ];
 
                 $disponibilidade=json_encode($disponibilidade);
-                $resultado=$db->query("INSERT INTO Terapeutas (cpf, disponibilidade, crp, registroMatricula, situacao) VALUES ('345','$disponibilidade', NULL, '345345', NULL)");
+                $resultado=$db->query("INSERT INTO Terapeutas (cpf, disponibilidade, crp, registroMatricula, situacao) VALUES ('45214146051','$disponibilidade', NULL, '345345', NULL)");
 
                 //USER 04 - TERAPEUTA VOLUNTARIO
                 $senhaEncriptada=password_hash('cacheman',PASSWORD_DEFAULT);
