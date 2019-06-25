@@ -110,6 +110,14 @@
                                         <input class="time-input" type="time" name="timeSexFim">
                                     </div>
                                 </div>
+                                <div class="dia">
+                                    <span class="semana">Sábado</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeQuiIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeQuiFim">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         

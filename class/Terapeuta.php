@@ -240,6 +240,12 @@
             }
           }
 
+          if($dispoPacient->Sab->inicio != '' && $this->disponibilidade->Sab->inicio != ''){
+            if(!$deuMatch && (($dispoPacient->Sab->inicio >= $this->disponibilidade->Sab->inicio) && ($dispoPacient->Sab->inicio < $this->disponibilidade->Sab->fim)) ){
+              $deuMatch = TRUE;
+            }
+          }
+
           if($deuMatch){
             $resultUser = $db->query("SELECT * FROM Usuarios WHERE cpf = '$rowPacient->cpf'");
             $rowUser = $resultUser->fetch(PDO::FETCH_OBJ);
