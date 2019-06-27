@@ -48,6 +48,7 @@
                             <label for="sexo" class="required">Sexo</label>
                             <input class="radio-area" type="radio" name="sexo" required value="MASCULINO" <?php echo ($pacienteLogado->sexo == "MASCULINO") ? "checked" : null; ?>/>Masculino
                             <input class="radio-area" type="radio" name="sexo" required value="FEMININO" <?php echo ($pacienteLogado->sexo == "FEMININO") ? "checked" : null; ?>/>Feminino
+                            <input class="radio-area" type="radio" name="sexo" required value="OUTRO" <?php echo ($pacienteLogado->sexo == "OUTRO") ? "checked" : null; ?>/>Outro
                         </div>
 
                         
@@ -123,6 +124,14 @@
                                         <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Sex->inicio?>" name="timeSexIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
                                         <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Sex->fim?>" name="timeSexFim">
+                                    </div>
+                                </div>
+                                <div class="dia">
+                                    <span class="semana">Sábado</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Sab->inicio?>" name="timeSabIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" value="<?=$pacienteLogado->disponibilidade->Sab->fim?>" name="timeSabFim">
                                     </div>
                                 </div>
                             </div>

@@ -102,7 +102,16 @@
                         }else{
                             echo "<div><span>Sexta</span><span> - </span></div>";
                         }
+
+                        if($paciente->disponibilidade->Sex->inicio != ''){
                     ?>
+                        <div><span>Sábado</span><span><?=$paciente->disponibilidade->Sab->inicio?> - <?=$paciente->disponibilidade->Sab->fim?></span></div>
+                    <?php
+                        }else{
+                            echo "<div><span>Sábado</span><span> - </span></div>";
+                        }
+                    ?>
+                    
                     <span class="close" onClick="this.parentElement.style.display = 'none'">X</span>
             </div></div>
 

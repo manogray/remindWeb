@@ -39,6 +39,7 @@
                             <label for="sexo" class="required">Sexo</label>
                             <input class="radio-area input-color" type="radio" name="sexo" required value="MASCULINO">Masculino
                             <input class="radio-area input-color" type="radio" name="sexo" required value="FEMININO">Feminino
+                            <input class="radio-area input-color" type="radio" name="sexo" required value="OUTRO">Outro
                         </div>
 
                         <div class="form-input">
@@ -133,6 +134,14 @@
                                         <input class="time-input" type="time" name="timeSexIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
                                         <input class="time-input" type="time" name="timeSexFim">
+                                    </div>
+                                </div>
+                                <div class="dia">
+                                    <span class="semana">Sábado</span>
+                                    <div class="hora" style="display: flex;">
+                                        <input class="time-input" type="time" name="timeSabIni">
+                                        <span class="semana" style="margin: 0px 6px;">às</span>
+                                        <input class="time-input" type="time" name="timeSabFim">
                                     </div>
                                 </div>
                             </div>

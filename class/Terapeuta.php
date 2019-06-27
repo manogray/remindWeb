@@ -42,7 +42,9 @@
       } catch (PDOException $exception){
         $db->rollback();
         unset($db);
-        echo $exception;
+        //echo $exception;
+        echo "<script>alert('ERRO: CPF já cadastrado!')</script>";
+        echo "<meta http-equiv='refresh' content='0, url=../cadastroTerapeuta.php?t=1'>";
         die();
       }
 
@@ -236,6 +238,12 @@
 
           if($dispoPacient->Sex->inicio != '' && $this->disponibilidade->Sex->inicio != ''){
             if(!$deuMatch && (($dispoPacient->Sex->inicio >= $this->disponibilidade->Sex->inicio) && ($dispoPacient->Sex->inicio < $this->disponibilidade->Sex->fim)) ){
+              $deuMatch = TRUE;
+            }
+          }
+
+          if($dispoPacient->Sab->inicio != '' && $this->disponibilidade->Sab->inicio != ''){
+            if(!$deuMatch && (($dispoPacient->Sab->inicio >= $this->disponibilidade->Sab->inicio) && ($dispoPacient->Sab->inicio < $this->disponibilidade->Sab->fim)) ){
               $deuMatch = TRUE;
             }
           }

@@ -33,6 +33,10 @@
                 'inicio' => $_POST['timeSexIni'],
                 'fim' => $_POST['timeSexFim'],
             ],
+            'Sab' => [
+                'inicio' => $_POST['timeSabIni'],
+                'fim' => $_POST['timeSabFim'],
+            ],
         ];
 
         $novoPaciente = new Paciente();
@@ -82,6 +86,10 @@
             'Sex' => [
                 'inicio' => $_POST['timeSexIni'],
                 'fim' => $_POST['timeSexFim'],
+            ],
+            'Sab' => [
+                'inicio' => $_POST['timeSabIni'],
+                'fim' => $_POST['timeSabFim'],
             ],
         ];
 
