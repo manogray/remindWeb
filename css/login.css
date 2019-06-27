@@ -947,6 +947,7 @@ input#localTerapia {
   div#tellP {
     position: relative;
     left: -107px;
+    margin-top: 35px;
   }
 
   input#emailP {
