@@ -139,9 +139,9 @@
                                 <div class="dia">
                                     <span class="semana">Sábado</span>
                                     <div class="hora" style="display: flex;">
-                                        <input class="time-input" type="time" name="timeQuiIni">
+                                        <input class="time-input" type="time" name="timeSabIni">
                                         <span class="semana" style="margin: 0px 6px;">às</span>
-                                        <input class="time-input" type="time" name="timeQuiFim">
+                                        <input class="time-input" type="time" name="timeSabFim">
                                     </div>
                                 </div>
                             </div>
