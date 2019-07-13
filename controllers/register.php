@@ -8,7 +8,7 @@
     if(isset($_POST['senha']) && isset($_POST['vinculoResidencial'])){
         $terapia = 0;
         $prioridade = 0;
-        if($_POST['fezTerapia'] == 't   rue'){
+        if($_POST['fezTerapia'] == 'true'){
             $terapia = 1;
         }
 

@@ -1,0 +1,9 @@
+RewriteEngine On # Turn on the rewriting engine
+RewriteRule ^auth/?$ auth.php [NC,L]
+RewriteRule ^auth/([^-]*)?$ auth.php?key=$1 [NC,L]
+
+RewriteRule ^pacientes/?$ pacientes.php [NC,L]
+RewriteRule ^pacientes/([^-]*)/([^-]*)?$ pacientes.php?cpf=$1&key=$2 [NC,L]
+RewriteRule ^pacientes/([^-]*)?$ pacientes.php?key=$1 [NC,L]
+
+RewriteRule ^notificacoes/([^-]*)/([^-]*)?$ notificacoes.php?cpf=$1&key=$2 [NC,L]

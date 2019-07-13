@@ -48,8 +48,6 @@
         $atualPaciente->vinculoResidencial  = $_POST['vinculoResidencial'];
         $atualPaciente->fezTerapia          = $terapia;
         $atualPaciente->localTerapia        = $_POST['localTerapia'];
-        $atualPaciente->demanda             = $_POST['demanda'];
-        $atualPaciente->estado              = 'Disponível';
 
         $atualPaciente->updatePaciente();
 

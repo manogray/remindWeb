@@ -18,6 +18,14 @@ CREATE TABLE Usuarios (
     PRIMARY KEY (cpf)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- DEVS
+CREATE TABLE Devs (
+    id int(11) AUTO_INCREMENT NOT NULL,
+    nick varchar(300) NOT NULL,
+    apiKey varchar(5000) NOT NULL,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- CLASSE PACIENTE
 CREATE TABLE Pacientes (
     cpf varchar(30) NOT NULL,

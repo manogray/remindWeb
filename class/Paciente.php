@@ -55,8 +55,8 @@
       } catch (PDOException $exception){
         $db->rollback();
         unset($db);
-        //echo $exception;
-        echo "<script>alert('ERRO: CPF já cadastrado!')</script>";
+        echo $exception;
+        echo "<script>alert('ERRO: Não foi possível fazer o cadastro!')</script>";
         echo "<meta http-equiv='refresh' content='0, url=../cadastroPaciente.php?t=0'>";
         die();
       }
@@ -125,7 +125,6 @@
         $statement2->bindValue(':cpf',$this->cpf);
         $statement2->bindValue(':endereco',$this->endereco);
         $statement2->bindValue(':vinculoResidencial',$this->vinculoResidencial);
-        $statement2->bindValue(':demanda',$this->demanda);
         $statement2->bindValue(':sexo',$this->sexo);
         $statement2->bindValue(':nascimento',$this->nascimento);
 
@@ -175,6 +174,27 @@
       }
 
       return $lista;
+    }
+  }
+
+  function listarPacientes(){
+    try{
+      $lista = [];
+      $db = new PDO("mysql:host=localhost; dbname=remind;charset=utf8", "root", "281295");
+      $db->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+      $result = $db->query("SELECT * FROM Pacientes");
+      while($row = $result->fetch(PDO::FETCH_OBJ)){
+        $pacienteAtual = new Paciente();
+        $pacienteAtual->cpf = $row->cpf;
+        $pacienteAtual->fillPaciente();
+        $lista[] = $pacienteAtual;
+      }
+      return $lista;
+      unset($db);
+    }catch(PDOException $exception){
+      echo $exception;
+      unset($db);
+      die();
     }
   }
 

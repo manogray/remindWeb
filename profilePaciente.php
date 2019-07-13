@@ -75,7 +75,7 @@
 
                             <div class="form-input">
                                 <label for="demanda" >Por que gostaria de fazer a psicoterapia?</label>
-                                <textarea class="text-area" name="demanda" required rows="5 " cols="35" maxlength="500"><?=$pacienteLogado->demanda?></textarea>
+                                <textarea class="text-area" name="demanda" disabled rows="5 " cols="35" maxlength="500"><?=$pacienteLogado->demanda?></textarea>
                             </div>
                         </div>
                         <div class="form-input" style="display: none;" id="opcao">
